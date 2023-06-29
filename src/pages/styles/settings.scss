@@ -1,0 +1,77 @@
+@import "../../theme-styles.scss";
+
+.settings {
+  padding-bottom: 3rem;
+  &-title {
+    display: flex;
+    justify-content: center;
+    font-size: 1.5rem;
+    gap: 1.5rem;
+    color: $color-secondary;
+  }
+  &-user {
+    display: none;
+  }
+  &-name {
+    color: $color-secondary;
+  }
+
+  &-common {
+    background-color: $color-dark;
+    padding: 1rem 1.2rem;
+    border-radius: 0.6rem;
+    width: 100%;
+    margin-bottom: 3rem;
+    margin-top: 0.6rem;
+  }
+  &-account {
+    background-color: $color-dark;
+    padding: 1rem 1.2rem;
+    border-radius: 0.6rem;
+    width: 100%;
+    // margin-bottom: 4rem;
+  }
+  &-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+  &-item {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.6rem 0.4rem;
+    color: $color-secondary;
+    cursor: pointer;
+  }
+}
+@media (max-width: 425px) {
+  .settings {
+    &-user {
+      background-color: $color-dark;
+      padding: 1rem 1.2rem;
+      border-radius: 0.6rem;
+      width: 100%;
+      margin: 2rem 0 3rem 0;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      &__initial {
+        padding: 0.6rem 0.8rem;
+        background-color: $color-primary;
+        color: $color-secondary;
+        font-weight: 700;
+        border-radius: 100%;
+        font-size: 1.6rem;
+        font-family: inherit;
+      }
+      &__email {
+        font-family: inherit;
+        color: $color-secondary;
+      }
+    }
+  }
+}

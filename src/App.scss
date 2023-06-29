@@ -1,0 +1,66 @@
+@import "./theme-styles.scss";
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  // to improve text rendering
+  -webkit-font-smoothing: antialiased;
+  box-sizing: inherit;
+  background-color: $color-tertiary;
+  min-height: 100vh;
+  position: relative;
+}
+
+html {
+  font-family: "Quicksand", sans-serif;
+  font-size: 62.5%; /*1rem = 10px*/
+  line-height: 1.5;
+}
+// html,
+// body {
+//   min-height: calc(100vh - 100px);
+// }
+.white-content {
+  background: $color-tertiary;
+}
+.link,
+Link {
+  text-decoration: none;
+}
+.main {
+  padding: 1rem 2rem;
+}
+
+.discover {
+  &-btn {
+    outline: none;
+    background-color: $color-dark;
+    border: none;
+    border-radius: 1.3rem;
+    padding: 1rem 0.6rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+}
+.support-reachout {
+  display: flex;
+  flex-direction: column;
+  color: $color-extra;
+}
+.support-reachout span {
+  font-size: 1rem;
+}
+@media (max-width: 425px) {
+  .main {
+    min-height: 100%;
+    padding: 1rem 2rem;
+  }
+}

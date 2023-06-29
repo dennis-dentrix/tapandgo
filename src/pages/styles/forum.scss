@@ -1,0 +1,73 @@
+@import "../../theme-styles.scss";
+
+.main {
+  &-forum {
+    margin: 0 auto;
+    &__top {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    &__heading {
+      font-size: 1.3rem;
+    }
+  }
+}
+.message {
+  border: 1px solid $color-dark;
+  box-shadow: 1px 1px 0px $color-secondary;
+  margin-right: auto;
+  margin-left: auto;
+  width: 50vw;
+
+  &-card {
+    padding: 1rem;
+    border-radius: 0.6rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1rem;
+    &__user {
+      font-weight: 600;
+    }
+  }
+  &-user {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  &-icon {
+    padding: 0.6rem;
+    border-radius: 50%;
+    background-color: $color-dark;
+    font-weight: 600;
+
+    &__icon {
+      color: $color-primary;
+    }
+  }
+
+  &-body {
+    &__text {
+      margin: 1rem;
+      font-family: inherit;
+      color: $color-secondary;
+      font-weight: 500;
+    }
+    &__img {
+      padding: 1rem;
+      background-color: $color-primary;
+      width: 16rem;
+      border-radius: 0.6rem;
+      height: 10rem;
+      margin: 0 auto;
+    }
+  }
+}
+
+@media (max-width: 425px) {
+  .message {
+    width: 100%;
+    margin-bottom: 4rem;
+  }
+}

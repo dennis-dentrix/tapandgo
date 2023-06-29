@@ -1,0 +1,54 @@
+@import "../../theme-styles.scss";
+
+.card {
+  &-detail {
+    border: 1px solid $color-secondary;
+    padding: 0.7rem;
+    margin-bottom: 1rem;
+  }
+  &-form {
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.6rem;
+    width: 100%;
+    &__input {
+      border: none;
+      padding: 0.6rem 0.7rem;
+      font-size: 1.4rem;
+      font-family: inherit;
+      font-weight: 600;
+      background: transparent;
+      width: 100%;
+    }
+    &__input:focus {
+      outline: none;
+    }
+
+    &__details {
+      display: flex;
+      align-items: center;
+      border-top: 1px solid $color-secondary;
+    }
+    &__cvc {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &-number {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid $color-secondary;
+
+    &__icon {
+      color: $color-secondary;
+    }
+  }
+  &-cvc {
+    border-left: 1px solid $color-secondary;
+    &__icon {
+      color: $color-secondary;
+    }
+  }
+}

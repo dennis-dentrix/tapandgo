@@ -1,0 +1,46 @@
+@import "../../theme-styles.scss";
+
+.receipt {
+  &-top {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 1rem;
+  }
+  &-heading {
+    font-size: 1rem;
+  }
+
+  &-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  &-logo {
+    padding: 0.6rem;
+    background-color: $color-primary;
+    border-radius: 50%;
+    color: $color-tertiary;
+    font-weight: 500;
+  }
+  &-detail {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+
+    &__about {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  &-paid,
+  &-number {
+    font-weight: 600;
+  }
+  &-status,
+  &-date {
+    font-weight: 400;
+  }
+}

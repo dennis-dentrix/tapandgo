@@ -1,0 +1,256 @@
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+useNavigate;
+import {
+  NightlightOutlined,
+  ToggleOffOutlined,
+  ToggleOnOutlined,
+  RateReviewOutlined,
+  RefreshOutlined,
+  InfoOutlined,
+  CreateOutlined,
+  LogoutOutlined,
+  DeleteOutlineOutlined,
+} from "@mui/icons-material";
+import { Modal, Box, Button, Typography, DialogActions } from "@mui/material";
+import "./styles/settings.scss";
+
+export const Settings = () => {
+  const [open, setOpen] = useState(false);
+  const [about, setAbout] = useState(false);
+  const [del, setDelete] = useState(false);
+
+  const navigate = useNavigate();
+  const handleEdit = (e) => {
+    e.preventDefault();
+    navigate("/account");
+  };
+
+  const modalStyle = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: 250,
+    bgcolor: "background.paper",
+    border: "2px solid #696047",
+    borderRadius: 3,
+    boxShadow: 24,
+    p: 2,
+  };
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  const handleOpenAbout = () => setAbout(true);
+  const handleCloseAbout = () => setAbout(false);
+  const handleOpenDelete = () => setDelete(true);
+  const handleCloseDelete = () => setDelete(false);
+
+  return (
+    <main className="main">
+      <section className="settings">
+        <p className="settings-title">Settings</p>
+
+        <div className="settings-settings">
+          <div className="settings-user">
+            <div className="settings-user__initial">D</div>
+            <div className="settings-user__person">
+              <p className="name">Denis Kyusya</p>
+              <p className="settings-user__email">denkyusya@gmail.com</p>
+            </div>
+          </div>
+
+          <h3 className="settings-name">Common</h3>
+          <div className="settings-common">
+            <ul className="settings-list">
+              <li className="settings-item">
+                <RateReviewOutlined
+                  className="actions-icon"
+                  sx={{ fontSize: 18 }}
+                />
+                <span className="settings-item__desc">
+                  <h3 className="settings-item__name">Rate & Review us</h3>
+                  <p className="settings-item__about">Give us your feedback</p>
+                </span>
+              </li>
+
+              <li className="settings-item">
+                <RefreshOutlined
+                  className="actions-icon"
+                  sx={{ fontSize: 18 }}
+                />
+                <span className="settings-item__desc">
+                  <h3 className="settings-item__name">Check for Updates</h3>
+                  <p className="settings-item__about">
+                    Update to our latest release
+                  </p>
+                </span>
+              </li>
+              <div>
+                <li className="settings-item" onClick={handleOpenAbout}>
+                  <InfoOutlined
+                    className="actions-icon"
+                    sx={{ fontSize: 18 }}
+                  />
+                  <span className="settings-item__desc">
+                    <h3 className="settings-item__name">About</h3>
+                    <p className="settings-item__about">V 1.0</p>
+                  </span>
+                </li>
+
+                <Modal
+                  open={about}
+                  onClose={handleCloseAbout}
+                  aria-labelledby="modal-modal-title"
+                  aria-describedby="modal-modal-description"
+                >
+                  <Box sx={modalStyle}>
+                    <Typography
+                      id="modal-modal-title"
+                      variant="h5"
+                      component="h2"
+                      sx={{ fontWeight: "bold" }}
+                    >
+                      Tap&Go-KE
+                    </Typography>
+                    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                      The latest version from our developers
+                    </Typography>
+                    <DialogActions>
+                      <Button
+                        onClick={handleCloseAbout}
+                        style={{ color: "#e3762b" }}
+                      >
+                        Cancel
+                      </Button>
+                      <Button
+                        onClick={handleCloseAbout}
+                        style={{ color: "#e3762b" }}
+                      >
+                        Ok
+                      </Button>
+                    </DialogActions>
+                  </Box>
+                </Modal>
+              </div>
+            </ul>
+          </div>
+
+          <h3 className="settings-name">Account</h3>
+          <div className="settings-account">
+            <ul className="settings-list">
+              <div onClick={handleEdit} className="settings-item link">
+                <CreateOutlined
+                  className="actions-icon"
+                  sx={{ fontSize: 18 }}
+                />
+                <span className="settings-item__desc">
+                  <h3 className="settings-item__name">Edit account</h3>
+                  <p className="settings-item__about">
+                    Edit your account details
+                  </p>
+                </span>
+              </div>
+
+              <div>
+                <div className="settings-item" onClick={handleOpen}>
+                  <LogoutOutlined
+                    className="actions-icon"
+                    sx={{ fontSize: 18 }}
+                  />
+                  <span className="settings-item__desc">
+                    <h3 className="settings-item__name">Log Out</h3>
+                    <p className="settings-item__about">
+                      Log out from your account
+                    </p>
+                  </span>
+                </div>
+                <Modal
+                  open={open}
+                  onClose={handleClose}
+                  aria-labelledby="modal-modal-title"
+                  aria-describedby="modal-modal-description"
+                >
+                  <Box sx={modalStyle}>
+                    <Typography
+                      id="modal-modal-title"
+                      variant="h5"
+                      component="h2"
+                      sx={{ fontWeight: "bold" }}
+                    >
+                      Log out
+                    </Typography>
+                    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                      Your account will be temporarily disabled. You can log
+                      back in
+                    </Typography>
+                    <DialogActions>
+                      <Button
+                        onClick={handleClose}
+                        style={{ color: "#e3762b" }}
+                      >
+                        Cancel
+                      </Button>
+                      <Button
+                        onClick={handleClose}
+                        style={{ color: "#e3762b" }}
+                      >
+                        Ok
+                      </Button>
+                    </DialogActions>
+                  </Box>
+                </Modal>
+              </div>
+
+              <div className="settings-item" onClick={handleOpenDelete}>
+                <DeleteOutlineOutlined
+                  className="actions-icon"
+                  sx={{ fontSize: 18 }}
+                />
+                <span className="settings-item__desc">
+                  <h3 className="settings-item__name">Delete account</h3>
+                  <p className="settings-item__about">
+                    Your account will be permenetly deleted
+                  </p>
+                </span>
+                <Modal
+                  open={del}
+                  onClose={handleCloseDelete}
+                  aria-labelledby="modal-modal-title"
+                  aria-describedby="modal-modal-description"
+                >
+                  <Box sx={modalStyle}>
+                    <Typography
+                      id="modal-modal-title"
+                      variant="h5"
+                      component="h2"
+                      sx={{ fontWeight: "bold" }}
+                    >
+                      Delete account
+                    </Typography>
+                    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                      Are you sure you want to permenently delete your account?
+                    </Typography>
+                    <DialogActions>
+                      <Button
+                        onClick={handleCloseDelete}
+                        style={{ color: "#e3762b" }}
+                      >
+                        Cancel
+                      </Button>
+                      <Button
+                        onClick={handleCloseDelete}
+                        style={{ color: "#e3762b" }}
+                      >
+                        Ok
+                      </Button>
+                    </DialogActions>
+                  </Box>
+                </Modal>
+              </div>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+};

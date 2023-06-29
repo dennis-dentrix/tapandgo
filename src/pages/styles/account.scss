@@ -1,0 +1,66 @@
+@import "../../theme-styles.scss";
+
+.account {
+  margin-right: auto;
+  margin-left: auto;
+  width: 50vw;
+  &-body {
+    display: flex;
+    flex-direction: column;
+    // width: 100%;
+    gap: 1rem;
+  }
+  &-edit {
+    float: right;
+    color: $color-primary;
+    cursor: pointer;
+  }
+  &-detail {
+    display: flex;
+    flex-direction: column;
+    padding: 0.8rem;
+    background-color: $color-dark;
+    border-radius: 0.6rem;
+
+    &__name {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    &__info {
+      font-size: 1rem;
+      color: $color-extra;
+      padding: 0rem 0.7rem;
+    }
+    &__title {
+      color: $color-extra;
+      font-size: 1rem;
+    }
+  }
+  &-name {
+    font-size: 1.2rem;
+    color: $color-secondary;
+
+    &__user {
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    &__icon {
+      color: $color-primary;
+      width: 1rem;
+    }
+  }
+}
+.division {
+  color: $color-dark;
+}
+
+@media (max-width: 425px) {
+  .account {
+    width: 100%;
+    // margin: 0;
+  }
+}
