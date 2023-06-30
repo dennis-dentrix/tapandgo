@@ -1,17 +1,6 @@
 import React, { Fragment, useState, useCallback } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {
-  Receipt,
-  QrCode,
-  Send,
-  TakeoutDining,
-  Payments,
-  Loyalty,
-  MailOutline,
-  PhoneCallback,
-  WhatsApp,
-} from "@mui/icons-material";
-import {
   Box,
   Typography,
   Modal,
@@ -22,7 +11,23 @@ import {
   DialogTitle,
   Button,
 } from "@mui/material";
+import payment from "../assets/payment.svg";
+import {
+  QrCode,
+  Send,
+  BoxSeam,
+  Gift,
+  BarChart,
+  Receipt,
+  Whatsapp,
+  Envelope,
+  Telephone,
+  Lightbulb,
+} from "react-bootstrap-icons";
 
+export const iconStyle = {
+  fontSize: "1.5rem",
+};
 export const Discover = () => {
   const [open, setOpen] = useState(false);
   const [support, setSupport] = useState(false);
@@ -47,24 +52,24 @@ export const Discover = () => {
     left: "50%",
     transform: "translate(-50%, -50%)",
     bgcolor: "background.paper",
-    // border: "2px solid #000",
-    // boxShadow: 24,
     p: 4,
   };
+
   return (
     <main className="main">
       <section className="discover">
         <div className="actions">
+          <img src={payment} alt="" className="img" />
           <p className="actions-discover">Discover</p>
 
           <div className="actions-container">
             <div onClick={openReceipts} className="actions-card link">
-              <Receipt sx={{ fontSize: 25 }} className="actions-icon" />{" "}
+              <Receipt style={iconStyle} className="actions-icon" />{" "}
               <span className="actions-name">Receipts</span>
             </div>
 
             <div className="actions-card link" onClick={handleOpen}>
-              <Loyalty sx={{ fontSize: 25 }} className="actions-icon" />{" "}
+              <Gift style={iconStyle} className="actions-icon" />{" "}
               <span className="actions-name">Fare Points</span>
             </div>
             <Modal
@@ -82,25 +87,26 @@ export const Discover = () => {
             </Modal>
 
             <Link className="actions-card link">
-              <QrCode sx={{ fontSize: 25 }} className="actions-icon" />{" "}
+              <QrCode style={iconStyle} className="actions-icon" />{" "}
               <span className="actions-name">Pay Goods</span>
             </Link>
 
             <Link className="actions-card link">
-              <Payments sx={{ fontSize: 25 }} className="actions-icon" />{" "}
+              <BarChart style={iconStyle} className="actions-icon" />{" "}
               <span className="actions-name">Pay Utilities</span>
             </Link>
 
             <Link className="actions-card link">
-              <TakeoutDining sx={{ fontSize: 25 }} className="actions-icon" />{" "}
+              <BoxSeam style={iconStyle} className="actions-icon" />{" "}
               <span className="actions-name">Parcels</span>
             </Link>
 
             <div className="actions-card link">
-              <Send sx={{ fontSize: 25 }} className="actions-icon" />{" "}
+              <Send style={iconStyle} className="actions-icon" />{" "}
               <span onClick={handleOpenSupport} className="actions-name">
                 Support
               </span>
+              {/* Dialog box for support */}
               <Dialog
                 open={support}
                 onClose={closeSupport}
@@ -129,7 +135,7 @@ export const Discover = () => {
                     className="support-reachout"
                     autoFocus
                   >
-                    <MailOutline />
+                    <Envelope />
                     <span>Email</span>
                   </Button>
                   <Button
@@ -138,7 +144,7 @@ export const Discover = () => {
                     className="support-reachout"
                     autoFocus
                   >
-                    <PhoneCallback />
+                    <Telephone />
                     <span>Phone</span>
                   </Button>
                   <Button
@@ -147,7 +153,7 @@ export const Discover = () => {
                     autoFocus
                     className="support-reachout"
                   >
-                    <WhatsApp />
+                    <Whatsapp />
                     <span>WhatsApp</span>
                   </Button>
                 </DialogActions>
@@ -157,7 +163,7 @@ export const Discover = () => {
         </div>
 
         <div className="foot">
-          <Loyalty sx={{ fontSize: 20 }} className="actions-icon" />
+          <Lightbulb className="actions-icon" />
           <div className="foot-content">
             <h2 className="foot-heading">Fare Points</h2>
             <p className="foot-desc">
@@ -169,7 +175,7 @@ export const Discover = () => {
 
         <button className="discover-btn">
           {" "}
-          <QrCode sx={{ fontSize: 20 }} className="actions-icon" />{" "}
+          <QrCode className="actions-icon" />{" "}
           <span className="actions-name">Lipa Fare</span>
         </button>
       </section>

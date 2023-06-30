@@ -7,15 +7,17 @@ import {
   VisibilityOffOutlined,
   VisibilityOutlined,
   ContentCopy,
-  Refresh,
-  Wallet,
-  QrCode,
-  Message,
-  ArrowOutwardRounded,
-  CallReceivedRounded,
-  CompareArrowsRounded,
   AcUnit,
 } from "@mui/icons-material";
+import {
+  BoxArrowRight,
+  Wallet,
+  ArrowLeftRight,
+  ArrowUpRightCircle,
+  ArrowDownLeftCircle,
+  Chat,
+  QrCode,
+} from "react-bootstrap-icons";
 import { Topup } from "./Topup";
 import img from "../assets/app.svg";
 
@@ -69,7 +71,7 @@ export const Home = () => {
         <div className="home-landing">
           {/* Balance card */}
           <div className="home-landing__content">
-            <div className="home-card">
+            <div className="home-card ">
               <div className="home-card__view">
                 <p className="home-card__text">
                   Balance
@@ -87,7 +89,7 @@ export const Home = () => {
                     KES
                     <span className={showBal ? "blur" : ""}> 305,788.00</span>
                   </h3>
-                  <Refresh sx={{ fontSize: 17 }} />
+                  <BoxArrowRight sx={{ fontSize: 17 }} />
                 </div>
               </div>
 
@@ -145,13 +147,13 @@ export const Home = () => {
               <span className="actions-name">Wallet Topup</span>
             </Link>
 
-            <div className="actions-card">
+            <div className="actions-card actions-card__1">
               <QrCode sx={{ fontSize: 25 }} className="actions-icon" />{" "}
               <span className="actions-name">Lipa Fare</span>
             </div>
 
             <div className="actions-card">
-              <ArrowOutwardRounded
+              <ArrowUpRightCircle
                 sx={{ fontSize: 25 }}
                 className="actions-icon"
               />{" "}
@@ -159,7 +161,7 @@ export const Home = () => {
             </div>
 
             <div className="actions-card">
-              <CallReceivedRounded
+              <ArrowDownLeftCircle
                 sx={{ fontSize: 25 }}
                 className="actions-icon"
               />{" "}
@@ -167,15 +169,12 @@ export const Home = () => {
             </div>
 
             <div className="actions-card">
-              <CompareArrowsRounded
-                sx={{ fontSize: 25 }}
-                className="actions-icon"
-              />{" "}
+              <ArrowLeftRight sx={{ fontSize: 25 }} className="actions-icon" />{" "}
               <span className="actions-name">Kopa Fare</span>
             </div>
 
             <Link to="forum" className="actions-card link">
-              <Message sx={{ fontSize: 25 }} className="actions-icon" />{" "}
+              <Chat sx={{ fontSize: 25 }} className="actions-icon" />{" "}
               <span className="actions-name">Forum</span>
             </Link>
           </div>

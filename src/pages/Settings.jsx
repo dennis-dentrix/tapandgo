@@ -1,19 +1,17 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-useNavigate;
+
 import {
-  NightlightOutlined,
-  ToggleOffOutlined,
-  ToggleOnOutlined,
-  RateReviewOutlined,
-  RefreshOutlined,
-  InfoOutlined,
-  CreateOutlined,
-  LogoutOutlined,
-  DeleteOutlineOutlined,
-} from "@mui/icons-material";
+  ArrowClockwise,
+  InfoCircle,
+  BoxArrowRight,
+  Trash,
+  PencilSquare,
+  Pencil,
+} from "react-bootstrap-icons";
 import { Modal, Box, Button, Typography, DialogActions } from "@mui/material";
 import "./styles/settings.scss";
+import { iconStyle } from "./Discover";
 
 export const Settings = () => {
   const [open, setOpen] = useState(false);
@@ -63,7 +61,8 @@ export const Settings = () => {
           <div className="settings-common">
             <ul className="settings-list">
               <li className="settings-item">
-                <RateReviewOutlined
+                <PencilSquare
+                  style={iconStyle}
                   className="actions-icon"
                   sx={{ fontSize: 18 }}
                 />
@@ -74,7 +73,8 @@ export const Settings = () => {
               </li>
 
               <li className="settings-item">
-                <RefreshOutlined
+                <ArrowClockwise
+                  style={iconStyle}
                   className="actions-icon"
                   sx={{ fontSize: 18 }}
                 />
@@ -87,7 +87,8 @@ export const Settings = () => {
               </li>
               <div>
                 <li className="settings-item" onClick={handleOpenAbout}>
-                  <InfoOutlined
+                  <InfoCircle
+                    style={iconStyle}
                     className="actions-icon"
                     sx={{ fontSize: 18 }}
                   />
@@ -139,7 +140,8 @@ export const Settings = () => {
           <div className="settings-account">
             <ul className="settings-list">
               <div onClick={handleEdit} className="settings-item link">
-                <CreateOutlined
+                <Pencil
+                  style={iconStyle}
                   className="actions-icon"
                   sx={{ fontSize: 18 }}
                 />
@@ -153,7 +155,8 @@ export const Settings = () => {
 
               <div>
                 <div className="settings-item" onClick={handleOpen}>
-                  <LogoutOutlined
+                  <BoxArrowRight
+                    style={iconStyle}
                     className="actions-icon"
                     sx={{ fontSize: 18 }}
                   />
@@ -202,7 +205,8 @@ export const Settings = () => {
               </div>
 
               <div className="settings-item" onClick={handleOpenDelete}>
-                <DeleteOutlineOutlined
+                <Trash
+                  style={iconStyle}
                   className="actions-icon"
                   sx={{ fontSize: 18 }}
                 />

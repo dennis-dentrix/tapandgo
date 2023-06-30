@@ -20,13 +20,7 @@ html {
   font-size: 62.5%; /*1rem = 10px*/
   line-height: 1.5;
 }
-// html,
-// body {
-//   min-height: calc(100vh - 100px);
-// }
-.white-content {
-  background: $color-tertiary;
-}
+
 .link,
 Link {
   text-decoration: none;
@@ -57,6 +51,10 @@ Link {
 }
 .support-reachout span {
   font-size: 1rem;
+}
+.img {
+  fill: $color-primary;
+  width: 50%;
 }
 @media (max-width: 425px) {
   .main {
