@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useCallback } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {
   Box,
@@ -23,7 +23,9 @@ import {
   Envelope,
   Telephone,
   Lightbulb,
+  QrCodeScan,
 } from "react-bootstrap-icons";
+import "./styles/discover.scss";
 
 export const iconStyle = {
   fontSize: "1.5rem",
@@ -54,13 +56,38 @@ export const Discover = () => {
     bgcolor: "background.paper",
     p: 4,
   };
+  const landingIcon = {
+    fontSize: "1rem",
+  };
 
   return (
     <main className="main">
       <section className="discover">
         <div className="actions">
-          <img src={payment} alt="" className="img" />
           <p className="actions-discover">Discover</p>
+
+          <div className="discover-landing">
+            <div className="discover-landing__text">
+              <div className="discover-head">
+                <QrCodeScan style={landingIcon} className="actions-icon" />
+                <h2 className="discover-landing__heading">Tap&Go</h2>
+              </div>
+              <p className="discover-landing__para">
+                Scan QR code for fast payments and more.
+              </p>
+              <div className="discover-landing__btn">
+                <QrCode style={iconStyle} className="discover-icon" />{" "}
+                <span className="actions-name">Pay Goods</span>
+              </div>
+            </div>
+            <img
+              src={payment}
+              alt=""
+              className="img"
+              width={150}
+              height={200}
+            />
+          </div>
 
           <div className="actions-container">
             <div onClick={openReceipts} className="actions-card link">

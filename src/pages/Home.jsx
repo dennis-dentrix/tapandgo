@@ -22,11 +22,13 @@ import { Topup } from "./Topup";
 import img from "../assets/app.svg";
 
 import "./styles/home.scss";
+import { iconStyle } from "./Discover";
 
 export const Home = () => {
   const [showBal, setShowBal] = useState(true);
   const [copied, setCopied] = useState(true);
   const walletNumb = "Th9381452";
+
   const notify = () => {
     copied
       ? toast.success("Wallet number copied succesfully", {
@@ -77,9 +79,9 @@ export const Home = () => {
                   Balance
                   <span className="hide" onClick={handleBlur}>
                     {showBal ? (
-                      <VisibilityOutlined sx={{ fontSize: 17 }} />
+                      <VisibilityOutlined style={iconStyle} />
                     ) : (
-                      <VisibilityOffOutlined sx={{ fontSize: 17 }} />
+                      <VisibilityOffOutlined style={iconStyle} />
                     )}
                   </span>
                 </p>
@@ -89,7 +91,7 @@ export const Home = () => {
                     KES
                     <span className={showBal ? "blur" : ""}> 305,788.00</span>
                   </h3>
-                  <BoxArrowRight sx={{ fontSize: 17 }} />
+                  <BoxArrowRight style={iconStyle} />
                 </div>
               </div>
 
@@ -104,7 +106,7 @@ export const Home = () => {
                     onCopy={() => setCopied(true)}
                   >
                     <ContentCopy
-                      sx={{ fontSize: 17 }}
+                      style={iconStyle}
                       className="home-card__icon"
                       onClick={notify}
                     />
