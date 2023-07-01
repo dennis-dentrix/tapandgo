@@ -6,8 +6,7 @@
   }
   &-header {
     border-bottom: 1px solid $color-dark;
-    padding: 1rem 1rem 0 1rem;
-
+    padding: 0.7rem;
     &__top {
       display: flex;
       align-items: center;
@@ -48,7 +47,7 @@
   border: 1px solid $color-secondary;
   box-shadow: 1px 1px 1px $color-secondary;
   max-width: fit-content;
-  margin: 4rem auto;
+  margin: 1rem auto;
 
   &-info {
     padding: 1rem;
