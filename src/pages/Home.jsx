@@ -151,8 +151,13 @@ export const Home = () => {
             </Link>
 
             <div className="actions-card actions-card__1">
-              <QrCode sx={{ fontSize: 25 }} className="actions-icon" />{" "}
-              <span className="actions-name">Lipa Fare</span>
+              <div className="actions-card__title">
+                <QrCode sx={{ fontSize: 25 }} className="actions-icon" />{" "}
+                <span className="actions-name">Lipa Fare</span>
+              </div>
+              <p className="actions-card__desc">
+                Get your wallet and start using it anytime anywhere
+              </p>
             </div>
 
             <div className="actions-card">
