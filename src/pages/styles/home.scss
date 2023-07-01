@@ -213,7 +213,7 @@
       &__greet {
         display: flex;
         flex-direction: column;
-        font-size: $paragraph-size;
+        // font-size: $paragraph-size;
       }
     }
 
@@ -243,11 +243,11 @@
         align-items: center;
         gap: 0.6rem;
       }
-      &__bal,
-      &__numb,
-      &__value {
-        font-size: $paragraph-size;
-      }
+      // &__bal,
+      // &__numb,
+      // &__value {
+      //   font-size: $paragraph-size;
+      // }
 
       &__numb {
         color: $color-tertiary;
@@ -266,7 +266,7 @@
 
     &-app {
       &__heading {
-        font-size: $heading-size-small;
+        // font-size: $heading-size-small;
       }
     }
   }
@@ -277,7 +277,7 @@
       font-size: $paragraph-size;
     }
     &-name {
-      font-size: $paragraph-size-small;
+      // font-size: $paragraph-size-small;
       font-weight: 500;
     }
 
@@ -286,18 +286,15 @@
       grid-template-columns: repeat(2, 1fr);
       gap: 2rem;
     }
-    &-card {
-      font-size: $paragraph-size-small;
-    }
+    // &-card {
+    //   font-size: $paragraph-size-small;
+    // }
   }
   .foot {
     margin: 1rem;
-    &-desc {
-      font-size: $paragraph-size-small;
-    }
-    &-heading {
-      font-size: $paragraph-size-small;
-    }
+    // &-desc,&-heading  {
+    //   font-size: $paragraph-size-small;
+    // }
   }
   .greeting {
     color: $color-secondary;
