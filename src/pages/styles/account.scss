@@ -7,7 +7,6 @@
   &-body {
     display: flex;
     flex-direction: column;
-    // width: 100%;
     gap: 1rem;
   }
   &-edit {
@@ -29,13 +28,13 @@
     }
 
     &__info {
-      font-size: 1rem;
+      font-size: $heading-size-small;
       color: $color-extra;
       padding: 0rem 0.7rem;
     }
     &__title {
       color: $color-extra;
-      font-size: 1rem;
+      font-size: $heading-size-small;
     }
   }
   &-name {
@@ -43,7 +42,7 @@
     color: $color-secondary;
 
     &__user {
-      font-size: 1rem;
+      font-size: $paragraph-size-small;
       display: flex;
       align-items: center;
       gap: 0.3rem;

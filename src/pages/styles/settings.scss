@@ -5,7 +5,7 @@
   &-title {
     display: flex;
     justify-content: center;
-    font-size: 1.3rem;
+    font-size: $heading-size;
     font-weight: 600;
     gap: 1.5rem;
     color: $color-extra;
@@ -48,10 +48,10 @@
     cursor: pointer;
 
     &__name {
-      font-size: 1rem;
+      font-size: $paragraph-size;
     }
     &__about {
-      font-size: 1rem;
+      font-size: $paragraph-size-small;
     }
   }
 }
@@ -73,18 +73,18 @@
         color: $color-secondary;
         font-weight: 700;
         border-radius: 100%;
-        font-size: 1.3rem;
+        font-size: $heading-size-small;
         font-family: inherit;
       }
       &__email {
         font-family: inherit;
         color: $color-secondary;
-        font-size: 1.1rem;
+        font-size: $paragraph-size-small;
       }
     }
     &-item {
       &__name {
-        font-size: 1rem;
+        font-size: $paragraph-size-small;
       }
     }
   }

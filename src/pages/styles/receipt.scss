@@ -8,7 +8,7 @@
     margin-bottom: 1rem;
   }
   &-heading {
-    font-size: 1rem;
+    font-size: $heading-size-small;
   }
 
   &-body {
@@ -23,6 +23,7 @@
     border-radius: 50%;
     color: $color-tertiary;
     font-weight: 500;
+    font-size: $heading-size-small;
   }
   &-detail {
     display: flex;
@@ -38,9 +39,11 @@
   &-paid,
   &-number {
     font-weight: 600;
+    font-size: $heading-size-small;
   }
   &-status,
   &-date {
     font-weight: 400;
+    font-size: $paragraph-size-small;
   }
 }
