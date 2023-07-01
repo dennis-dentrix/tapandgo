@@ -9,6 +9,8 @@ import {
   QrCode,
 } from "@mui/icons-material";
 import { Dropdown } from "./Dropdown";
+import { House, Gift, Gear } from "react-bootstrap-icons";
+import { iconStyle } from "../pages/Discover";
 
 import "./styles/navigation.scss";
 
@@ -31,10 +33,10 @@ export const Navigation = () => {
         TnG
       </Link>
       <ul className="nav-list">
-        <li className="nav-item">
+        <li className="nav-item ">
           <Link to="/" className="nav-link link">
             <span className="nav-link__icon">
-              <Home />
+              <House style={iconStyle} />
             </span>
             Home
           </Link>
@@ -43,7 +45,7 @@ export const Navigation = () => {
         <li className="nav-item">
           <Link to="discover" className="nav-link link">
             <span className="nav-link__icon">
-              <CardGiftcard />
+              <Gift style={iconStyle} />
             </span>
             Discover
           </Link>
@@ -52,7 +54,7 @@ export const Navigation = () => {
         <li className="nav-item">
           <Link to="settings" className="nav-link link">
             <span className="nav-link__icon">
-              <Settings />
+              <Gear style={iconStyle} />
             </span>
             Settings
           </Link>

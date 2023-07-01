@@ -17,6 +17,7 @@ import {
   ArrowDownLeftCircle,
   Chat,
   QrCode,
+  ArrowClockwise,
 } from "react-bootstrap-icons";
 import { Topup } from "./Topup";
 import img from "../assets/app.svg";
@@ -91,7 +92,7 @@ export const Home = () => {
                     KES
                     <span className={showBal ? "blur" : ""}> 305,788.00</span>
                   </h3>
-                  <BoxArrowRight style={iconStyle} />
+                  <ArrowClockwise style={iconStyle} />
                 </div>
               </div>
 

@@ -19,17 +19,22 @@
   &-link {
     display: flex;
     align-items: center;
-    color: $color-secondary;
-    font-size: 1rem;
-    font-weight: 500;
+    color: $color-extra;
+    font-size: 1.2rem;
+    font-weight: 600;
     padding: 0.4rem;
     border-radius: 6rem;
     &__icon {
       display: none;
     }
   }
+  // &-link:hover {
+  //   color: $color-dark;
+  // }
+  &-active,
   &-link:hover {
     color: $color-dark;
+    border-bottom: 1px solid $color-dark;
   }
 
   &-icon {

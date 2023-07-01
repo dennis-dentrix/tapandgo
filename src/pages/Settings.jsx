@@ -31,7 +31,7 @@ export const Settings = () => {
     transform: "translate(-50%, -50%)",
     width: 250,
     bgcolor: "background.paper",
-    border: "2px solid #696047",
+    border: "1px solid #696s047",
     borderRadius: 3,
     boxShadow: 24,
     p: 2,
@@ -109,11 +109,14 @@ export const Settings = () => {
                       id="modal-modal-title"
                       variant="h5"
                       component="h2"
-                      sx={{ fontWeight: "bold" }}
+                      sx={{ fontWeight: "bold", fontSize: "12px" }}
                     >
                       Tap&Go-KE
                     </Typography>
-                    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                    <Typography
+                      id="modal-modal-description"
+                      sx={{ mt: 2, fontSize: "10px" }}
+                    >
                       The latest version from our developers
                     </Typography>
                     <DialogActions>
@@ -178,11 +181,14 @@ export const Settings = () => {
                       id="modal-modal-title"
                       variant="h5"
                       component="h2"
-                      sx={{ fontWeight: "bold" }}
+                      sx={{ fontWeight: "bold", fontSize: "12px" }}
                     >
                       Log out
                     </Typography>
-                    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                    <Typography
+                      id="modal-modal-description"
+                      sx={{ mt: 2, fontSize: "10px" }}
+                    >
                       Your account will be temporarily disabled. You can log
                       back in
                     </Typography>

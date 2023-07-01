@@ -5,9 +5,10 @@
   &-title {
     display: flex;
     justify-content: center;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+    font-weight: 600;
     gap: 1.5rem;
-    color: $color-secondary;
+    color: $color-extra;
   }
   &-user {
     display: none;
@@ -45,6 +46,13 @@
     padding: 0.6rem 0.4rem;
     color: $color-secondary;
     cursor: pointer;
+
+    &__name {
+      font-size: 1rem;
+    }
+    &__about {
+      font-size: 1rem;
+    }
   }
 }
 @media (max-width: 425px) {
@@ -65,12 +73,18 @@
         color: $color-secondary;
         font-weight: 700;
         border-radius: 100%;
-        font-size: 1.6rem;
+        font-size: 1.3rem;
         font-family: inherit;
       }
       &__email {
         font-family: inherit;
         color: $color-secondary;
+        font-size: 1.1rem;
+      }
+    }
+    &-item {
+      &__name {
+        font-size: 1rem;
       }
     }
   }
