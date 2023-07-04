@@ -1,10 +1,62 @@
 @import "./theme-styles.scss";
+@font-face {
+  font-family: "Black";
+  src: local("GorditaBlack"), url("./font/Gordita-Black.otf") format("truetype");
+}
+@font-face {
+  font-family: "BlackItalic";
+  src: local("GorditaBlackItalic"),
+    url("./font/Gordita-BlackItalic.otf") format("truetype");
+}
+@font-face {
+  font-family: "Bold";
+  src: local("GorditaBold"), url("./font/Gordita-Bold.otf") format("truetype");
+}
+@font-face {
+  font-family: "BoldItalic";
+  src: local("GorditaBoldItalic"),
+    url("./font/Gordita-BoldItalic.otf") format("truetype");
+}
+@font-face {
+  font-family: "Light";
+  src: local("GorditaLight"), url("./font/Gordita-Light.otf") format("truetype");
+}
+@font-face {
+  font-family: "LightItalic";
+  src: local("GorditaLightItalic"),
+    url("./font/Gordita-LightItalic.otf") format("truetype");
+}
+@font-face {
+  font-family: "Meduim";
+  src: local("GorditaMedium"),
+    url("./font/Gordita-Meduim.otf") format("truetype");
+}
+@font-face {
+  font-family: "MediumItalic";
+  src: local("GorditaMediumItalic"),
+    url("./font/Gordita-MediumItalic.otf") format("truetype");
+}
+@font-face {
+  font-family: "Regular";
+  src: local("GorditaRegular"),
+    url("./font/Gordita-Regular.otf") format("truetype");
+}
+@font-face {
+  font-family: "RegularItalic";
+  src: local("GorditaRegularItalic"),
+    url("./font/Gordita-RegularItalic.otf") format("truetype");
+}
 *,
 *::after,
 *::before {
-  margin: 0;
-  padding: 0;
+  margin: 0px;
+  padding: 0px;
   box-sizing: border-box;
+}
+htm,
+body {
+  margin: 0px;
+  height: 100%;
 }
 body {
   // to improve text rendering
@@ -16,7 +68,7 @@ body {
 }
 
 html {
-  font-family: "Quicksand", sans-serif;
+  font-family: "Regular";
   font-size: 62.5%; /*1rem = 10px*/
   line-height: 1.5;
 }
@@ -27,6 +79,7 @@ Link {
 }
 .main {
   padding: 1rem 2rem;
+  height: 100%;
 }
 
 .discover {

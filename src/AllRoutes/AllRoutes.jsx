@@ -7,6 +7,7 @@ import {
   Receipt,
   Account,
   Forum,
+  Comments,
 } from "../pages";
 
 export const AllRoutes = () => {
@@ -19,6 +20,7 @@ export const AllRoutes = () => {
       <Route path="receipts" element={<Receipt />} />
       <Route path="account" element={<Account />} />
       <Route path="/forum" element={<Forum />} />
+      <Route path="/forum/comments" element={<Comments />} />
     </Routes>
   );
 };

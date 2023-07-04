@@ -1,58 +1,85 @@
-import React from "react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import { CheckBox, ArrowBackOutlined } from "@mui/icons-material";
+import { CheckCircleFill, ChatLeftDots } from "react-bootstrap-icons";
 import "./styles/forum.scss";
 
 export const Forum = () => {
+  const iconStyle = {
+    color: "#e3762b",
+  };
   return (
-    <main className="main">
-      <section className="main-forum">
-        <div className="main-forum__top">
-          <ArrowBackOutlined />
-          <h2 className="main-forum__heading">Forum</h2>
-        </div>
+    <section className="main-forum">
+      <div className="main-forum__top">
+        <ArrowBackOutlined />
+        <h2 className="main-forum__heading">Forum</h2>
+      </div>
 
-        <div className="message">
-          <div className="message-card">
-            <div className="message-icon">DK</div>
-            <div className="message-card__message">
-              <div className="message-user">
-                <p className="message-card__user">Denis kyusya</p>
-                <CheckBox className="message-icon__icon" />
-              </div>
+      <div className="message">
+        <div className="message-card">
+          <div className="message-icon">DK</div>
+          <div className="message-card__message">
+            <div className="message-user">
+              <p className="message-card__user">Denis kyusya</p>
+              <CheckCircleFill
+                style={iconStyle}
+                className="message-icon__icon"
+              />
+            </div>
 
-              <div className="message-body">
-                <div className="message-body__text">
+            <div className="message-body">
+              <div className="message-box">
+                <input type="checkbox" id="expanded" />
+                <p className="message-box__text">
                   Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                   Officia, accusantium fuga ducimus autem laboriosam atque,
                   perferendis voluptatibus voluptas in eos modi aut minima nam
                   dignissimos libero facilis quia. Adipisci, labore.
-                </div>
-                <div className="message-body__img">Img</div>
+                </p>
+                <label htmlFor="expanded" role="button" className="readmore">
+                  read more
+                </label>
               </div>
+              <div className="message-body__img">Img</div>
             </div>
+
+            {/* Open all comments */}
+            <Link to="/forum/comments" className="link message-link">
+              <ChatLeftDots />
+              Comments
+            </Link>
           </div>
+        </div>
 
-          <div className="message-card">
-            <div className="message-icon">DK</div>
-            <div className="message-card__message">
-              <div className="message-user">
-                <p className="message-card__user">Denis kyusya</p>
-                <CheckBox className="message-icon__icon" />
-              </div>
+        <div className="message-card">
+          <div className="message-icon">DK</div>
+          <div className="message-card__message">
+            <div className="message-user">
+              <p className="message-card__user">Denis kyusya</p>
+              <CheckCircleFill
+                style={iconStyle}
+                className="message-icon__icon"
+              />
+            </div>
 
-              <div className="message-body">
-                <div className="message-body__text">
+            <div className="message-body">
+              <div className="message-box">
+                <input type="checkbox" id="expanded" />
+                <p className="message-box__text">
                   Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                   Officia, accusantium fuga ducimus autem laboriosam atque,
                   perferendis voluptatibus voluptas in eos modi aut minima nam
                   dignissimos libero facilis quia. Adipisci, labore.
-                </div>
-                <div className="message-body__img">Img</div>
+                </p>
+                <label htmlFor="expanded" role="button" className="readmore">
+                  read more
+                </label>
               </div>
+              <div className="message-body__img">Img</div>
             </div>
           </div>
         </div>
-      </section>
-    </main>
+      </div>
+    </section>
   );
 };
