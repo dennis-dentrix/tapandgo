@@ -1,16 +1,6 @@
 @import "../../theme-styles.scss";
 
 .receipt {
-  &-top {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    margin-bottom: 1rem;
-  }
-  &-heading {
-    font-size: $heading-size-small;
-  }
-
   &-body {
     display: flex;
     align-items: center;

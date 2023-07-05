@@ -50,7 +50,7 @@ export const Settings = () => {
 
         <div className="settings-settings">
           <div className="settings-user">
-            <div className="settings-user__initial">D</div>
+            <p className="messsage-icon settings-icon">D</p>
             <div className="settings-user__person">
               <p className="name">Denis Kyusya</p>
               <p className="settings-user__email">denkyusya@gmail.com</p>

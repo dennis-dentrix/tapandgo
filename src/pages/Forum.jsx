@@ -1,18 +1,24 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { CheckBox, ArrowBackOutlined } from "@mui/icons-material";
-import { CheckCircleFill, ChatLeftDots } from "react-bootstrap-icons";
+
+import { Link, useNavigate } from "react-router-dom";
+import {
+  ArrowLeft,
+  CheckCircleFill,
+  ChatLeftDots,
+} from "react-bootstrap-icons";
 import "./styles/forum.scss";
 
 export const Forum = () => {
+  const navigate = useNavigate();
+  const handleHome = () => navigate("/");
   const iconStyle = {
     color: "#e3762b",
   };
   return (
     <section className="main-forum">
-      <div className="main-forum__top">
-        <ArrowBackOutlined />
-        <h2 className="main-forum__heading">Forum</h2>
+      <div className="section-top">
+        <ArrowLeft onClick={handleHome} />
+        <h2 className="section-heading">Forum</h2>
       </div>
 
       <div className="message">

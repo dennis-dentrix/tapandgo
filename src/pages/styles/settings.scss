@@ -55,6 +55,12 @@
       font-size: $paragraph-size-small;
     }
   }
+  &-icon {
+    padding: 1rem;
+    border-radius: 50%;
+    font-size: $paragraph-size-small;
+    background-color: $color-primary;
+  }
 }
 @media (max-width: 425px) {
   .settings {
@@ -69,21 +75,13 @@
       align-items: center;
       gap: 1rem;
 
-      &__initial {
-        padding: 0.6rem 0.8rem;
-        background-color: $color-primary;
-        color: $color-secondary;
-        font-weight: 700;
-        border-radius: 100%;
-        font-size: $heading-size-small;
-        font-family: inherit;
-      }
       &__email {
         font-family: inherit;
         color: $color-secondary;
         font-size: $paragraph-size-small;
       }
     }
+
     &-item {
       &__name {
         font-size: $paragraph-size-small;

@@ -81,7 +81,17 @@ Link {
   padding: 1rem 2rem;
   height: 100%;
 }
-
+.section {
+  &-top {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 1rem;
+  }
+  &-heading {
+    font-size: $heading-size-small;
+  }
+}
 .discover {
   &-btn {
     outline: none;

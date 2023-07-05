@@ -12,10 +12,10 @@ export const Receipt = () => {
   return (
     <main className="main">
       <section className="receipt">
-        <div className="receipt-top">
+        <div className="section-top">
           <ArrowBackOutlined onClick={handleDiscover} />
 
-          <h1 className="receipt-heading">Receipts</h1>
+          <h1 className="section-heading">Receipts</h1>
         </div>
 
         <div className="receipt-body">
