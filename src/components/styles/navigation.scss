@@ -132,7 +132,7 @@
   border-radius: 50%;
   color: $color-tertiary;
 }
-@media (max-width: 425px) {
+@media (max-width: 728px) {
   .nav {
     position: fixed;
     bottom: 0;
@@ -172,10 +172,10 @@
   }
 }
 
-@media (max-width: 768px) {
-  .nav {
-    &-btn {
-      display: none;
-    }
-  }
-}
+// @media (max-width: 768px) {
+//   .nav {
+//     &-btn {
+//       display: none;
+//     }
+//   }
+// }
