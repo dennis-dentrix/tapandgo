@@ -109,7 +109,10 @@ export const Home = () => {
                     <ContentCopy
                       style={iconStyle}
                       className="home-card__icon"
-                      onClick={notify}
+                      onClick={() => {
+                        setCopied(true);
+                        return notify;
+                      }}
                     />
                   </CopyToClipboard>
                 </div>
