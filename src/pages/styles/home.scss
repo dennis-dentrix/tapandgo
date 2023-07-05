@@ -505,28 +505,6 @@
   }
 }
 
-.actions {
-  &-title {
-    color: $color-secondary;
-    font-size: $paragraph-size;
-  }
-  &-card {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-
-    padding: 2rem 1rem;
-    margin: 1rem;
-    background-color: $color-dark;
-    border-radius: $border-radius;
-  }
-
-  &-name {
-    color: $color-secondary;
-    font-size: $paragraph-size;
-  }
-}
-
 .foot {
   border: 1px solid $color-primary;
   border-radius: $border-radius;

@@ -70,7 +70,22 @@
     &__para {
       font-size: $paragraph-size-small;
     }
+
+    &__btn {
+      padding: 1rem;
+      background-color: $color-dark;
+      border-radius: $border-radius;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: $color-primary;
+    }
   }
+  &-name {
+    font-size: $paragraph-size;
+  }
+
   &-head {
     display: flex;
     flex-direction: column;

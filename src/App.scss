@@ -119,6 +119,32 @@ Link {
   fill: $color-primary;
   width: 50%;
 }
+
+.actions {
+  &-icon {
+    color: $color-primary;
+    font-size: 2rem;
+  }
+  &-title {
+    color: $color-secondary;
+    font-size: $paragraph-size;
+  }
+  &-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    padding: 2rem 1rem;
+    margin: 1rem;
+    background-color: $color-dark;
+    border-radius: $border-radius;
+  }
+
+  &-name {
+    color: $color-secondary;
+    font-size: $paragraph-size;
+  }
+}
 @media (max-width: 728px) {
   .App {
     position: relative;

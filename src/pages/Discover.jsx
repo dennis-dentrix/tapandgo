@@ -26,10 +26,8 @@ import {
   QrCodeScan,
 } from "react-bootstrap-icons";
 import "./styles/discover.scss";
+import { actionsIcon } from "./Home";
 
-export const iconStyle = {
-  fontSize: "1.5rem",
-};
 export const Discover = () => {
   const [open, setOpen] = useState(false);
   const [support, setSupport] = useState(false);
@@ -78,8 +76,8 @@ export const Discover = () => {
             </div>
 
             <div className="discover-landing__btn">
-              <QrCode style={iconStyle} className="discover-icon" />{" "}
-              <span className="actions-name">Pay Goods</span>
+              <QrCode className="discover-icon" />{" "}
+              <span className="discover-name">Pay Goods</span>
             </div>
           </div>
           <img src={payment} alt="" className="img" width={150} height={200} />
@@ -88,12 +86,12 @@ export const Discover = () => {
         <div className="actions">
           <div className="actions-container">
             <div onClick={openReceipts} className="actions-card link">
-              <Receipt style={iconStyle} className="actions-icon" />{" "}
+              <Receipt className="actions-icon" />{" "}
               <span className="actions-name">Receipts</span>
             </div>
 
             <div className="actions-card link" onClick={handleOpen}>
-              <Gift style={iconStyle} className="actions-icon" />{" "}
+              <Gift style={actionsIcon} className="actions-icon" />{" "}
               <span className="actions-name">Fare Points</span>
             </div>
             <Modal
@@ -111,22 +109,22 @@ export const Discover = () => {
             </Modal>
 
             <Link className="actions-card link">
-              <QrCode style={iconStyle} className="actions-icon" />{" "}
+              <QrCode className="actions-icon" />{" "}
               <span className="actions-name">Pay Goods</span>
             </Link>
 
             <Link className="actions-card link">
-              <BarChart style={iconStyle} className="actions-icon" />{" "}
+              <BarChart className="actions-icon" />{" "}
               <span className="actions-name">Pay Utilities</span>
             </Link>
 
             <Link className="actions-card link">
-              <BoxSeam style={iconStyle} className="actions-icon" />{" "}
+              <BoxSeam className="actions-icon" />{" "}
               <span className="actions-name">Parcels</span>
             </Link>
 
             <div className="actions-card link">
-              <Send style={iconStyle} className="actions-icon" />{" "}
+              <Send className="actions-icon" />{" "}
               <span onClick={handleOpenSupport} className="actions-name">
                 Support
               </span>

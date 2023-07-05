@@ -35,34 +35,28 @@ export const Navigation = () => {
       <ul className="nav-list">
         <li className="nav-item ">
           <Link to="/" className="nav-link link">
-            <span className="nav-link__icon">
-              <House style={iconStyle} />
-            </span>
+            <House className="nav-link__icon" fontSize="2rem" />
             Home
           </Link>
         </li>
 
         <li className="nav-item">
           <Link to="discover" className="nav-link link">
-            <span className="nav-link__icon">
-              <Gift style={iconStyle} />
-            </span>
+            <Gift className="nav-link__icon" fontSize="2rem" />
             Discover
           </Link>
         </li>
 
         <li className="nav-item">
           <Link to="settings" className="nav-link link">
-            <span className="nav-link__icon">
-              <Gear style={iconStyle} />
-            </span>
+            <Gear className="nav-link__icon" fontSize="2rem" />
             Settings
           </Link>
         </li>
 
         {/* button that opens lipa fare */}
         <Link className="nav-btn link">
-          <QrCode className="nav-btn-icon" sx={{ fontSize: 13 }} />
+          <QrCode className="nav-btn-icon" />
           Lipa Fare
         </Link>
 

@@ -23,7 +23,6 @@ import { Topup } from "./Topup";
 import img from "../assets/app.svg";
 
 import "./styles/home.scss";
-import { iconStyle } from "./Discover";
 
 export const Home = () => {
   const [showBal, setShowBal] = useState(true);
@@ -80,9 +79,9 @@ export const Home = () => {
                   Balance
                   <span className="hide" onClick={handleBlur}>
                     {showBal ? (
-                      <VisibilityOutlined style={iconStyle} />
+                      <VisibilityOutlined />
                     ) : (
-                      <VisibilityOffOutlined style={iconStyle} />
+                      <VisibilityOffOutlined />
                     )}
                   </span>
                 </p>
@@ -92,7 +91,8 @@ export const Home = () => {
                     KES
                     <span className={showBal ? "blur" : ""}> 305,788.00</span>
                   </h3>
-                  <ArrowClockwise style={iconStyle} />
+
+                  <ArrowClockwise />
                 </div>
               </div>
 
@@ -106,11 +106,7 @@ export const Home = () => {
                     text={walletNumb}
                     onCopy={() => setCopied(true)}
                   >
-                    <ContentCopy
-                      style={iconStyle}
-                      className="home-card__icon"
-                      onClick={notify}
-                    />
+                    <ContentCopy className="home-card__icon" onClick={notify} />
                   </CopyToClipboard>
                 </div>
               </div>
