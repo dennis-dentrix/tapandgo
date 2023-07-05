@@ -66,7 +66,7 @@ export const Home = () => {
         <div className="home-intro">
           <div className="home-intro__initial">D</div>
           <div className="home-intro__greet">
-            <p className="greeting">{time()}</p>
+            <p className="greeting">{time}</p>
             <p className="name">Denis Kyusya</p>
           </div>
         </div>
