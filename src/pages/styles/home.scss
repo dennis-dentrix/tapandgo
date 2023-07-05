@@ -461,7 +461,7 @@
   }
   &-card {
     background-color: $color-primary;
-    padding: 1rem;
+    padding: 2rem 1rem;
     border-radius: $border-radius;
 
     display: flex;
@@ -478,8 +478,10 @@
     &__amount {
       display: flex;
       justify-content: space-between;
-      font-size: $paragraph-size-small;
       color: $color-tertiary;
+    }
+    &__bal {
+      font-size: $paragraph-size;
     }
     &__value {
       display: flex;
@@ -493,23 +495,27 @@
   &-app {
     display: flex;
     justify-content: space-around;
-    padding: 1rem;
+    padding: 1.7rem 1rem;
     box-shadow: 1px 2px 1px 2px $color-dark;
     border-radius: 0.6rem;
+
+    &__desc {
+      font-size: $paragraph-size-small;
+    }
   }
 }
 
 .actions {
   &-title {
     color: $color-secondary;
-    font-size: $paragraph-size-small;
+    font-size: $paragraph-size;
   }
   &-card {
     display: flex;
     align-items: center;
     gap: 1rem;
 
-    padding: 1.7rem 1rem;
+    padding: 2rem 1rem;
     margin: 1rem;
     background-color: $color-dark;
     border-radius: $border-radius;
@@ -517,7 +523,7 @@
 
   &-name {
     color: $color-secondary;
-    font-size: $paragraph-size-small;
+    font-size: $paragraph-size;
   }
 }
 

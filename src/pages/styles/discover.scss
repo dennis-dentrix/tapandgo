@@ -1,47 +1,92 @@
 @import "../../theme-styles.scss";
 
+// .discover {
+//   &-landing {
+//     padding: 1rem;
+//     // background-color: $color-extra;
+//     box-shadow: 0px 1px 1px 1px $color-extra;
+//     border-radius: 0.6rem;
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-between;
+
+//     &__text {
+//       display: flex;
+//       flex-direction: column;
+//       gap: 1rem;
+//     }
+//     &__heading {
+//       color: $color-secondary;
+//       font-weight: 700;
+//       font-size: $heading-size;
+//     }
+//     &__para {
+//       color: $color-extra;
+//     }
+
+//     &__btn {
+//       background-color: $color-primary;
+//       padding: 0.6rem 1rem;
+//       color: white;
+//       width: max-content;
+//       border-radius: 0.6rem;
+//       display: flex;
+//       align-items: center;
+//       gap: 0.6rem;
+//       cursor: pointer;
+//     }
+//   }
+//   &-head {
+//     display: flex;
+//     align-items: center;
+//     gap: 1rem;
+//   }
+//   &-icon {
+//     color: $color-extra;
+//   }
+// }
 .discover {
+  // margin-top: -5vh;
+  height: auto !important;
+
+  &-title {
+    text-align: center;
+    font-size: $paragraph-size;
+    color: $color-secondary;
+  }
   &-landing {
-    padding: 1rem;
-    // background-color: $color-extra;
-    box-shadow: 0px 1px 1px 1px $color-extra;
-    border-radius: 0.6rem;
+    box-shadow: 1px 2px 2px 1px $color-dark;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    // justify-content: space-around;
+    padding: 1.7rem 1rem;
 
     &__text {
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
       gap: 1rem;
     }
-    &__heading {
-      color: $color-secondary;
-      font-weight: 700;
-      font-size: $heading-size;
-    }
-    &__para {
-      color: $color-extra;
-    }
 
-    &__btn {
-      background-color: $color-primary;
-      padding: 0.6rem 1rem;
-      color: white;
-      width: max-content;
-      border-radius: 0.6rem;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      cursor: pointer;
+    &__para {
+      font-size: $paragraph-size-small;
     }
   }
   &-head {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     gap: 1rem;
+    &__name {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
   }
-  &-icon {
-    color: $color-extra;
+}
+@media (max-width: 768px) {
+  .discover {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    min-height: 100%;
   }
 }

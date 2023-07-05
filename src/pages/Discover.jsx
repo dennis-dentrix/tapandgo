@@ -63,32 +63,29 @@ export const Discover = () => {
   return (
     <main className="main">
       <section className="discover">
-        <div className="actions">
-          <p className="actions-discover">Discover</p>
+        <p className="discover-title">Discover</p>
 
-          <div className="discover-landing">
-            <div className="discover-landing__text">
-              <div className="discover-head">
+        <div className="discover-landing">
+          <div className="discover-landing__text">
+            <div className="discover-head">
+              <div className="discover-head__name">
                 <QrCodeScan style={landingIcon} className="actions-icon" />
                 <h2 className="discover-landing__heading">Tap&Go</h2>
               </div>
               <p className="discover-landing__para">
                 Scan QR code for fast payments and more.
               </p>
-              <div className="discover-landing__btn">
-                <QrCode style={iconStyle} className="discover-icon" />{" "}
-                <span className="actions-name">Pay Goods</span>
-              </div>
             </div>
-            <img
-              src={payment}
-              alt=""
-              className="img"
-              width={150}
-              height={200}
-            />
-          </div>
 
+            <div className="discover-landing__btn">
+              <QrCode style={iconStyle} className="discover-icon" />{" "}
+              <span className="actions-name">Pay Goods</span>
+            </div>
+          </div>
+          <img src={payment} alt="" className="img" width={150} height={200} />
+        </div>
+
+        <div className="actions">
           <div className="actions-container">
             <div onClick={openReceipts} className="actions-card link">
               <Receipt style={iconStyle} className="actions-icon" />{" "}
