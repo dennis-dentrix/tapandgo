@@ -65,21 +65,21 @@ export const Navigation = () => {
           <QrCode className="nav-btn-icon" sx={{ fontSize: 13 }} />
           Lipa Fare
         </Link>
-      </ul>
 
-      <div className="nav-actions">
-        {/*  balance */}
-        <div className="user-amount"></div>
+        <div className="nav-actions">
+          {/*  balance */}
+          <div className="user-amount"></div>
 
-        {/* Name initial that opems dropdown with name & email, wallet number, Theme, edit accout btn, and logout btn */}
-        <div className="nav-dropdown">
-          <button className="nav-dropdown__btn" onClick={handleDropDown}>
-            D
-          </button>
+          {/* Name initial that opems dropdown with name & email, wallet number, Theme, edit accout btn, and logout btn */}
+          <div className="nav-dropdown">
+            <button className="nav-dropdown__btn" onClick={handleDropDown}>
+              D
+            </button>
 
-          {dropdown ? <Dropdown /> : ""}
+            {dropdown ? <Dropdown /> : ""}
+          </div>
         </div>
-      </div>
+      </ul>
     </nav>
   );
 };

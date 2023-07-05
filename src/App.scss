@@ -119,9 +119,13 @@ Link {
   fill: $color-primary;
   width: 50%;
 }
-@media (max-width: 425px) {
+@media (max-width: 728px) {
+  .App {
+    position: relative;
+    min-height: 100vh;
+  }
   .main {
-    min-height: 100%;
+    // position: relative;
     padding: 1rem 2rem;
   }
 }
