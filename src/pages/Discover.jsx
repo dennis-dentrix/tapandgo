@@ -26,7 +26,7 @@ import {
   QrCodeScan,
 } from "react-bootstrap-icons";
 import "./styles/discover.scss";
-import { actionsIcon } from "./Home";
+// import { actionsIcon } from "./Home";
 
 export const Discover = () => {
   const [open, setOpen] = useState(false);
@@ -91,7 +91,7 @@ export const Discover = () => {
             </div>
 
             <div className="actions-card link" onClick={handleOpen}>
-              <Gift style={actionsIcon} className="actions-icon" />{" "}
+              <Gift className="actions-icon" />{" "}
               <span className="actions-name">Fare Points</span>
             </div>
             <Modal

@@ -10,7 +10,6 @@ import {
 } from "@mui/icons-material";
 import { Dropdown } from "./Dropdown";
 import { House, Gift, Gear } from "react-bootstrap-icons";
-import { iconStyle } from "../pages/Discover";
 
 import "./styles/navigation.scss";
 
@@ -59,21 +58,20 @@ export const Navigation = () => {
           <QrCode className="nav-btn-icon" />
           Lipa Fare
         </Link>
-
-        <div className="nav-actions">
-          {/*  balance */}
-          <div className="user-amount"></div>
-
-          {/* Name initial that opems dropdown with name & email, wallet number, Theme, edit accout btn, and logout btn */}
-          <div className="nav-dropdown">
-            <button className="nav-dropdown__btn" onClick={handleDropDown}>
-              D
-            </button>
-
-            {dropdown ? <Dropdown /> : ""}
-          </div>
-        </div>
       </ul>
+      <div className="nav-actions">
+        {/*  balance */}
+        <div className="user-amount"></div>
+
+        {/* Name initial that opems dropdown with name & email, wallet number, Theme, edit accout btn, and logout btn */}
+        <div className="nav-dropdown">
+          <button className="nav-dropdown__btn" onClick={handleDropDown}>
+            D
+          </button>
+
+          {dropdown ? <Dropdown /> : ""}
+        </div>
+      </div>
     </nav>
   );
 };

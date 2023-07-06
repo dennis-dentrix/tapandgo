@@ -11,7 +11,6 @@ import {
 } from "react-bootstrap-icons";
 import { Modal, Box, Button, Typography, DialogActions } from "@mui/material";
 import "./styles/settings.scss";
-import { iconStyle } from "./Discover";
 
 export const Settings = () => {
   const [open, setOpen] = useState(false);
@@ -61,11 +60,7 @@ export const Settings = () => {
           <div className="settings-common">
             <ul className="settings-list">
               <li className="settings-item">
-                <PencilSquare
-                  style={iconStyle}
-                  className="actions-icon"
-                  sx={{ fontSize: 18 }}
-                />
+                <PencilSquare className="actions-icon" sx={{ fontSize: 18 }} />
                 <span className="settings-item__desc">
                   <h3 className="settings-item__name">Rate & Review us</h3>
                   <p className="settings-item__about">Give us your feedback</p>
@@ -74,7 +69,6 @@ export const Settings = () => {
 
               <li className="settings-item">
                 <ArrowClockwise
-                  style={iconStyle}
                   className="actions-icon"
                   sx={{ fontSize: 18 }}
                 />
@@ -87,11 +81,7 @@ export const Settings = () => {
               </li>
               <div>
                 <li className="settings-item" onClick={handleOpenAbout}>
-                  <InfoCircle
-                    style={iconStyle}
-                    className="actions-icon"
-                    sx={{ fontSize: 18 }}
-                  />
+                  <InfoCircle className="actions-icon" sx={{ fontSize: 18 }} />
                   <span className="settings-item__desc">
                     <h3 className="settings-item__name">About</h3>
                     <p className="settings-item__about">V 1.0</p>
@@ -143,11 +133,7 @@ export const Settings = () => {
           <div className="settings-account">
             <ul className="settings-list">
               <div onClick={handleEdit} className="settings-item link">
-                <Pencil
-                  style={iconStyle}
-                  className="actions-icon"
-                  sx={{ fontSize: 18 }}
-                />
+                <Pencil className="actions-icon" sx={{ fontSize: 18 }} />
                 <span className="settings-item__desc">
                   <h3 className="settings-item__name">Edit account</h3>
                   <p className="settings-item__about">
@@ -159,7 +145,6 @@ export const Settings = () => {
               <div>
                 <div className="settings-item" onClick={handleOpen}>
                   <BoxArrowRight
-                    style={iconStyle}
                     className="actions-icon"
                     sx={{ fontSize: 18 }}
                   />
@@ -211,11 +196,7 @@ export const Settings = () => {
               </div>
 
               <div className="settings-item" onClick={handleOpenDelete}>
-                <Trash
-                  style={iconStyle}
-                  className="actions-icon"
-                  sx={{ fontSize: 18 }}
-                />
+                <Trash className="actions-icon" sx={{ fontSize: 18 }} />
                 <span className="settings-item__desc">
                   <h3 className="settings-item__name">Delete account</h3>
                   <p className="settings-item__about">

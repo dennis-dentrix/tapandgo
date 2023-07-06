@@ -1,12 +1,5 @@
 @import "../../theme-styles.scss";
 
-.nav {
-  &-link {
-    &__icon {
-      font-size: 2rem;
-    }
-  }
-}
 @media (max-width: 768px) {
   .logo {
     display: none;
