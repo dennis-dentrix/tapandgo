@@ -5,6 +5,7 @@ import {
   ToggleOffOutlined,
   CheckCircleOutline,
 } from "@mui/icons-material";
+import { ChevronLeft } from "react-bootstrap-icons";
 import {
   TextField,
   Dialog,
@@ -32,14 +33,21 @@ export const Account = () => {
     <main className="main">
       <section className="account">
         <div className="receipt-top">
-          <ArrowBackOutlined onClick={handleSetting} />
+          <ChevronLeft style={{ fontSize: "1.8rem" }} onClick={handleSetting} />
 
-          <h1 className="receipt-heading">Account</h1>
+          <h1
+            className="receipt-heading"
+            style={{ fontSize: "1.5rem", fontFamily: "Regular" }}
+          >
+            Account
+          </h1>
         </div>
 
         <div className="account-body">
           <div className="account-edit">
-            <span onClick={handleClickOpen}>Edit</span>
+            <span onClick={handleClickOpen} style={{ fontSize: "1.4rem" }}>
+              Edit
+            </span>
             <Dialog open={open} onClose={handleClose}>
               <DialogTitle>Edit your account details</DialogTitle>
 
@@ -88,17 +96,17 @@ export const Account = () => {
 
           <div className="account-info">
             <div className="account-detail">
-              <div className="account-detail__name">
+              <div className="account-detail__name ">
                 <h2 className="account-name">Name</h2>
                 <p className="account-name__user">Denis Kyusya</p>
               </div>
-              <hr color="tan" />
+              <hr className="divider" />
               <div className="account-detail__name">
                 <h2 className="account-name">Phone number</h2>
                 <p className="account-name__user">0128789</p>
               </div>
             </div>
-            <p className="account-detail__info">
+            <p className="account-detail__info" style={{ marginTop: "1rem" }}>
               The phone number can be used to contact you and more. Please note
               that the number can also be used for account top up
             </p>
@@ -111,13 +119,17 @@ export const Account = () => {
                 <h2 className="account-name">Email</h2>
                 <p className="account-name__user">denkyusya@gmail.com</p>
               </div>
-              <hr color="tan" />
+
+              <hr className="divider" />
               <div className="account-detail__name">
                 <h2 className="account-name">Account</h2>
                 <p className="account-name__user">
                   Commuter
                   <span>
-                    <CheckCircleOutline className="account-name__icon" />
+                    <CheckCircleOutline
+                      style={{ fontSize: "2rem" }}
+                      className="account-name__icon"
+                    />
                   </span>
                 </p>
               </div>

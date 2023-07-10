@@ -39,7 +39,7 @@ export const Settings = () => {
     bgcolor: "background.paper",
     border: "1px solid #696s047",
     borderRadius: 3,
-    boxShadow: 24,
+
     p: 2,
   };
 
@@ -273,24 +273,26 @@ export const Settings = () => {
                 </Modal>
               </div>
 
-              <div
-                className="settings-item"
-                onClick={handleOpenDelete}
-                style={listStyle}
-              >
-                <Trash
-                  className="actions-icon"
-                  sx={{ fontSize: 18 }}
-                  style={{ marginRight: "1rem" }}
-                />
-                <span className="settings-item__desc">
-                  <h3 className="settings-item__name" style={heading}>
-                    Delete account
-                  </h3>
-                  <p className="settings-item__about">
-                    Your account will be permenetly deleted
-                  </p>
-                </span>
+              <div>
+                <div
+                  className="settings-item"
+                  onClick={handleOpenDelete}
+                  style={listStyle}
+                >
+                  <Trash
+                    className="actions-icon"
+                    sx={{ fontSize: 18 }}
+                    style={{ marginRight: "1rem" }}
+                  />
+                  <span className="settings-item__desc">
+                    <h3 className="settings-item__name" style={heading}>
+                      Delete account
+                    </h3>
+                    <p className="settings-item__about">
+                      Your account will be permenetly deleted
+                    </p>
+                  </span>
+                </div>
                 <Modal
                   open={del}
                   onClose={handleCloseDelete}
