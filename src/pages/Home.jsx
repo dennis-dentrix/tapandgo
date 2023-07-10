@@ -3,12 +3,7 @@ import { Link } from "react-router-dom";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import {
-  VisibilityOffOutlined,
-  VisibilityOutlined,
-  ContentCopy,
-  AcUnit,
-} from "@mui/icons-material";
+import { ContentCopy, AcUnit } from "@mui/icons-material";
 import {
   BoxArrowRight,
   Wallet,
@@ -18,6 +13,8 @@ import {
   Chat,
   QrCode,
   ArrowClockwise,
+  Eye,
+  EyeSlash,
 } from "react-bootstrap-icons";
 import { Topup } from "./Topup";
 import img from "../assets/app.svg";
@@ -33,11 +30,10 @@ export const Home = () => {
     copied
       ? toast.success("Wallet number copied succesfully", {
           position: "bottom-right",
-          className: "toast-message",
         })
       : toast.error("Error copiying. Try again!", {
           position: "bottom-right",
-          className: "toast-message",
+          // className: "toast-message",
         });
     setCopied(false);
   };
@@ -79,9 +75,9 @@ export const Home = () => {
                   Balance
                   <span className="hide" onClick={handleBlur}>
                     {showBal ? (
-                      <VisibilityOutlined />
+                      <Eye fontSize="1.7rem" classname="actions-icon" />
                     ) : (
-                      <VisibilityOffOutlined />
+                      <EyeSlash fontSize="1.7rem" classname="actions-icon" />
                     )}
                   </span>
                 </p>
@@ -92,7 +88,7 @@ export const Home = () => {
                     <span className={showBal ? "blur" : ""}> 305,788.00</span>
                   </h3>
 
-                  <ArrowClockwise />
+                  <ArrowClockwise fontSize="2rem" classname="actions-icon" />
                 </div>
               </div>
 
@@ -106,14 +102,18 @@ export const Home = () => {
                     text={walletNumb}
                     onCopy={() => setCopied(true)}
                   >
-                    <ContentCopy className="home-card__icon" onClick={notify} />
+                    <ContentCopy
+                      classname="actions-icon"
+                      className="home-card__icon"
+                      onClick={notify}
+                    />
                   </CopyToClipboard>
                 </div>
               </div>
             </div>
 
             {/* Download from playstore section */}
-            <div className="home-app">
+            {/* <div className="home-app">
               <div className="home-app__text">
                 <h2 className="home-app__heading">Get the app</h2>
                 <p className="home-app__desc">
@@ -127,7 +127,7 @@ export const Home = () => {
                 width={100}
                 height={100}
               />
-            </div>
+            </div> */}
           </div>
 
           {/* Top up form */}
@@ -142,45 +142,39 @@ export const Home = () => {
 
           <div className="actions-container">
             <Link to="topup" className="actions-card link">
-              <Wallet sx={{ fontSize: 25 }} className="actions-icon" />{" "}
+              <Wallet className="actions-icon" />{" "}
               <span className="actions-name">Wallet Topup</span>
             </Link>
 
             <div className="actions-card actions-card__1">
-              <QrCode sx={{ fontSize: 25 }} className="actions-icon" />{" "}
+              <QrCode className="actions-icon" />{" "}
               <span className="actions-name">Lipa Fare</span>
             </div>
 
             <div className="actions-card">
-              <ArrowUpRightCircle
-                sx={{ fontSize: 25 }}
-                className="actions-icon"
-              />{" "}
+              <ArrowUpRightCircle className="actions-icon" />{" "}
               <span className="actions-name">Send Fare</span>
             </div>
 
             <div className="actions-card">
-              <ArrowDownLeftCircle
-                sx={{ fontSize: 25 }}
-                className="actions-icon"
-              />{" "}
+              <ArrowDownLeftCircle className="actions-icon" />{" "}
               <span className="actions-name">Receive Fare</span>
             </div>
 
             <div className="actions-card">
-              <ArrowLeftRight sx={{ fontSize: 25 }} className="actions-icon" />{" "}
+              <ArrowLeftRight className="actions-icon" />{" "}
               <span className="actions-name">Kopa Fare</span>
             </div>
 
             <Link to="forum" className="actions-card link">
-              <Chat sx={{ fontSize: 25 }} className="actions-icon" />{" "}
+              <Chat className="actions-icon" />{" "}
               <span className="actions-name">Forum</span>
             </Link>
           </div>
         </div>
 
         <div className="foot">
-          <AcUnit sx={{ fontSize: 20 }} className="actions-icon" />
+          <AcUnit className="actions-icon" />
           <div className="foot-content">
             <h2 className="foot-heading">Simple Smart Life</h2>
             <p className="foot-desc">

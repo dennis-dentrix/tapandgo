@@ -1,26 +1,34 @@
 @import "./theme-styles.scss";
+
 @font-face {
   font-family: "Black";
-  src: local("GorditaBlack"), url("./font/Gordita-Black.otf") format("truetype");
+  src: local("GorditaBlack"),
+    url("./fonts/Gordita-Black.otf") format("truetype");
 }
+
 @font-face {
   font-family: "BlackItalic";
   src: local("GorditaBlackItalic"),
-    url("./font/Gordita-BlackItalic.otf") format("truetype");
+    url("./fonts/Gordita-BlackItalic.otf") format("truetype");
 }
+
 @font-face {
   font-family: "Bold";
-  src: local("GorditaBold"), url("./font/Gordita-Bold.otf") format("truetype");
+  src: local("GorditaBold"), url("./fonts/Gordita-Bold.otf") format("truetype");
 }
+
 @font-face {
   font-family: "BoldItalic";
   src: local("GorditaBoldItalic"),
-    url("./font/Gordita-BoldItalic.otf") format("truetype");
+    url("./fonts/Gordita-BoldItalic.otf") format("truetype");
 }
+
 @font-face {
   font-family: "Light";
-  src: local("GorditaLight"), url("./font/Gordita-Light.otf") format("truetype");
+  src: local("GorditaLight"),
+    url("./fonts/Gordita-Light.otf") format("truetype");
 }
+
 @font-face {
   font-family: "LightItalic";
   src: local("GorditaLightItalic"),
@@ -39,7 +47,7 @@
 @font-face {
   font-family: "Regular";
   src: local("GorditaRegular"),
-    url("./font/Gordita-Regular.otf") format("truetype");
+    url("./fonts/Gordita-Regular.otf") format("truetype");
 }
 @font-face {
   font-family: "RegularItalic";
@@ -65,10 +73,10 @@ body {
   background-color: $color-tertiary;
   min-height: 100vh;
   position: relative;
+  font-family: "Regular";
 }
 
 html {
-  font-family: "Regular";
   font-size: 62.5%; /*1rem = 10px*/
   line-height: 1.5;
 }

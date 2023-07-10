@@ -170,10 +170,6 @@
 //     font-size: $paragraph-size-small;
 //   }
 // }
-// .blur {
-//   color: transparent;
-//   text-shadow: 0 0 5px $color-tertiary;
-// }
 
 // .modal {
 //   &-box {
@@ -476,7 +472,8 @@
       display: flex;
       align-items: center;
       gap: 1rem;
-      font-size: $paragraph-size-smaller;
+      font-size: $paragraph-size;
+      font-family: "Light";
       color: $color-dark;
     }
     &__amount {
@@ -486,6 +483,7 @@
     }
     &__bal {
       font-size: $paragraph-size;
+      font-family: "Bold";
     }
     &__value {
       display: flex;
@@ -515,13 +513,24 @@
     box-shadow: 1px 2px 1px 2px $color-dark;
     border-radius: 0.6rem;
 
+    &__heading {
+      font-family: "Black";
+    }
+
     &__desc {
       font-size: $paragraph-size-small;
+      font-family: "Light";
     }
   }
 }
 
 .actions {
+  &-title {
+    font-family: "Black";
+  }
+  &-name {
+    font-family: "Light";
+  }
   &-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -538,12 +547,22 @@
   &-heading {
     color: $color-extra;
     font-size: $heading-size-small;
+    font-family: "Regular";
   }
 
   &-desc {
     font-size: $paragraph-size-small;
+    font-family: "Light";
+
     color: $color-secondary;
   }
+}
+.name {
+  font-family: "Bold";
+}
+.blur {
+  color: transparent;
+  text-shadow: 0 0 5px $color-tertiary;
 }
 @media (max-width: 728px) {
   .home {
@@ -573,3 +592,10 @@
     }
   }
 }
+
+// @media (max-width: 425px) {
+//   .home {
+//     display: flex;
+//     flex-direction: column;
+//   }
+// }
