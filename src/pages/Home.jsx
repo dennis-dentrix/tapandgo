@@ -4,10 +4,7 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ContentCopy, AcUnit } from "@mui/icons-material";
-import { Avatar } from "@mui/material";
-
 import {
-  BoxArrowRight,
   Wallet,
   ArrowLeftRight,
   ArrowUpRightCircle,
@@ -17,17 +14,15 @@ import {
   ArrowClockwise,
   Eye,
   EyeSlash,
-  Lightbulb,
 } from "react-bootstrap-icons";
 import { Topup } from "./Topup";
-import img from "../assets/app.svg";
 
 import "./styles/home.scss";
 
 export const Home = () => {
   const [showBal, setShowBal] = useState(true);
   const [copied, setCopied] = useState(true);
-  const walletNumb = "TG|TGDJ54868DB";
+  const walletNumb = "Th9381452";
 
   const notify = () => {
     copied
@@ -61,16 +56,17 @@ export const Home = () => {
   return (
     <main className="main">
       <section className="home">
-        <div className="home-intro" style={{ marginTop: "3rem" }}>
-          <Avatar sx={{ bgcolor: "orange" }}>DK</Avatar>
+        <div className="home-intro">
+          <div className="home-intro__initial">D</div>
           <div className="home-intro__greet">
             {/* Not working */}
-            <p style={{ fontSize: "1.3rem" }}>{time()}</p>
+            <p className="greeting">{time}</p>
             <p className="name">Denis Kyusya</p>
           </div>
         </div>
 
         <div className="home-landing">
+          {/* Balance card */}
           <div className="home-landing__content">
             <div className="home-card ">
               <div className="home-card__view">
@@ -114,6 +110,23 @@ export const Home = () => {
                 </div>
               </div>
             </div>
+
+            {/* Download from playstore section */}
+            {/* <div className="home-app">
+              <div className="home-app__text">
+                <h2 className="home-app__heading">Get the app</h2>
+                <p className="home-app__desc">
+                  Get your wallet and start using it anytime anywhere
+                </p>
+              </div>
+              <img
+                src={img}
+                alt=""
+                className="home-app__img"
+                width={100}
+                height={100}
+              />
+            </div> */}
           </div>
 
           {/* Top up form */}
@@ -160,9 +173,7 @@ export const Home = () => {
         </div>
 
         <div className="foot">
-          <Lightbulb
-            style={{ marginRight: "1.5rem", fontSize: "4rem", color: "orange" }}
-          />
+          <AcUnit className="actions-icon" />
           <div className="foot-content">
             <h2 className="foot-heading">Simple Smart Life</h2>
             <p className="foot-desc">

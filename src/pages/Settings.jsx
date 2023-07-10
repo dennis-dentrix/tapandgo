@@ -9,7 +9,14 @@ import {
   PencilSquare,
   Pencil,
 } from "react-bootstrap-icons";
-import { Modal, Box, Button, Typography, DialogActions } from "@mui/material";
+import {
+  Modal,
+  Box,
+  Button,
+  Typography,
+  DialogActions,
+  Avatar,
+} from "@mui/material";
 import "./styles/settings.scss";
 
 export const Settings = () => {
@@ -49,7 +56,7 @@ export const Settings = () => {
 
         <div className="settings-settings">
           <div className="settings-user">
-            <p className="messsage-icon settings-icon">D</p>
+            <Avatar sx={{ bgcolor: "orange" }}>N</Avatar>
             <div className="settings-user__person">
               <p className="name">Denis Kyusya</p>
               <p className="settings-user__email">denkyusya@gmail.com</p>

@@ -65,26 +65,6 @@ export const Discover = () => {
       <section className="discover">
         <p className="discover-title">Discover</p>
 
-        <div className="discover-landing">
-          <div className="discover-landing__text">
-            <div className="discover-head">
-              <div className="discover-head__name">
-                <QrCodeScan style={landingIcon} className="actions-icon" />
-                <h2 className="discover-landing__heading">Tap&Go</h2>
-              </div>
-              <p className="discover-landing__para">
-                Scan QR code for fast payments and more.
-              </p>
-            </div>
-
-            <div className="discover-landing__btn">
-              <QrCode className="discover-icon" />{" "}
-              <span className="discover-name">Pay Goods</span>
-            </div>
-          </div>
-          <img src={payment} alt="" className="img" width={150} height={200} />
-        </div>
-
         <div className="actions">
           <div className="actions-container">
             <div onClick={openReceipts} className="actions-card link">

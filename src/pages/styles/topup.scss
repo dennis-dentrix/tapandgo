@@ -38,16 +38,16 @@
   }
 }
 .content {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  max-height: 100%;
-  padding: 1rem 0;
-  border: 1px solid $color-secondary;
-  box-shadow: 1px 1px 1px $color-secondary;
-  max-width: fit-content;
-  margin: 1rem auto;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: space-between;
+  // align-items: center;
+  // max-height: 100%;
+  // padding: 1rem 0;
+  // border: 1px solid $color-secondary;
+  // box-shadow: 1px 1px 1px $color-secondary;
+  // max-width: fit-content;
+  // margin: 1rem auto;
 
   &-info {
     padding: 1rem;
@@ -117,4 +117,8 @@
       }
     }
   }
+}
+
+.MuiTextField-root {
+  padding: 2rem;
 }
