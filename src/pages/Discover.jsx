@@ -53,6 +53,8 @@ export const Discover = () => {
     transform: "translate(-50%, -50%)",
     bgcolor: "background.paper",
     p: 4,
+    border: "none",
+    borderRadius: 5,
   };
   const landingIcon = {
     fontSize: "1rem",
