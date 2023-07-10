@@ -4,6 +4,8 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ContentCopy, AcUnit } from "@mui/icons-material";
+import { Button } from "@mui/material";
+
 import {
   BoxArrowRight,
   Wallet,
@@ -64,6 +66,7 @@ export const Home = () => {
             {/* Not working */}
             <p className="greeting">{time}</p>
             <p className="name">Denis Kyusya</p>
+            <Button variant="text">Text</Button>
           </div>
         </div>
 
