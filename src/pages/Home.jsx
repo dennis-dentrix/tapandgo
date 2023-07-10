@@ -194,6 +194,10 @@ export const Home = () => {
           <div className="home-form">
             <Topup />
           </div>
+
+          {/* <div>
+            <Topup />
+          </div> */}
         </div>
 
         {/* Quick actions */}

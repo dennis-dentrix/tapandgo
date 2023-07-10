@@ -1,5 +1,9 @@
 @import "../../theme-styles.scss";
 
+.nav {
+  display: none;
+}
+
 .home {
   display: flex;
   flex-direction: column;
@@ -61,8 +65,8 @@
 
   &-landing {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5rem;
 
     &__content {
       display: flex;
@@ -99,7 +103,8 @@
   }
   &-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(6, 200px);
+    grid-template-rows: 1;
   }
 }
 
@@ -110,6 +115,7 @@
   display: flex;
   align-items: center;
   gap: 1rem;
+  display: none;
 
   &-heading {
     color: $color-extra;
@@ -133,6 +139,9 @@
   text-shadow: 0 0 5px $color-tertiary;
 }
 @media (max-width: 728px) {
+  .nav {
+    display: flex;
+  }
   .home {
     &-form {
       display: none;
@@ -148,6 +157,10 @@
         gap: 2rem;
       }
     }
+  }
+
+  .foot {
+    display: flex;
   }
 
   .actions {

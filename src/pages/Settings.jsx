@@ -48,7 +48,7 @@ export const Settings = () => {
   };
 
   const heading = {
-    fontFamily: "Bold",
+    fontWeight: "800",
     fontSize: "1.4rem",
   };
 

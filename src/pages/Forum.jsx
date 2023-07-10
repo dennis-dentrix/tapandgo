@@ -1,6 +1,12 @@
 import { useState } from "react";
 
 import { Link, useNavigate } from "react-router-dom";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
+import { Button, CardActionArea, CardActions, Avatar } from "@mui/material";
+
 import {
   ArrowLeft,
   CheckCircleFill,
@@ -15,77 +21,42 @@ export const Forum = () => {
     color: "#e3762b",
   };
   return (
-    <section className="main-forum">
+    <section
+      className="main-forum"
+      style={{
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
       <div className="section-top">
         <ArrowLeft onClick={handleHome} />
         <h2 className="section-heading">Forum</h2>
       </div>
 
-      <div className="message">
-        <div className="message-card">
-          <div className="message-icon">DK</div>
-          <div className="message-card__message">
-            <div className="message-user">
-              <p className="message-card__user">Denis kyusya</p>
-              <CheckCircleFill
-                style={iconStyle}
-                className="message-icon__icon"
-              />
-            </div>
-
-            <div className="message-body">
-              <div className="message-box">
-                <input type="checkbox" id="expanded" />
-                <p className="message-box__text">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Officia, accusantium fuga ducimus autem laboriosam atque,
-                  perferendis voluptatibus voluptas in eos modi aut minima nam
-                  dignissimos libero facilis quia. Adipisci, labore.
-                </p>
-                <label htmlFor="expanded" role="button" className="readmore">
-                  read more
-                </label>
-              </div>
-              <div className="message-body__img">Img</div>
-            </div>
-
-            {/* Open all comments */}
-            <Link to="/forum/comments" className="link message-link">
-              <ChatLeftDots />
-              Comments
-            </Link>
-          </div>
-        </div>
-
-        <div className="message-card">
-          <div className="message-icon">DK</div>
-          <div className="message-card__message">
-            <div className="message-user">
-              <p className="message-card__user">Denis kyusya</p>
-              <CheckCircleFill
-                style={iconStyle}
-                className="message-icon__icon"
-              />
-            </div>
-
-            <div className="message-body">
-              <div className="message-box">
-                <input type="checkbox" id="expanded" />
-                <p className="message-box__text">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Officia, accusantium fuga ducimus autem laboriosam atque,
-                  perferendis voluptatibus voluptas in eos modi aut minima nam
-                  dignissimos libero facilis quia. Adipisci, labore.
-                </p>
-                <label htmlFor="expanded" role="button" className="readmore">
-                  read more
-                </label>
-              </div>
-              <div className="message-body__img">Img</div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Card>
+        <CardActionArea>
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+              Lizard
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              Lizards are a widespread group of squamate reptiles, with over
+              6,000 species, ranging across all continents except Antarctica
+            </Typography>
+          </CardContent>
+          <CardMedia
+            component="img"
+            height="190"
+            image="https://mui.com/static/images/cards/contemplative-reptile.jpg"
+            alt="green iguana"
+          />
+        </CardActionArea>
+        <CardActions>
+          <Button size="small" color="primary">
+            Share
+          </Button>
+        </CardActions>
+      </Card>
     </section>
   );
 };
