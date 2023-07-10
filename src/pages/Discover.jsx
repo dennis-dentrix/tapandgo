@@ -177,7 +177,7 @@ export const Discover = () => {
           </div>
         </div>
 
-        <button className="discover-btn">
+        <button className="discover-btn" style={{ borderRadius: "10rem" }}>
           {" "}
           <QrCode className="actions-icon" />{" "}
           <span className="actions-name">Lipa Fare</span>

@@ -18,9 +18,10 @@ import {
 import { Topup } from "./Topup";
 
 import "./styles/home.scss";
+import { Avatar } from "@mui/material";
 
 export const Home = () => {
-  const [showBal, setShowBal] = useState(true);
+  const [showBal, setShowBal] = useState(false);
   const [copied, setCopied] = useState(true);
   const walletNumb = "Th9381452";
 
@@ -56,11 +57,12 @@ export const Home = () => {
   return (
     <main className="main">
       <section className="home">
-        <div className="home-intro">
-          <div className="home-intro__initial">D</div>
+        <div className="home-intro" style={{ marginTop: "2rem" }}>
+          <Avatar sx={{ bgcolor: "orange" }} style={{ marginRight: "1rem" }}>
+            DK
+          </Avatar>
           <div className="home-intro__greet">
-            {/* Not working */}
-            <p className="greeting">{time}</p>
+            <p className="greeting">{time()}</p>
             <p className="name">Denis Kyusya</p>
           </div>
         </div>
