@@ -9,20 +9,9 @@ import {
   Drawer,
   List,
   ListItem,
-<<<<<<< HEAD
-  ListItemText,
-  ListItemIcon,
-  ListItemButton,
-  Button,
-  Dialog,
-  DialogContent,
-  DialogTitle,
-  Divider,
-=======
   ListItemButton,
   ListItemText,
   ListItemIcon,
->>>>>>> 74dbe9a (Made styling UI/UX)
 } from "@mui/material";
 
 import {
@@ -38,18 +27,12 @@ import {
   Phone,
 } from "react-bootstrap-icons";
 import "./styles/discover.scss";
-// import { actionsIcon } from "./Home";
 
 export const Discover = () => {
   const [open, setOpen] = useState(false);
-<<<<<<< HEAD
-  const [drawer, setDrawer] = useState(false);
-
-=======
   const [support, setSupport] = useState(false);
   const [state, setState] = useState(false);
   const [lipaFare, setLipaFare] = useState(false);
->>>>>>> 74dbe9a (Made styling UI/UX)
   const navigate = useNavigate();
   const openReceipts = () => navigate("/receipts");
 
@@ -58,59 +41,12 @@ export const Discover = () => {
   }
   const handleClose = () => setOpen(false);
 
-<<<<<<< HEAD
-  const openDrawer = () => setDrawer(true);
-  const closeDrawer = () => setDrawer(false);
-
-  const list = () => (
-    <Box
-      sx={{ width: "auto", height: 100, borderRadius: 10 }}
-      role="presentation"
-    >
-      <List className="list">
-        <ListItem className="list-item">
-          <div className="list-text">
-            <ListItemIcon>
-              <Telephone style={{ fontSize: "2rem" }} />
-            </ListItemIcon>
-            <ListItemText>
-              <span style={{ fontSize: "1.4rem" }}>Call</span>
-            </ListItemText>
-          </div>
-        </ListItem>
-
-        <ListItem className="list-item">
-          <div className="list-text">
-            <ListItemIcon>
-              <Whatsapp style={{ fontSize: "2rem" }} />
-            </ListItemIcon>
-            <ListItemText>
-              <span style={{ fontSize: "1.4rem" }}>Whatsapp</span>
-            </ListItemText>
-          </div>
-        </ListItem>
-
-        <ListItem className="list-item">
-          <div className="list-text">
-            <ListItemIcon>
-              <Envelope style={{ fontSize: "2rem" }} />
-            </ListItemIcon>
-            <ListItemText>
-              <span style={{ fontSize: "1.4rem" }}>Email</span>
-            </ListItemText>
-          </div>
-        </ListItem>
-      </List>
-    </Box>
-  );
-=======
   const handleOpenSupport = () => {
     setState(true);
   };
   const closeSupport = () => {
     setState(false);
   };
->>>>>>> 74dbe9a (Made styling UI/UX)
 
   function openLipaFare() {
     setLipaFare(true);
@@ -130,8 +66,6 @@ export const Discover = () => {
     border: "none",
     borderRadius: 5,
   };
-<<<<<<< HEAD
-=======
 
   const toggleDrawer = (open) => (event) => {
     if (
@@ -143,7 +77,6 @@ export const Discover = () => {
 
     setState(open);
   };
->>>>>>> 74dbe9a (Made styling UI/UX)
 
   function returnIcon(i) {
     if (i == 0) {
@@ -229,21 +162,6 @@ export const Discover = () => {
               <span className="actions-name">Parcels</span>
             </Link>
 
-<<<<<<< HEAD
-            <>
-              <div className="actions-card link">
-                <Send className="actions-icon" />{" "}
-                <span className="actions-name" onClick={openDrawer}>
-                  Support
-                </span>
-              </div>
-
-              {/* Dialog box for support */}
-              <Drawer anchor="bottom" open={drawer} onClose={closeDrawer}>
-                {list("bottom")}
-              </Drawer>
-            </>
-=======
             <div className="actions-card link">
               <Send className="actions-icon" />{" "}
               <span
@@ -253,7 +171,6 @@ export const Discover = () => {
                 Support
               </span>
             </div>
->>>>>>> 74dbe9a (Made styling UI/UX)
           </div>
         </div>
         <div className="foot">
