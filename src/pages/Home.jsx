@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { ContentCopy, AcUnit } from "@mui/icons-material";
+import QRCode from "react-qr-code";
+import { ContentCopy } from "@mui/icons-material";
+
+// React bootstrap icons
 import {
   Wallet,
   ArrowLeftRight,
@@ -17,9 +18,12 @@ import {
   Lightbulb,
   InfoCircle,
 } from "react-bootstrap-icons";
-import {} from "react-bootstrap-icons";
+
+// MATERIAL UI COMPONENTS
 import {
+  Avatar,
   Button,
+  Box,
   Dialog,
   DialogContent,
   DialogContentText,
@@ -27,24 +31,25 @@ import {
   TextField,
   Snackbar,
   IconButton,
+  Drawer,
 } from "@mui/material";
 import { Close } from "@mui/icons-material";
 import { Topup } from "./Topup";
 
 import "./styles/home.scss";
-import { Avatar } from "@mui/material";
+import {} from "@mui/material";
 
 export const Home = () => {
   const [showBal, setShowBal] = useState(false);
   const [copied, setCopied] = useState(false);
   const [sendFare, setSendfare] = useState(false);
+  const [drawer, setDrawer] = useState(false);
   const walletNumb = "Th9381452";
 
   const handleSendOpen = () => setSendfare(true);
   const handleSendClose = () => setSendfare(false);
   const handleCopy = () => setCopied(true);
   const handleCloseCopy = (event, reason) => {
-    // if (reason === "clickaway") return;
     setCopied(false);
   };
 
@@ -67,6 +72,34 @@ export const Home = () => {
         <Close style={{ fontSize: "16px" }} />
       </IconButton>
     </>
+  );
+
+  const handleOpenDrawer = () => setDrawer(true);
+  const handleCloseDrawer = () => setDrawer(false);
+  const toggleDrawer = (drawer, open) => setDrawer({ ...drawer, open });
+  const DrawerView = () => (
+    <Box
+      sx={{ width: 300, height: 400, borderRadius: 20, margin: "0 auto" }}
+      role="presentation"
+    >
+      <div>
+        <QRCode
+          style={{
+            height: "auto",
+            maxWidth: "100%",
+            width: "100%",
+            padding: 20,
+          }}
+          value={walletNumb}
+          viewBox={`0 0 256 256`}
+        />
+        <h1 style={{ fontFamily: "Bold" }}>Use this QR Code for Lipa fare </h1>
+        <p style={{ fontFamily: "Regular", fontSize: 13 }}>
+          A transaction will be carried out to your wallet and an SMS alert will
+          be sent to you upon successful payment
+        </p>
+      </div>
+    </Box>
   );
 
   const handleBlur = () => {
@@ -176,8 +209,14 @@ export const Home = () => {
             <div>
               <div className="actions-card actions-card__1">
                 <QrCode className="actions-icon" />{" "}
-                <span className="actions-name">Lipa Fare</span>
+                <span className="actions-name" onClick={handleOpenDrawer}>
+                  Lipa Fare
+                </span>
               </div>
+
+              <Drawer anchor="bottom" open={drawer} onClose={handleCloseDrawer}>
+                {DrawerView("bottom")}
+              </Drawer>
             </div>
 
             <div>
@@ -282,7 +321,6 @@ export const Home = () => {
             </p>
           </div>
         </div>
-        <ToastContainer />
 
         <br />
       </section>
