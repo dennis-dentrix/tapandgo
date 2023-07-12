@@ -3,7 +3,7 @@
 .account {
   margin-right: auto;
   margin-left: auto;
-  width: 50vw;
+  // width: 50vw;
   &-body {
     display: flex;
     flex-direction: column;
@@ -44,7 +44,7 @@
   }
   &-name {
     font-size: 1.3rem;
-    font-family: "Bold";
+    font-family: "Medium";
     color: $color-secondary;
 
     &__user {
@@ -60,9 +60,6 @@
       font-size: 1.6rem;
     }
   }
-}
-.divider {
-  color: $color-dark;
 }
 
 .receipt-top {

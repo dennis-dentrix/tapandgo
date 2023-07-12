@@ -32,17 +32,19 @@
 @font-face {
   font-family: "LightItalic";
   src: local("GorditaLightItalic"),
-    url("./font/Gordita-LightItalic.otf") format("truetype");
+    url("./fonts/Gordita-LightItalic.otf") format("truetype");
 }
+
 @font-face {
   font-family: "Meduim";
   src: local("GorditaMedium"),
-    url("./font/Gordita-Meduim.otf") format("truetype");
+    url("./fonts/Gordita-Medium.otf") format("truetype");
 }
+
 @font-face {
   font-family: "MediumItalic";
   src: local("GorditaMediumItalic"),
-    url("./font/Gordita-MediumItalic.otf") format("truetype");
+    url("./fonts/Gordita-MediumItalic.otf") format("truetype");
 }
 @font-face {
   font-family: "Regular";
@@ -52,7 +54,7 @@
 @font-face {
   font-family: "RegularItalic";
   src: local("GorditaRegularItalic"),
-    url("./font/Gordita-RegularItalic.otf") format("truetype");
+    url("./fonts/Gordita-RegularItalic.otf") format("truetype");
 }
 *,
 *::after,

@@ -13,6 +13,7 @@ import {
   DialogContent,
   DialogTitle,
   Button,
+  Divider,
 } from "@mui/material";
 import "./styles/account.scss";
 
@@ -48,46 +49,53 @@ export const Account = () => {
             <span onClick={handleClickOpen} style={{ fontSize: "1.4rem" }}>
               Edit
             </span>
+
             <Dialog open={open} onClose={handleClose}>
-              <DialogTitle>Edit your account details</DialogTitle>
+              <DialogTitle style={{ fontSize: "1.4rem" }}>
+                Edit your account details
+              </DialogTitle>
 
               <DialogContent>
                 <TextField
                   autoFocus
                   variant="outlined"
-                  margin="normal"
+                  margin="dense"
+                  multiline
                   id="name"
                   type="text"
                   label="Name"
                   placeholder="e.g Joe Doe"
-                  size="medium"
+                  size="normal"
                   fullWidth
-                  inputProps={{ style: { fontSize: 15 } }}
-                  InputLabelProps={{
-                    style: { fontSize: 15, color: "GrayText" },
-                  }}
+                  InputProps={{ style: { fontSize: 16 } }}
+                  InputLabelProps={{ style: { fontSize: 16 } }}
                 />
                 <TextField
                   autoFocus
                   variant="outlined"
-                  margin="normal"
+                  margin="dense"
+                  multiline
                   id="name"
                   type="text"
-                  size="medium"
+                  size="normal"
                   fullWidth
                   label="Phone Number"
                   placeholder="e.g 0712345678"
-                  inputProps={{ style: { fontSize: 15 } }}
-                  InputLabelProps={{
-                    style: { fontSize: 15, color: "GrayText" },
-                  }}
+                  InputProps={{ style: { fontSize: 16 } }}
+                  InputLabelProps={{ style: { fontSize: 16 } }}
                 />
               </DialogContent>
               <DialogActions>
-                <Button onClick={handleClose} style={{ color: "#e3762b" }}>
+                <Button
+                  onClick={handleClose}
+                  style={{ color: "#e3762b", fontSize: "1.4rem" }}
+                >
                   Cancel
                 </Button>
-                <Button onClick={handleClose} style={{ color: "#e3762b" }}>
+                <Button
+                  onClick={handleClose}
+                  style={{ color: "#e3762b", fontSize: "1.4rem" }}
+                >
                   Update
                 </Button>
               </DialogActions>
@@ -100,7 +108,7 @@ export const Account = () => {
                 <h2 className="account-name">Name</h2>
                 <p className="account-name__user">Denis Kyusya</p>
               </div>
-              <hr className="divider" />
+              <Divider />
               <div className="account-detail__name">
                 <h2 className="account-name">Phone number</h2>
                 <p className="account-name__user">0128789</p>
@@ -120,7 +128,7 @@ export const Account = () => {
                 <p className="account-name__user">denkyusya@gmail.com</p>
               </div>
 
-              <hr className="divider" />
+              <Divider />
               <div className="account-detail__name">
                 <h2 className="account-name">Account</h2>
                 <p className="account-name__user">

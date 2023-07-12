@@ -46,6 +46,7 @@
     padding: 1rem;
     margin: 0 0 1rem 0;
     width: 50vw;
+    z-index: 1;
   }
   &-space {
     position: absolute;
@@ -57,6 +58,10 @@
   }
   &-input {
     padding: 1rem;
-    background-color: black;
+    margin: 2rem 0;
+    position: absolute;
+    bottom: 15rem;
+    width: 100vw;
+    border: 1px solid $color-secondary;
   }
 }

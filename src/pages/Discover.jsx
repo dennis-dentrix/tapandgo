@@ -4,12 +4,17 @@ import {
   Box,
   Typography,
   Modal,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
+  Drawer,
+  List,
+  ListItem,
+  ListItemText,
+  ListItemIcon,
+  ListItemButton,
   Button,
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  Divider,
 } from "@mui/material";
 import payment from "../assets/payment.svg";
 import {
@@ -30,7 +35,8 @@ import "./styles/discover.scss";
 
 export const Discover = () => {
   const [open, setOpen] = useState(false);
-  const [support, setSupport] = useState(false);
+  const [drawer, setDrawer] = useState(false);
+
   const navigate = useNavigate();
   const openReceipts = () => navigate("/receipts");
 
@@ -39,12 +45,50 @@ export const Discover = () => {
   }
   const handleClose = () => setOpen(false);
 
-  const handleOpenSupport = () => {
-    setSupport(true);
-  };
-  const closeSupport = () => {
-    setSupport(false);
-  };
+  const openDrawer = () => setDrawer(true);
+  const closeDrawer = () => setDrawer(false);
+
+  const list = () => (
+    <Box
+      sx={{ width: "auto", height: 100, borderRadius: 10 }}
+      role="presentation"
+    >
+      <List className="list">
+        <ListItem className="list-item">
+          <div className="list-text">
+            <ListItemIcon>
+              <Telephone style={{ fontSize: "2rem" }} />
+            </ListItemIcon>
+            <ListItemText>
+              <span style={{ fontSize: "1.4rem" }}>Call</span>
+            </ListItemText>
+          </div>
+        </ListItem>
+
+        <ListItem className="list-item">
+          <div className="list-text">
+            <ListItemIcon>
+              <Whatsapp style={{ fontSize: "2rem" }} />
+            </ListItemIcon>
+            <ListItemText>
+              <span style={{ fontSize: "1.4rem" }}>Whatsapp</span>
+            </ListItemText>
+          </div>
+        </ListItem>
+
+        <ListItem className="list-item">
+          <div className="list-text">
+            <ListItemIcon>
+              <Envelope style={{ fontSize: "2rem" }} />
+            </ListItemIcon>
+            <ListItemText>
+              <span style={{ fontSize: "1.4rem" }}>Email</span>
+            </ListItemText>
+          </div>
+        </ListItem>
+      </List>
+    </Box>
+  );
 
   const style = {
     position: "absolute",
@@ -55,9 +99,6 @@ export const Discover = () => {
     p: 4,
     border: "none",
     borderRadius: 5,
-  };
-  const landingIcon = {
-    fontSize: "1rem",
   };
 
   return (
@@ -105,71 +146,31 @@ export const Discover = () => {
               <span className="actions-name">Parcels</span>
             </Link>
 
-            <div className="actions-card link">
-              <Send className="actions-icon" />{" "}
-              <span onClick={handleOpenSupport} className="actions-name">
-                Support
-              </span>
+            <>
+              <div className="actions-card link">
+                <Send className="actions-icon" />{" "}
+                <span className="actions-name" onClick={openDrawer}>
+                  Support
+                </span>
+              </div>
+
               {/* Dialog box for support */}
-              <Dialog
-                open={support}
-                onClose={closeSupport}
-                aria-labelledby="alert-dialog-title"
-                aria-describedby="alert-dialog-description"
-              >
-                <DialogTitle
-                  id="alert-dialog-title"
-                  sx={{ fontWeight: "bold" }}
-                >
-                  {"Reach out to us"}
-                </DialogTitle>
-                <DialogContent>
-                  <DialogContentText
-                    id="alert-dialog-description"
-                    sx={{ fontSize: 13 }}
-                  >
-                    Hello! Our team will work to get back to you within the next
-                    24 hours.
-                  </DialogContentText>
-                </DialogContent>
-                <DialogActions>
-                  <Button
-                    onClick={handleClose}
-                    sx={{ color: "#2e3532" }}
-                    className="support-reachout"
-                    autoFocus
-                  >
-                    <Envelope />
-                    <span>Email</span>
-                  </Button>
-                  <Button
-                    onClick={handleClose}
-                    sx={{ color: "#2e3532" }}
-                    className="support-reachout"
-                    autoFocus
-                  >
-                    <Telephone />
-                    <span>Phone</span>
-                  </Button>
-                  <Button
-                    onClick={handleClose}
-                    sx={{ color: "#2e3532" }}
-                    autoFocus
-                    className="support-reachout"
-                  >
-                    <Whatsapp />
-                    <span>WhatsApp</span>
-                  </Button>
-                </DialogActions>
-              </Dialog>
-            </div>
+              <Drawer anchor="bottom" open={drawer} onClose={closeDrawer}>
+                {list("bottom")}
+              </Drawer>
+            </>
           </div>
         </div>
 
         <div className="foot">
-          <Lightbulb className="actions-icon" />
+          <Lightbulb style={{ fontSize: "4rem" }} className="actions-icon" />
           <div className="foot-content">
-            <h2 className="foot-heading">Fare Points</h2>
+            <h2
+              className="foot-heading"
+              style={{ fontFamily: "Bold", fontSize: "1.4rem" }}
+            >
+              Fare Points
+            </h2>
             <p className="foot-desc">
               Enjoy a variety of discounts, verification badge and creator mode
               by having more fare points

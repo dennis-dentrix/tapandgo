@@ -14,7 +14,21 @@ import {
   ArrowClockwise,
   Eye,
   EyeSlash,
+  Lightbulb,
+  InfoCircle,
 } from "react-bootstrap-icons";
+import {} from "react-bootstrap-icons";
+import {
+  Button,
+  Dialog,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  TextField,
+  Snackbar,
+  IconButton,
+} from "@mui/material";
+import { Close } from "@mui/icons-material";
 import { Topup } from "./Topup";
 
 import "./styles/home.scss";
@@ -22,20 +36,39 @@ import { Avatar } from "@mui/material";
 
 export const Home = () => {
   const [showBal, setShowBal] = useState(false);
-  const [copied, setCopied] = useState(true);
+  const [copied, setCopied] = useState(false);
+  const [sendFare, setSendfare] = useState(false);
   const walletNumb = "Th9381452";
 
-  const notify = () => {
-    copied
-      ? toast.success("Wallet number copied succesfully", {
-          position: "bottom-right",
-        })
-      : toast.error("Error copiying. Try again!", {
-          position: "bottom-right",
-          // className: "toast-message",
-        });
+  const handleSendOpen = () => setSendfare(true);
+  const handleSendClose = () => setSendfare(false);
+  const handleCopy = () => setCopied(true);
+  const handleCloseCopy = (event, reason) => {
+    // if (reason === "clickaway") return;
     setCopied(false);
   };
+
+  const action = (
+    <>
+      <Button
+        color="secondary"
+        size="medium"
+        onClick={handleCloseCopy}
+        sx={{ fontSize: 15 }}
+      >
+        UNDO
+      </Button>
+      <IconButton
+        size="small"
+        aria-label="close"
+        color="inherit"
+        onClick={handleCloseCopy}
+      >
+        <Close style={{ fontSize: "16px" }} />
+      </IconButton>
+    </>
+  );
+
   const handleBlur = () => {
     return setShowBal((show) => !show);
   };
@@ -99,36 +132,29 @@ export const Home = () => {
                 <div className="home-card__value">
                   <h3 className="home-card__numb">{walletNumb}</h3>
 
-                  <CopyToClipboard
-                    text={walletNumb}
-                    onCopy={() => setCopied(true)}
-                  >
-                    <ContentCopy
-                      classname="actions-icon"
-                      className="home-card__icon"
-                      onClick={notify}
+                  <>
+                    <CopyToClipboard
+                      text={walletNumb}
+                      onCopy={() => setCopied(true)}
+                    >
+                      <ContentCopy
+                        classname="actions-icon"
+                        className="home-card__icon"
+                        onClick={handleCopy}
+                      />
+                    </CopyToClipboard>
+
+                    <Snackbar
+                      open={copied}
+                      autoHideDuration={2000}
+                      onClose={handleCloseCopy}
+                      message="Copied to clipboard"
+                      action={action}
                     />
-                  </CopyToClipboard>
+                  </>
                 </div>
               </div>
             </div>
-
-            {/* Download from playstore section */}
-            {/* <div className="home-app">
-              <div className="home-app__text">
-                <h2 className="home-app__heading">Get the app</h2>
-                <p className="home-app__desc">
-                  Get your wallet and start using it anytime anywhere
-                </p>
-              </div>
-              <img
-                src={img}
-                alt=""
-                className="home-app__img"
-                width={100}
-                height={100}
-              />
-            </div> */}
           </div>
 
           {/* Top up form */}
@@ -147,14 +173,84 @@ export const Home = () => {
               <span className="actions-name">Wallet Topup</span>
             </Link>
 
-            <div className="actions-card actions-card__1">
-              <QrCode className="actions-icon" />{" "}
-              <span className="actions-name">Lipa Fare</span>
+            <div>
+              <div className="actions-card actions-card__1">
+                <QrCode className="actions-icon" />{" "}
+                <span className="actions-name">Lipa Fare</span>
+              </div>
             </div>
 
-            <div className="actions-card">
-              <ArrowUpRightCircle className="actions-icon" />{" "}
-              <span className="actions-name">Send Fare</span>
+            <div>
+              <div className="actions-card" onClick={handleSendOpen}>
+                <ArrowUpRightCircle className="actions-icon" />{" "}
+                <span className="actions-name">Send Fare</span>
+              </div>
+              <Dialog open={sendFare} onClose={handleSendClose}>
+                <DialogTitle sx={{ fontSize: 18 }}>Send fare</DialogTitle>
+                <DialogContent>
+                  <DialogContentText
+                    sx={{
+                      fontSize: 15,
+                      fontFamily: "Regular",
+                      marginBottom: 3,
+                      display: "flex",
+                      alignItems: "flexstart",
+                      gap: 1,
+                    }}
+                  >
+                    <InfoCircle style={{ color: "black" }} />
+                    Enter account number & amount to be transferred
+                  </DialogContentText>
+
+                  <TextField
+                    autoFocus
+                    variant="outlined"
+                    margin="dense"
+                    multiline
+                    id="name"
+                    type="number"
+                    fullWidth
+                    label="Account Number"
+                    placeholder="e.g sukge5665"
+                    InputProps={{ style: { fontSize: 16 } }}
+                    InputLabelProps={{
+                      style: {
+                        fontSize: 16,
+                        color: "orange",
+                        outlineColor: "orange",
+                      },
+                    }}
+                  />
+                  <TextField
+                    autoFocus
+                    variant="outlined"
+                    margin="dense"
+                    multiline
+                    id="name"
+                    type="text"
+                    fullWidth
+                    label="Amount"
+                    placeholder="e.g 1000"
+                    InputProps={{ style: { fontSize: 16 } }}
+                    InputLabelProps={{ style: { fontSize: 16 } }}
+                  />
+
+                  <Button
+                    variant="contained"
+                    onClick={handleSendClose}
+                    sx={{
+                      bgcolor: "orange",
+                      fontSize: 15,
+                      width: "auto",
+                      marginTop: 3,
+                      borderRadius: 2,
+                      float: "Right",
+                    }}
+                  >
+                    Send fare
+                  </Button>
+                </DialogContent>
+              </Dialog>
             </div>
 
             <div className="actions-card">
@@ -175,9 +271,11 @@ export const Home = () => {
         </div>
 
         <div className="foot">
-          <AcUnit className="actions-icon" />
+          <Lightbulb style={{ fontSize: "4rem" }} className="actions-icon" />
           <div className="foot-content">
-            <h2 className="foot-heading">Simple Smart Life</h2>
+            <h2 className="foot-heading" style={{ fontSize: "1.4rem" }}>
+              Simple Smart Life
+            </h2>
             <p className="foot-desc">
               Acess limitless capabilities of cashless matatu payment anytime,
               anywhere with anyone
