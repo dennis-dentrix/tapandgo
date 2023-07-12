@@ -34,7 +34,7 @@ import {
   Drawer,
 } from "@mui/material";
 import { Close } from "@mui/icons-material";
-import { Topup } from "./Topup";
+// import { Topup } from "./Topup";
 
 import "./styles/home.scss";
 import {} from "@mui/material";
@@ -43,11 +43,18 @@ export const Home = () => {
   const [showBal, setShowBal] = useState(false);
   const [copied, setCopied] = useState(false);
   const [sendFare, setSendfare] = useState(false);
+  const [wallet, setWallet] = useState(false);
   const [drawer, setDrawer] = useState(false);
+  const [kopaFare, setKopafare] = useState(false);
   const walletNumb = "Th9381452";
 
   const handleSendOpen = () => setSendfare(true);
   const handleSendClose = () => setSendfare(false);
+  const handleOpenWallet = () => setWallet(true);
+  const handleCloseWallet = () => setWallet(false);
+  const openKopa = () => setKopafare(true);
+  const closeKopa = () => setKopafare(false);
+
   const handleCopy = () => setCopied(true);
   const handleCloseCopy = (event, reason) => {
     setCopied(false);
@@ -74,12 +81,27 @@ export const Home = () => {
     </>
   );
 
+  // For kopa fare snackbar
+  const kopaAction = (
+    <>
+      <Button
+        color="secondary"
+        size="medium"
+        onClick={handleCloseCopy}
+        sx={{ fontSize: 15 }}
+      >
+        Dismiss
+      </Button>
+    </>
+  );
+
   const handleOpenDrawer = () => setDrawer(true);
   const handleCloseDrawer = () => setDrawer(false);
-  const toggleDrawer = (drawer, open) => setDrawer({ ...drawer, open });
+
+  // Drawer content for QRCode
   const DrawerView = () => (
     <Box
-      sx={{ width: 300, height: 400, borderRadius: 20, margin: "0 auto" }}
+      sx={{ width: 300, height: 475, borderRadius: 20, margin: "0 auto" }}
       role="presentation"
     >
       <div>
@@ -89,6 +111,7 @@ export const Home = () => {
             maxWidth: "100%",
             width: "100%",
             padding: 20,
+            marginBottom: 30,
           }}
           value={walletNumb}
           viewBox={`0 0 256 256`}
@@ -112,9 +135,10 @@ export const Home = () => {
     let greeting;
     if (hrs >= 0 && hrs < 12) {
       greeting = "Good morning";
-    } else if (hrs >= 12 && hrs < 6) {
+    } else if (hrs > 13 && hrs < 18) {
       greeting = "Good afternoon";
-    } else if (hrs >= 6 && hrs < 0) {
+    } else if (hrs > 19 && hrs < 0) {
+      console.log(hrs);
       greeting = "Good Evening";
     }
     return greeting;
@@ -191,9 +215,9 @@ export const Home = () => {
           </div>
 
           {/* Top up form */}
-          <div className="home-form">
+          {/* <div className="home-form">
             <Topup />
-          </div>
+          </div> */}
 
           {/* <div>
             <Topup />
@@ -205,11 +229,84 @@ export const Home = () => {
           <h1 className="actions-title">Quick actions</h1>
 
           <div className="actions-container">
-            <Link to="topup" className="actions-card link">
-              <Wallet className="actions-icon" />{" "}
-              <span className="actions-name">Wallet Topup</span>
-            </Link>
+            {/* Wallet topup */}
+            <div>
+              <div className="actions-card link" onClick={handleOpenWallet}>
+                <Wallet className="actions-icon" />{" "}
+                <span className="actions-name">Wallet Topup</span>
+              </div>
 
+              <Dialog open={wallet} onClose={handleCloseWallet}>
+                <DialogTitle sx={{ fontSize: 18 }}>
+                  Topup with Mpesa
+                </DialogTitle>
+                <DialogContent>
+                  <DialogContentText
+                    sx={{
+                      fontSize: 15,
+                      fontFamily: "Regular",
+                      marginBottom: 3,
+                      display: "flex",
+                      alignItems: "flexstart",
+                      gap: 1,
+                    }}
+                  >
+                    <InfoCircle style={{ color: "black" }} />
+                    Enter account number & amount to be topup fare
+                  </DialogContentText>
+
+                  <TextField
+                    autoFocus
+                    variant="outlined"
+                    margin="dense"
+                    multiline
+                    id="name"
+                    type="number"
+                    fullWidth
+                    label="Phone Number"
+                    placeholder="e.g 07012345678"
+                    InputProps={{ style: { fontSize: 16 } }}
+                    InputLabelProps={{
+                      style: {
+                        fontSize: 16,
+                        color: "orange",
+                        outlineColor: "orange",
+                      },
+                    }}
+                  />
+                  <TextField
+                    autoFocus
+                    variant="outlined"
+                    margin="dense"
+                    multiline
+                    id="name"
+                    type="text"
+                    fullWidth
+                    label="Amount"
+                    placeholder="e.g 1000"
+                    InputProps={{ style: { fontSize: 16 } }}
+                    InputLabelProps={{ style: { fontSize: 16 } }}
+                  />
+
+                  <Button
+                    variant="contained"
+                    onClick={handleCloseWallet}
+                    sx={{
+                      bgcolor: "orange",
+                      fontSize: 15,
+                      width: "auto",
+                      marginTop: 3,
+                      borderRadius: 2,
+                      float: "Right",
+                    }}
+                  >
+                    Topup fare
+                  </Button>
+                </DialogContent>
+              </Dialog>
+            </div>
+
+            {/* Lipa fare */}
             <div>
               <div className="actions-card actions-card__1">
                 <QrCode className="actions-icon" />{" "}
@@ -223,6 +320,7 @@ export const Home = () => {
               </Drawer>
             </div>
 
+            {/* Send fare */}
             <div>
               <div className="actions-card" onClick={handleSendOpen}>
                 <ArrowUpRightCircle className="actions-icon" />{" "}
@@ -296,20 +394,41 @@ export const Home = () => {
               </Dialog>
             </div>
 
-            <div className="actions-card">
-              <ArrowDownLeftCircle className="actions-icon" />{" "}
-              <span className="actions-name">Receive Fare</span>
+            {/* Receive fare */}
+            <div>
+              <div className="actions-card" onClick={handleOpenDrawer}>
+                <ArrowDownLeftCircle className="actions-icon" />{" "}
+                <span className="actions-name">Receive Fare</span>
+              </div>
+              <Drawer anchor="bottom" open={drawer} onClose={handleCloseDrawer}>
+                {DrawerView("bottom")}
+              </Drawer>
             </div>
 
-            <div className="actions-card">
-              <ArrowLeftRight className="actions-icon" />{" "}
-              <span className="actions-name">Kopa Fare</span>
-            </div>
+            {/* Kopa fare */}
+            <>
+              <div className="actions-card" onClick={openKopa}>
+                <ArrowLeftRight className="actions-icon" />{" "}
+                <span className="actions-name">Kopa Fare</span>
+              </div>
 
-            <Link to="forum" className="actions-card link">
-              <Chat className="actions-icon" />{" "}
-              <span className="actions-name">Forum</span>
-            </Link>
+              <Snackbar
+                open={kopaFare}
+                autoHideDuration={6000}
+                onClose={closeKopa}
+                message="You are not eligible for kopa fare"
+                action={kopaAction}
+                sx={{ fontSize: 20 }}
+              />
+            </>
+
+            {/* Forum */}
+            <div>
+              <Link to="forum" className="actions-card link">
+                <Chat className="actions-icon" />{" "}
+                <span className="actions-name">Forum</span>
+              </Link>
+            </div>
           </div>
         </div>
 

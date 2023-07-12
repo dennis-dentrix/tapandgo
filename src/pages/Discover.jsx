@@ -147,10 +147,49 @@ export const Discover = () => {
               </Box>
             </Modal>
 
-            <Link className="actions-card link">
-              <QrCode className="actions-icon" />{" "}
-              <span className="actions-name">Pay Goods</span>
-            </Link>
+            <div>
+              <div className="actions-card link" onClick={openLipaFare}>
+                <QrCode className="actions-icon" />{" "}
+                <span className="actions-name">Pay Goods</span>
+              </div>
+              <Drawer anchor={"bottom"} open={lipaFare} onClose={closeLipaFare}>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    height: "70vh",
+                  }}
+                >
+                  <div>
+                    <QRCode value="hey" />
+
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        marginTop: "10vh",
+                      }}
+                    >
+                      <h1>Use this QR Code for Pay goods</h1>
+                      <p
+                        style={{
+                          fontSize: "1.4rem",
+                          textAlign: "center",
+                          marginTop: ".4rem",
+                        }}
+                      >
+                        A transaction will be carried out to your <br /> wallet
+                        and an SMS alert will be sent upon <br /> successfull
+                        payment.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </Drawer>
+            </div>
 
             <Link className="actions-card link">
               <BarChart className="actions-icon" />{" "}
