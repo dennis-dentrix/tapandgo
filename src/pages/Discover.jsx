@@ -66,10 +66,11 @@ export const Discover = () => {
   const openReceipt = () => setReceipt(true);
   const closeReceipt = () => setReceipt(false);
   let date = new Date().toDateString();
+
   const ReceiptView = () => (
     <Box
       sx={{
-        height: 500,
+        height: 580,
         width: 400,
         padding: "2rem",
       }}
@@ -85,13 +86,19 @@ export const Discover = () => {
             alignItems: "center",
           }}
         >
-          <CloseOutlined sx={{ fontSize: "2rem" }} onClick={closeReceipt} />
+          <CloseOutlined
+            sx={{ fontSize: "2.2rem", color: "#2e3532" }}
+            onClick={closeReceipt}
+          />
           Receipts{" "}
         </h1>
+
         <List style={{ width: "100%" }}>
           <ListItem style={{ padding: "0px", width: "100%" }}>
             <ListItemIcon>
-              <Avatar sx={{ bgcolor: "#e3762b" }}>DK</Avatar>
+              <Avatar sx={{ bgcolor: "#e3762b", fontFamily: "Regular" }}>
+                DK
+              </Avatar>
             </ListItemIcon>
             <div
               style={{
@@ -103,13 +110,20 @@ export const Discover = () => {
               }}
             >
               <div>
-                <h2 className="id">TG#739619</h2>
-                <p className="date">{date}</p>
+                <h2 className="id" style={{ fontFamily: "Regular" }}>
+                  TG#739619
+                </h2>
+                <p
+                  className="date"
+                  style={{ fontFamily: "Light", fontSize: 13 }}
+                >
+                  {date}
+                </p>
               </div>
 
               <div>
-                <h2>KES. 100.00</h2>
-                <p>COMPLETED</p>
+                <h2 style={{ fontFamily: "Regular" }}>KES. 100.00</h2>
+                <p style={{ fontFamily: "Light", fontSize: 13 }}>COMPLETED</p>
               </div>
             </div>
           </ListItem>
@@ -204,13 +218,13 @@ export const Discover = () => {
                 aria-labelledby="alert-dialog-title"
                 aria-describedby="alert-dialog-description"
               >
-                <DialogTitle style={{ fontSize: 18 }}>
+                <DialogTitle style={{ fontSize: 18, fontFamily: "Bold" }}>
                   {"Fare points"}
                 </DialogTitle>
                 <DialogContent>
                   <DialogContentText
                     id="alert-dialog-slide-description"
-                    style={{ fontSize: 14 }}
+                    style={{ fontSize: 14, fontFamily: "Regular" }}
                   >
                     Your Tap&go Rider points are 10. Ride more with Tap&go to
                     earn more points.
@@ -219,7 +233,11 @@ export const Discover = () => {
                 <DialogActions>
                   <Button
                     onClick={closeFarepoints}
-                    style={{ fontSize: 14, color: "#e3762b" }}
+                    style={{
+                      fontSize: 14,
+                      fontFamily: "Light",
+                      color: "#e3762b",
+                    }}
                   >
                     Ok
                   </Button>

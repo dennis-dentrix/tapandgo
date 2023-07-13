@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
+// React bootstrap icons
 import {
   ArrowClockwise,
   InfoCircle,
@@ -9,13 +10,16 @@ import {
   PencilSquare,
   Pencil,
 } from "react-bootstrap-icons";
+
+// Material ui components
 import {
-  Modal,
-  Box,
   Button,
-  Typography,
   DialogActions,
   Avatar,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogContentText,
 } from "@mui/material";
 import "./styles/settings.scss";
 
@@ -28,19 +32,6 @@ export const Settings = () => {
   const handleEdit = (e) => {
     e.preventDefault();
     navigate("/account");
-  };
-
-  const modalStyle = {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    width: 250,
-    bgcolor: "background.paper",
-    border: "1px solid #696s047",
-    borderRadius: 3,
-
-    p: 2,
   };
 
   const listStyle = {
@@ -80,256 +71,316 @@ export const Settings = () => {
             </div>
           </div>
 
-          <h3
-            className="settings-name"
-            style={{
-              fontSize: "1.4rem",
-              marginBottom: "1.3rem",
-              fontFamily: "Bold",
-            }}
-          >
-            Common
-          </h3>
-          <div className="settings-common">
-            <ul className="settings-list">
-              <li className="settings-item" style={listStyle}>
-                <PencilSquare
-                  className="actions-icon"
-                  sx={{ fontSize: 18 }}
-                  style={{ marginRight: "1rem" }}
-                />
-                <span className="settings-item__desc">
-                  <h3 className="settings-item__name" style={heading}>
-                    Rate & Review us
-                  </h3>
-                  <p className="settings-item__about">Give us your feedback</p>
-                </span>
-              </li>
-
-              <li className="settings-item" style={listStyle}>
-                <ArrowClockwise
-                  className="actions-icon"
-                  sx={{ fontSize: 18 }}
-                  style={{ marginRight: "1rem" }}
-                />
-                <span className="settings-item__desc">
-                  <h3 className="settings-item__name" style={heading}>
-                    Check for Updates
-                  </h3>
-                  <p className="settings-item__about">
-                    Update to our latest release
-                  </p>
-                </span>
-              </li>
-              <div>
-                <li
-                  className="settings-item"
-                  onClick={handleOpenAbout}
-                  style={listStyle}
-                >
-                  <InfoCircle
+          {/* Common Setting */}
+          <>
+            <h3
+              className="settings-name"
+              style={{
+                fontSize: "1.4rem",
+                marginBottom: "1.3rem",
+                fontFamily: "Bold",
+              }}
+            >
+              Common
+            </h3>
+            <div className="settings-common">
+              <ul className="settings-list">
+                {/* Rate & Review */}
+                <li className="settings-item" style={listStyle}>
+                  <PencilSquare
                     className="actions-icon"
                     sx={{ fontSize: 18 }}
                     style={{ marginRight: "1rem" }}
                   />
                   <span className="settings-item__desc">
                     <h3 className="settings-item__name" style={heading}>
-                      About
+                      Rate & Review us
                     </h3>
-                    <p className="settings-item__about">V 1.0</p>
+                    <p className="settings-item__about">
+                      Give us your feedback
+                    </p>
                   </span>
                 </li>
 
-                <Modal
-                  open={about}
-                  onClose={handleCloseAbout}
-                  aria-labelledby="modal-modal-title"
-                  aria-describedby="modal-modal-description"
-                >
-                  <Box sx={modalStyle}>
-                    <Typography
-                      id="modal-modal-title"
-                      variant="h5"
-                      component="h2"
-                      sx={{ fontWeight: "bold", fontSize: "12px" }}
-                    >
-                      Tap&Go-KE
-                    </Typography>
-                    <Typography
-                      id="modal-modal-description"
-                      sx={{ mt: 2, fontSize: "10px" }}
-                    >
-                      The latest version from our developers
-                    </Typography>
-                    <DialogActions>
-                      <Button
-                        onClick={handleCloseAbout}
-                        style={{ color: "#e3762b" }}
-                      >
-                        Cancel
-                      </Button>
-                      <Button
-                        onClick={handleCloseAbout}
-                        style={{ color: "#e3762b" }}
-                      >
-                        Ok
-                      </Button>
-                    </DialogActions>
-                  </Box>
-                </Modal>
-              </div>
-            </ul>
-          </div>
-
-          <h3
-            className="settings-name"
-            style={{
-              fontSize: "1.4rem",
-              marginBottom: "1.3rem",
-              fontFamily: "Bold",
-            }}
-          >
-            Account
-          </h3>
-          <div className="settings-account">
-            <ul className="settings-list">
-              <div
-                onClick={handleEdit}
-                className="settings-item link"
-                style={listStyle}
-              >
-                <Pencil
-                  className="actions-icon"
-                  sx={{ fontSize: 18 }}
-                  style={{ marginRight: "1rem" }}
-                />
-                <span className="settings-item__desc">
-                  <h3 className="settings-item__name" style={heading}>
-                    Edit account
-                  </h3>
-                  <p className="settings-item__about">
-                    Edit your account details
-                  </p>
-                </span>
-              </div>
-
-              <div>
-                <div
-                  className="settings-item"
-                  onClick={handleOpen}
-                  style={listStyle}
-                >
-                  <BoxArrowRight
+                {/* Check for updates */}
+                <li className="settings-item" style={listStyle}>
+                  <ArrowClockwise
                     className="actions-icon"
                     sx={{ fontSize: 18 }}
                     style={{ marginRight: "1rem" }}
                   />
                   <span className="settings-item__desc">
                     <h3 className="settings-item__name" style={heading}>
-                      Log Out
+                      Check for Updates
                     </h3>
                     <p className="settings-item__about">
-                      Log out from your account
+                      Update to our latest release
                     </p>
                   </span>
-                </div>
-                <Modal
-                  open={open}
-                  onClose={handleClose}
-                  aria-labelledby="modal-modal-title"
-                  aria-describedby="modal-modal-description"
-                >
-                  <Box sx={modalStyle}>
-                    <Typography
-                      id="modal-modal-title"
-                      variant="h5"
-                      component="h2"
-                      sx={{ fontWeight: "bold", fontSize: "12px" }}
-                    >
-                      Log out
-                    </Typography>
-                    <Typography
-                      id="modal-modal-description"
-                      sx={{ mt: 2, fontSize: "10px" }}
-                    >
-                      Your account will be temporarily disabled. You can log
-                      back in
-                    </Typography>
-                    <DialogActions>
-                      <Button
-                        onClick={handleClose}
-                        style={{ color: "#e3762b" }}
-                      >
-                        Cancel
-                      </Button>
-                      <Button
-                        onClick={handleClose}
-                        style={{ color: "#e3762b" }}
-                      >
-                        Ok
-                      </Button>
-                    </DialogActions>
-                  </Box>
-                </Modal>
-              </div>
+                </li>
 
-              <div>
-                <div
-                  className="settings-item"
-                  onClick={handleOpenDelete}
-                  style={listStyle}
-                >
-                  <Trash
-                    className="actions-icon"
-                    sx={{ fontSize: 18 }}
-                    style={{ marginRight: "1rem" }}
-                  />
-                  <span className="settings-item__desc">
-                    <h3 className="settings-item__name" style={heading}>
-                      Delete account
-                    </h3>
-                    <p className="settings-item__about">
-                      Your account will be permenetly deleted
-                    </p>
-                  </span>
-                </div>
-                <Modal
-                  open={del}
-                  onClose={handleCloseDelete}
-                  aria-labelledby="modal-modal-title"
-                  aria-describedby="modal-modal-description"
-                >
-                  <Box sx={modalStyle}>
-                    <Typography
-                      id="modal-modal-title"
-                      variant="h5"
-                      component="h2"
-                      sx={{ fontWeight: "bold" }}
-                    >
-                      Delete account
-                    </Typography>
-                    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                      Are you sure you want to permenently delete your account?
-                    </Typography>
+                {/* About setting */}
+                <>
+                  <li
+                    className="settings-item"
+                    onClick={handleOpenAbout}
+                    style={listStyle}
+                  >
+                    <InfoCircle
+                      className="actions-icon"
+                      sx={{ fontSize: 18 }}
+                      style={{ marginRight: "1rem" }}
+                    />
+                    <span className="settings-item__desc">
+                      <h3 className="settings-item__name" style={heading}>
+                        About
+                      </h3>
+                      <p className="settings-item__about">V 1.0</p>
+                    </span>
+                  </li>
+
+                  <Dialog
+                    open={about}
+                    onClose={handleCloseAbout}
+                    aria-labelledby="alert-dialog-title"
+                    aria-describedby="alert-dialog-description"
+                  >
+                    <DialogTitle style={{ fontSize: 18, fontFamily: "Bold" }}>
+                      {"About"}
+                    </DialogTitle>
+                    <DialogContent>
+                      <DialogContentText
+                        id="alert-dialog-slide-description"
+                        style={{ fontSize: 14, fontFamily: "Regular" }}
+                      >
+                        This is the latest version from our developers
+                      </DialogContentText>
+                    </DialogContent>
                     <DialogActions>
                       <Button
-                        onClick={handleCloseDelete}
-                        style={{ color: "#e3762b" }}
-                      >
-                        Cancel
-                      </Button>
-                      <Button
-                        onClick={handleCloseDelete}
-                        style={{ color: "#e3762b" }}
+                        onClick={handleCloseAbout}
+                        style={{
+                          fontSize: 14,
+                          fontFamily: "Light",
+                          color: "#e3762b",
+                        }}
                       >
                         Ok
                       </Button>
                     </DialogActions>
-                  </Box>
-                </Modal>
-              </div>
-            </ul>
-          </div>
+                  </Dialog>
+                </>
+              </ul>
+            </div>
+          </>
+
+          {/* Account settings */}
+          <>
+            <h3
+              className="settings-name"
+              style={{
+                fontSize: "1.4rem",
+                marginBottom: "1.3rem",
+                fontFamily: "Bold",
+              }}
+            >
+              Account
+            </h3>
+
+            <div className="settings-account">
+              <ul className="settings-list">
+                {/* Edit Account */}
+                <>
+                  <div
+                    onClick={handleEdit}
+                    className="settings-item link"
+                    style={listStyle}
+                  >
+                    <Pencil
+                      className="actions-icon"
+                      sx={{ fontSize: 18 }}
+                      style={{ marginRight: "1rem" }}
+                    />
+                    <span className="settings-item__desc">
+                      <h3 className="settings-item__name" style={heading}>
+                        Edit account
+                      </h3>
+                      <p className="settings-item__about">
+                        Edit your account details
+                      </p>
+                    </span>
+                  </div>
+                </>
+
+                {/* Log out */}
+                <div>
+                  <div
+                    className="settings-item"
+                    onClick={handleOpen}
+                    style={listStyle}
+                  >
+                    <BoxArrowRight
+                      className="actions-icon"
+                      sx={{ fontSize: 18 }}
+                      style={{ marginRight: "1rem" }}
+                    />
+                    <span className="settings-item__desc">
+                      <h3 className="settings-item__name" style={heading}>
+                        Log Out
+                      </h3>
+                      <p className="settings-item__about">
+                        Log out from your account
+                      </p>
+                    </span>
+                  </div>
+
+                  <Dialog
+                    open={open}
+                    onClose={handleClose}
+                    aria-labelledby="alert-dialog-title"
+                    aria-describedby="alert-dialog-description"
+                  >
+                    <DialogTitle style={{ fontSize: 18, fontFamily: "Bold" }}>
+                      {"Log out"}
+                    </DialogTitle>
+                    <DialogContent>
+                      <DialogContentText
+                        id="alert-dialog-slide-description"
+                        style={{ fontSize: 14, fontFamily: "Regular" }}
+                      >
+                        Your account will be temporarily disabled. You can log
+                        back in
+                      </DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
+                      <Button
+                        onClick={handleClose}
+                        style={{
+                          fontSize: 14,
+                          fontFamily: "Light",
+                        }}
+                        variant="contained"
+                        color="warning"
+                      >
+                        Logout
+                      </Button>
+                      <Button
+                        onClick={handleClose}
+                        style={{
+                          fontSize: 14,
+                          fontFamily: "Light",
+                        }}
+                        variant="contained"
+                      >
+                        Cancel
+                      </Button>
+                    </DialogActions>
+                  </Dialog>
+                </div>
+
+                {/* Delete Account */}
+                <div>
+                  <div
+                    className="settings-item"
+                    onClick={handleOpenDelete}
+                    style={listStyle}
+                  >
+                    <Trash
+                      className="actions-icon"
+                      sx={{ fontSize: 18 }}
+                      style={{ marginRight: "1rem" }}
+                    />
+                    <span className="settings-item__desc">
+                      <h3 className="settings-item__name" style={heading}>
+                        Delete account
+                      </h3>
+                      <p className="settings-item__about">
+                        Your account will be permenetly deleted
+                      </p>
+                    </span>
+                  </div>
+                  {/* <Modal
+                    open={del}
+                    onClose={handleCloseDelete}
+                    aria-labelledby="modal-modal-title"
+                    aria-describedby="modal-modal-description"
+                  >
+                    <Box sx={modalStyle}>
+                      <Typography
+                        id="modal-modal-title"
+                        variant="h5"
+                        component="h2"
+                        sx={{ fontWeight: "bold" }}
+                      >
+                        Delete account
+                      </Typography>
+                      <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                        Are you sure you want to permenently delete your
+                        account?
+                      </Typography>
+                      <DialogActions>
+                        <Button
+                          onClick={handleCloseDelete}
+                          style={{ color: "#e3762b" }}
+                        >
+                          Cancel
+                        </Button>
+                        <Button
+                          onClick={handleCloseDelete}
+                          style={{ color: "#e3762b" }}
+                        >
+                          Ok
+                        </Button>
+                      </DialogActions>
+                    </Box>
+                  </Modal> */}
+                  <Dialog
+                    open={del}
+                    onClose={handleCloseDelete}
+                    aria-labelledby="alert-dialog-title"
+                    aria-describedby="alert-dialog-description"
+                  >
+                    <DialogTitle style={{ fontSize: 18, fontFamily: "Bold" }}>
+                      {"Delete Account"}
+                    </DialogTitle>
+                    <DialogContent>
+                      <DialogContentText
+                        id="alert-dialog-slide-description"
+                        style={{ fontSize: 14, fontFamily: "Regular" }}
+                      >
+                        Are you sure you want to permenently delete your
+                        account?
+                      </DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
+                      <Button
+                        onClick={handleCloseDelete}
+                        style={{
+                          fontSize: 14,
+                          fontFamily: "Light",
+                        }}
+                        variant="contained"
+                        color="warning"
+                      >
+                        Delete
+                      </Button>
+
+                      <Button
+                        onClick={handleCloseDelete}
+                        style={{
+                          fontSize: 14,
+                          fontFamily: "Light",
+                        }}
+                        variant="contained"
+                      >
+                        Cancel
+                      </Button>
+                    </DialogActions>
+                  </Dialog>
+                </div>
+              </ul>
+            </div>
+          </>
         </div>
       </section>
     </main>

@@ -1,13 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  ArrowBackOutlined,
-  ToggleOffOutlined,
-  CheckCircleOutline,
-} from "@mui/icons-material";
+import { CssTextField } from "./Home";
+import { ToggleOffOutlined, CheckCircleOutline } from "@mui/icons-material";
 import { ChevronLeft } from "react-bootstrap-icons";
+
 import {
-  TextField,
   Dialog,
   DialogActions,
   DialogContent,
@@ -34,11 +31,14 @@ export const Account = () => {
     <main className="main">
       <section className="account">
         <div className="receipt-top">
-          <ChevronLeft style={{ fontSize: "1.8rem" }} onClick={handleSetting} />
+          <ChevronLeft
+            style={{ fontSize: "1.7rem", color: "#2e3532" }}
+            onClick={handleSetting}
+          />
 
           <h1
             className="receipt-heading"
-            style={{ fontSize: "1.5rem", fontFamily: "Regular" }}
+            style={{ fontSize: "1.6rem", fontFamily: "Regular" }}
           >
             Account
           </h1>
@@ -46,17 +46,17 @@ export const Account = () => {
 
         <div className="account-body">
           <div className="account-edit">
-            <span onClick={handleClickOpen} style={{ fontSize: "1.4rem" }}>
+            <span onClick={handleClickOpen} style={{ fontSize: "1.6rem" }}>
               Edit
             </span>
 
             <Dialog open={open} onClose={handleClose}>
-              <DialogTitle style={{ fontSize: "1.4rem" }}>
+              <DialogTitle style={{ fontSize: 18, fontFamily: "Bold" }}>
                 Edit your account details
               </DialogTitle>
 
               <DialogContent>
-                <TextField
+                <CssTextField
                   autoFocus
                   variant="outlined"
                   margin="dense"
@@ -67,10 +67,12 @@ export const Account = () => {
                   placeholder="e.g Joe Doe"
                   size="normal"
                   fullWidth
-                  InputProps={{ style: { fontSize: 16 } }}
-                  InputLabelProps={{ style: { fontSize: 16 } }}
+                  InputProps={{ style: { fontSize: 16, fontFamily: "Light" } }}
+                  InputLabelProps={{
+                    style: { fontSize: 16, fontFamily: "Regular" },
+                  }}
                 />
-                <TextField
+                <CssTextField
                   autoFocus
                   variant="outlined"
                   margin="dense"
@@ -81,8 +83,10 @@ export const Account = () => {
                   fullWidth
                   label="Phone Number"
                   placeholder="e.g 0712345678"
-                  InputProps={{ style: { fontSize: 16 } }}
-                  InputLabelProps={{ style: { fontSize: 16 } }}
+                  InputProps={{ style: { fontSize: 16, fontFamily: "Light" } }}
+                  InputLabelProps={{
+                    style: { fontSize: 16, fontFamily: "Regular" },
+                  }}
                 />
               </DialogContent>
               <DialogActions>
@@ -94,7 +98,8 @@ export const Account = () => {
                 </Button>
                 <Button
                   onClick={handleClose}
-                  style={{ color: "#e3762b", fontSize: "1.4rem" }}
+                  style={{ fontSize: "1.4rem" }}
+                  color="success"
                 >
                   Update
                 </Button>
@@ -148,9 +153,16 @@ export const Account = () => {
             <h3 className="account-detail__title">Mode</h3>
             <div className="account-detail">
               <div className="account-detail__name">
-                <h2 className="account-name">Creator mode</h2>
+                <h2
+                  className="account-name"
+                  style={{ fontFamily: "Bold", fontSize: "1.6rem" }}
+                >
+                  Creator mode
+                </h2>
                 <p className="account-name__user">
-                  <ToggleOffOutlined />
+                  <ToggleOffOutlined
+                    style={{ fontSize: "3rem", color: "#e3762b" }}
+                  />
                 </p>
               </div>
               <p className="account-mode">

@@ -40,7 +40,7 @@ import { styled } from "@mui/material/styles";
 
 import "./styles/home.scss";
 
-const CssTextField = styled(TextField)({
+export const CssTextField = styled(TextField)({
   "& label.Mui-focused": {
     color: "#e3762b",
   },
@@ -120,7 +120,7 @@ export const Home = () => {
         color="secondary"
         size="medium"
         onClick={handleCloseCopy}
-        sx={{ fontSize: 15, color: "#e3762b" }}
+        sx={{ fontSize: 15, color: "#e3762b", fontFamily: "Regular" }}
       >
         Dismiss
       </Button>
@@ -191,7 +191,10 @@ export const Home = () => {
           <div className="home-landing__content">
             <div className="home-card ">
               <div className="home-card__view">
-                <p className="home-card__text">
+                <p
+                  className="home-card__text"
+                  style={{ fontFamily: "Regular" }}
+                >
                   Balance
                   <span className="hide" onClick={handleBlur}>
                     {showBal ? (
@@ -216,7 +219,12 @@ export const Home = () => {
               <div className="home-card__wallet">
                 <p className="home-card__text">Wallet number</p>
                 <div className="home-card__value">
-                  <h3 className="home-card__numb">{walletNumb}</h3>
+                  <h3
+                    className="home-card__numb"
+                    style={{ fontSize: "1.4rem" }}
+                  >
+                    {walletNumb}
+                  </h3>
 
                   <>
                     <CopyToClipboard
@@ -227,6 +235,7 @@ export const Home = () => {
                         classname="actions-icon"
                         className="home-card__icon"
                         onClick={handleCopy}
+                        style={{ fontSize: "2rem" }}
                       />
                     </CopyToClipboard>
 
@@ -259,14 +268,14 @@ export const Home = () => {
 
           <div className="actions-container">
             {/* Wallet topup */}
-            <div>
+            <>
               <div className="actions-card link" onClick={handleOpenWallet}>
                 <Wallet className="actions-icon" />{" "}
                 <span className="actions-name">Wallet Topup</span>
               </div>
 
               <Dialog open={wallet} onClose={handleCloseWallet}>
-                <DialogTitle sx={{ fontSize: 18 }}>
+                <DialogTitle sx={{ fontSize: 18, fontFamily: "Bold" }}>
                   Topup with Mpesa
                 </DialogTitle>
                 <DialogContent>
@@ -284,7 +293,7 @@ export const Home = () => {
                       style={{ color: "#e3762b", fontSize: "2rem" }}
                     />
                     <p style={{ color: "#2e3532" }}>
-                      Enter account number & amount to be topup fare
+                      Enter phone number & amount to be topup fare
                     </p>
                   </DialogContentText>
 
@@ -299,11 +308,12 @@ export const Home = () => {
                     label="Phone Number"
                     placeholder="e.g 07012345678"
                     InputProps={{
-                      style: { fontSize: 16 },
+                      style: { fontSize: 16, fontFamily: "Light" },
                     }}
                     InputLabelProps={{
                       style: {
                         fontSize: 16,
+                        fontFamily: "Regular",
                       },
                     }}
                     className="textfield"
@@ -319,9 +329,11 @@ export const Home = () => {
                     fullWidth
                     label="Amount"
                     placeholder="e.g 1000"
-                    InputProps={{ style: { fontSize: 16 } }}
+                    InputProps={{
+                      style: { fontSize: 16, fontFamily: "Light" },
+                    }}
                     InputLabelProps={{
-                      style: { fontSize: 16 },
+                      style: { fontSize: 16, fontFamily: "Regular" },
                     }}
                   />
 
@@ -331,6 +343,7 @@ export const Home = () => {
                     sx={{
                       bgcolor: "#e3762b",
                       fontSize: 15,
+                      fontFamily: "Light",
                       width: "auto",
                       marginTop: 3,
                       borderRadius: 2,
@@ -341,7 +354,7 @@ export const Home = () => {
                   </Button>
                 </DialogContent>
               </Dialog>
-            </div>
+            </>
 
             {/* Lipa fare */}
             <div>
@@ -358,13 +371,15 @@ export const Home = () => {
             </div>
 
             {/* Send fare */}
-            <div>
+            <>
               <div className="actions-card" onClick={handleSendOpen}>
                 <ArrowUpRightCircle className="actions-icon" />{" "}
                 <span className="actions-name">Send Fare</span>
               </div>
               <Dialog open={sendFare} onClose={handleSendClose}>
-                <DialogTitle sx={{ fontSize: 18 }}>Send fare</DialogTitle>
+                <DialogTitle sx={{ fontSize: 18, fontFamily: "Bold" }}>
+                  Send fare
+                </DialogTitle>
                 <DialogContent>
                   <DialogContentText
                     sx={{
@@ -376,7 +391,9 @@ export const Home = () => {
                       gap: 1,
                     }}
                   >
-                    <InfoCircle style={{ color: "black" }} />
+                    <InfoCircle
+                      style={{ color: "#e3762b", fontSize: "2rem" }}
+                    />
                     Enter account number & amount to be transferred
                   </DialogContentText>
 
@@ -390,10 +407,13 @@ export const Home = () => {
                     fullWidth
                     label="Account Number"
                     placeholder="e.g sukge5665"
-                    InputProps={{ style: { fontSize: 16 } }}
+                    InputProps={{
+                      style: { fontSize: 16, fontFamily: "Light" },
+                    }}
                     InputLabelProps={{
                       style: {
                         fontSize: 16,
+                        fontFamily: "Regular",
                       },
                     }}
                   />
@@ -407,8 +427,12 @@ export const Home = () => {
                     fullWidth
                     label="Amount"
                     placeholder="e.g 1000"
-                    InputProps={{ style: { fontSize: 16 } }}
-                    InputLabelProps={{ style: { fontSize: 16 } }}
+                    InputProps={{
+                      style: { fontSize: 16, fontFamily: "Light" },
+                    }}
+                    InputLabelProps={{
+                      style: { fontSize: 16, fontFamily: "Regular" },
+                    }}
                   />
 
                   <Button
@@ -417,6 +441,7 @@ export const Home = () => {
                     sx={{
                       bgcolor: "#e3762b",
                       fontSize: 15,
+                      fontFamily: "Light",
                       width: "auto",
                       marginTop: 3,
                       borderRadius: 2,
@@ -427,10 +452,10 @@ export const Home = () => {
                   </Button>
                 </DialogContent>
               </Dialog>
-            </div>
+            </>
 
             {/* Receive fare */}
-            <div>
+            <>
               <div className="actions-card" onClick={handleOpenDrawer}>
                 <ArrowDownLeftCircle className="actions-icon" />{" "}
                 <span className="actions-name">Receive Fare</span>
@@ -438,7 +463,7 @@ export const Home = () => {
               <Drawer anchor="bottom" open={drawer} onClose={handleCloseDrawer}>
                 {DrawerView("bottom")}
               </Drawer>
-            </div>
+            </>
 
             {/* Kopa fare */}
             <>

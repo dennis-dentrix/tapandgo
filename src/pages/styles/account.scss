@@ -33,22 +33,24 @@
     &__info {
       font-size: $heading-size-small;
       color: $color-extra;
+      font-family: "Regular";
       // padding: 0rem 0.7rem;
     }
     &__title {
       color: $color-extra;
-      font-size: $heading-size-small;
+      font-size: 1.5rem;
+      font-family: "Regular";
       margin: 1.3rem 0;
       padding: 1.4rem 0;
     }
   }
   &-name {
-    font-size: 1.3rem;
-    font-family: "Medium";
+    font-size: 1.4rem;
+    font-family: "Bold";
     color: $color-secondary;
 
     &__user {
-      font-size: $paragraph-size-small;
+      font-size: 1.4rem;
       font-family: "Regular";
       display: flex;
       align-items: center;
@@ -60,6 +62,11 @@
       font-size: 1.6rem;
     }
   }
+  &-mode {
+    font-size: 1.4rem;
+    font-family: "Regular";
+    padding: 1rem;
+  }
 }
 
 .receipt-top {
@@ -68,9 +75,10 @@
   gap: 1rem;
   margin-bottom: 1rem;
 }
-@media (max-width: 425px) {
+@media (max-width: 728px) {
   .account {
     width: 100%;
+    margin-bottom: 9rem;
     // margin: 0;
   }
 }
