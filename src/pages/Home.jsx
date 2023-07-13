@@ -34,10 +34,31 @@ import {
   Drawer,
 } from "@mui/material";
 import { Close } from "@mui/icons-material";
+
+import { styled } from "@mui/material/styles";
 // import { Topup } from "./Topup";
 
 import "./styles/home.scss";
-import {} from "@mui/material";
+
+const CssTextField = styled(TextField)({
+  "& label.Mui-focused": {
+    color: "#e3762b",
+  },
+  "& .MuiInput-underline:after": {
+    borderBottomColor: "#B2BAC2",
+  },
+  "& .MuiOutlinedInput-root": {
+    "& fieldset": {
+      borderColor: "#696047",
+    },
+    "&:hover fieldset": {
+      borderColor: "#696047",
+    },
+    "&.Mui-focused fieldset": {
+      borderColor: "#e3762b",
+    },
+  },
+});
 
 export const Home = () => {
   const [showBal, setShowBal] = useState(false);
@@ -77,7 +98,7 @@ export const Home = () => {
         color="secondary"
         size="medium"
         onClick={handleCloseCopy}
-        sx={{ fontSize: 15 }}
+        sx={{ fontSize: 15, color: "#e3762b" }}
       >
         UNDO
       </Button>
@@ -99,7 +120,7 @@ export const Home = () => {
         color="secondary"
         size="medium"
         onClick={handleCloseCopy}
-        sx={{ fontSize: 15 }}
+        sx={{ fontSize: 15, color: "#e3762b" }}
       >
         Dismiss
       </Button>
@@ -259,11 +280,15 @@ export const Home = () => {
                       gap: 1,
                     }}
                   >
-                    <InfoCircle style={{ color: "black" }} />
-                    Enter account number & amount to be topup fare
+                    <InfoCircle
+                      style={{ color: "#e3762b", fontSize: "2rem" }}
+                    />
+                    <p style={{ color: "#2e3532" }}>
+                      Enter account number & amount to be topup fare
+                    </p>
                   </DialogContentText>
 
-                  <TextField
+                  <CssTextField
                     autoFocus
                     variant="outlined"
                     margin="dense"
@@ -273,16 +298,18 @@ export const Home = () => {
                     fullWidth
                     label="Phone Number"
                     placeholder="e.g 07012345678"
-                    InputProps={{ style: { fontSize: 16 } }}
+                    InputProps={{
+                      style: { fontSize: 16 },
+                    }}
                     InputLabelProps={{
                       style: {
                         fontSize: 16,
-                        color: "orange",
-                        outlineColor: "orange",
                       },
                     }}
+                    className="textfield"
                   />
-                  <TextField
+
+                  <CssTextField
                     autoFocus
                     variant="outlined"
                     margin="dense"
@@ -293,14 +320,16 @@ export const Home = () => {
                     label="Amount"
                     placeholder="e.g 1000"
                     InputProps={{ style: { fontSize: 16 } }}
-                    InputLabelProps={{ style: { fontSize: 16 } }}
+                    InputLabelProps={{
+                      style: { fontSize: 16 },
+                    }}
                   />
 
                   <Button
                     variant="contained"
                     onClick={handleCloseWallet}
                     sx={{
-                      bgcolor: "orange",
+                      bgcolor: "#e3762b",
                       fontSize: 15,
                       width: "auto",
                       marginTop: 3,
@@ -351,7 +380,7 @@ export const Home = () => {
                     Enter account number & amount to be transferred
                   </DialogContentText>
 
-                  <TextField
+                  <CssTextField
                     autoFocus
                     variant="outlined"
                     margin="dense"
@@ -365,12 +394,10 @@ export const Home = () => {
                     InputLabelProps={{
                       style: {
                         fontSize: 16,
-                        color: "orange",
-                        outlineColor: "orange",
                       },
                     }}
                   />
-                  <TextField
+                  <CssTextField
                     autoFocus
                     variant="outlined"
                     margin="dense"
@@ -388,7 +415,7 @@ export const Home = () => {
                     variant="contained"
                     onClick={handleSendClose}
                     sx={{
-                      bgcolor: "orange",
+                      bgcolor: "#e3762b",
                       fontSize: 15,
                       width: "auto",
                       marginTop: 3,

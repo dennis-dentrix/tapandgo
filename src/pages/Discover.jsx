@@ -88,7 +88,7 @@ export const Discover = () => {
         <List style={{ width: "100%" }}>
           <ListItem style={{ padding: "0px", width: "100%" }}>
             <ListItemIcon>
-              <Avatar sx={{ bgcolor: "orange" }}>DK</Avatar>
+              <Avatar sx={{ bgcolor: "#e3762b" }}>DK</Avatar>
             </ListItemIcon>
             <div
               style={{
@@ -214,13 +214,17 @@ export const Discover = () => {
                   </DialogContentText>
                 </DialogContent>
                 <DialogActions>
-                  <Button onClick={closeFarepoints} style={{ fontSize: 14 }}>
+                  <Button
+                    onClick={closeFarepoints}
+                    style={{ fontSize: 14, color: "#e3762b" }}
+                  >
                     Ok
                   </Button>
                 </DialogActions>
               </Dialog>
             </>
 
+            {/* Pay Goods */}
             <>
               <div className="actions-card link" onClick={openLipaFare}>
                 <QrCode className="actions-icon" />{" "}
@@ -274,11 +278,13 @@ export const Discover = () => {
               <span className="actions-name">Pay Utilities</span>
             </Link>
 
-            <Link className="actions-card link">
+            {/* Parcels */}
+            <div className="actions-card link">
               <BoxSeam className="actions-icon" />{" "}
               <span className="actions-name">Parcels</span>
-            </Link>
+            </div>
 
+            {/* Support */}
             <div className="actions-card link">
               <Send className="actions-icon" />{" "}
               <span
@@ -290,6 +296,8 @@ export const Discover = () => {
             </div>
           </div>
         </div>
+
+        {/* Footnote  */}
         <div className="foot">
           <Lightbulb style={{ fontSize: "4rem" }} className="actions-icon" />
           <div className="foot-content">
@@ -305,18 +313,26 @@ export const Discover = () => {
             </p>
           </div>
         </div>
-        <button
-          onClick={openLipaFare}
-          className="discover-btn"
-          style={{ borderRadius: "10rem" }}
-        >
-          <QrCode className="actions-icon" />
-          <span className="actions-name">Lipa Fare</span>
-        </button>
 
-        <SwipeableDrawer anchor={"bottom"} open={state} onClose={closeSupport}>
-          {list("bottom")}
-        </SwipeableDrawer>
+        {/* Lipa Fare QrCode */}
+        <>
+          <button
+            onClick={openLipaFare}
+            className="discover-btn"
+            style={{ borderRadius: "10rem" }}
+          >
+            <QrCode className="actions-icon" />
+            <span className="actions-name">Lipa Fare</span>
+          </button>
+
+          <SwipeableDrawer
+            anchor={"bottom"}
+            open={state}
+            onClose={closeSupport}
+          >
+            {list("bottom")}
+          </SwipeableDrawer>
+        </>
 
         {/* <SwipeableDrawer
           anchor={"bottom"}
