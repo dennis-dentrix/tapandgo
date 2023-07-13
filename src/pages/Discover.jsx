@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import QRCode from "react-qr-code";
 
 import {
@@ -38,6 +37,8 @@ export const Discover = () => {
   const [state, setState] = useState(false);
   const [lipaFare, setLipaFare] = useState(false);
   const [farePoints, setFarepoints] = useState(false);
+  const [newFeature, setNewfeature] = useState(false);
+
   // const navigate = useNavigate();
   // const openReceipts = () => navigate("/receipts");
 
@@ -58,10 +59,12 @@ export const Discover = () => {
 
   const openFarepoints = () => setFarepoints(true);
   const closeFarepoints = () => setFarepoints(false);
+  const openFeature = () => setNewfeature(true);
+  const closeFeature = () => setNewfeature(false);
 
+  // Receipt
   const openReceipt = () => setReceipt(true);
   const closeReceipt = () => setReceipt(false);
-
   let date = new Date().toDateString();
   const ReceiptView = () => (
     <Box
@@ -138,7 +141,7 @@ export const Discover = () => {
 
   const list = (anchor) => (
     <Box
-      sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : 250 }}
+      sx={{ width: "auto" }}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
@@ -273,16 +276,83 @@ export const Discover = () => {
               </SwipeableDrawer>
             </>
 
-            <Link className="actions-card link">
-              <BarChart className="actions-icon" />{" "}
-              <span className="actions-name">Pay Utilities</span>
-            </Link>
+            {/* Pay Utilities */}
+            <>
+              <div className="actions-card link" onClick={openFeature}>
+                <BarChart className="actions-icon" />{" "}
+                <span className="actions-name">Pay Utilities</span>
+              </div>
+              <Dialog
+                open={newFeature}
+                onClose={closeFeature}
+                aria-labelledby="alert-dialog-title"
+                aria-describedby="alert-dialog-description"
+              >
+                <DialogTitle style={{ fontSize: 18, fontFamily: "Bold" }}>
+                  {"Coming soon"}
+                </DialogTitle>
+                <DialogContent>
+                  <DialogContentText
+                    id="alert-dialog-slide-description"
+                    style={{ fontSize: 14, fontFamily: "Regular" }}
+                  >
+                    We are currently developing this feature for you. You will
+                    be notified when the feature is available for use.
+                  </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                  <Button
+                    onClick={closeFeature}
+                    style={{
+                      fontSize: 14,
+                      color: "#e3762b",
+                      fontFamily: "Regular",
+                    }}
+                  >
+                    Ok
+                  </Button>
+                </DialogActions>
+              </Dialog>
+            </>
 
             {/* Parcels */}
-            <div className="actions-card link">
-              <BoxSeam className="actions-icon" />{" "}
-              <span className="actions-name">Parcels</span>
-            </div>
+            <>
+              <div className="actions-card link" onClick={openFeature}>
+                <BoxSeam className="actions-icon" />{" "}
+                <span className="actions-name">Parcels</span>
+              </div>
+              <Dialog
+                open={newFeature}
+                onClose={closeFeature}
+                aria-labelledby="alert-dialog-title"
+                aria-describedby="alert-dialog-description"
+              >
+                <DialogTitle style={{ fontSize: 18, fontFamily: "Bold" }}>
+                  {"Coming soon"}
+                </DialogTitle>
+                <DialogContent>
+                  <DialogContentText
+                    id="alert-dialog-slide-description"
+                    style={{ fontSize: 14, fontFamily: "Regular" }}
+                  >
+                    We are currently developing this feature for you. You will
+                    be notified when the feature is available for use.
+                  </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                  <Button
+                    onClick={closeFeature}
+                    style={{
+                      fontSize: 14,
+                      color: "#e3762b",
+                      fontFamily: "Regular",
+                    }}
+                  >
+                    Ok
+                  </Button>
+                </DialogActions>
+              </Dialog>
+            </>
 
             {/* Support */}
             <div className="actions-card link">
