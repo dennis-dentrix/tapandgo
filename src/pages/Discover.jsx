@@ -3,15 +3,20 @@ import { Link, useNavigate } from "react-router-dom";
 import QRCode from "react-qr-code";
 
 import {
+  Avatar,
   Box,
-  Typography,
-  Modal,
-  Drawer,
+  SwipeableDrawer,
   List,
   ListItem,
   ListItemButton,
-  ListItemText,
   ListItemIcon,
+  Slide,
+  Dialog,
+  DialogTitle,
+  DialogContentText,
+  DialogContent,
+  DialogActions,
+  Button,
 } from "@mui/material";
 
 import {
@@ -26,20 +31,16 @@ import {
   Mailbox,
   Phone,
 } from "react-bootstrap-icons";
+import { CloseOutlined } from "@mui/icons-material";
 import "./styles/discover.scss";
 
 export const Discover = () => {
-  const [open, setOpen] = useState(false);
-  const [support, setSupport] = useState(false);
+  const [receipt, setReceipt] = useState(false);
   const [state, setState] = useState(false);
   const [lipaFare, setLipaFare] = useState(false);
-  const navigate = useNavigate();
-  const openReceipts = () => navigate("/receipts");
-
-  function handleOpen() {
-    return setOpen(true);
-  }
-  const handleClose = () => setOpen(false);
+  const [farePoints, setFarepoints] = useState(false);
+  // const navigate = useNavigate();
+  // const openReceipts = () => navigate("/receipts");
 
   const handleOpenSupport = () => {
     setState(true);
@@ -56,16 +57,68 @@ export const Discover = () => {
     setLipaFare(false);
   }
 
-  const style = {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    bgcolor: "background.paper",
-    p: 4,
-    border: "none",
-    borderRadius: 5,
-  };
+  const openFarepoints = () => setFarepoints(true);
+  const closeFarepoints = () => setFarepoints(false);
+
+  const openReceipt = () => setReceipt(true);
+  const closeReceipt = () => setReceipt(false);
+
+  let date = new Date().toDateString();
+  const ReceiptView = () => (
+    <Box
+      sx={{
+        height: 500,
+        width: 400,
+        padding: "2rem",
+      }}
+      role="presentation"
+    >
+      <div>
+        <h1
+          style={{
+            fontFamily: "Bold",
+            fontSize: "1.6rem",
+            display: "flex",
+            gap: "1.3rem",
+            alignItems: "center",
+          }}
+        >
+          <CloseOutlined sx={{ fontSize: "2rem" }} onClick={closeReceipt} />
+          Receipts{" "}
+        </h1>
+        <List style={{ width: "100%" }}>
+          <ListItem style={{ padding: "0px", width: "100%" }}>
+            <ListItemIcon>
+              <Avatar sx={{ bgcolor: "orange" }}>DK</Avatar>
+            </ListItemIcon>
+            <div
+              style={{
+                width: "100%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                overflowX: "hidden",
+              }}
+            >
+              <div>
+                <h2 className="id">TG#739619</h2>
+                <p className="date">{date}</p>
+              </div>
+
+              <div>
+                <h2>KES. 100.00</h2>
+                <p>COMPLETED</p>
+              </div>
+            </div>
+          </ListItem>
+        </List>
+      </div>
+    </Box>
+  );
+
+  const Transition = React.forwardRef(function Transition(props, ref) {
+    return <Slide direction="up" ref={ref} {...props} />;
+  });
 
   const toggleDrawer = (open) => (event) => {
     if (
@@ -99,7 +152,7 @@ export const Discover = () => {
         {["Mail", "Phone", "WhatsApp"].map((text, index) => (
           <ListItem key={text}>
             <ListItemButton>
-              <ListItemIcon style={{ fontSize: "2rem", marginRight: "1rem" }}>
+              <ListItemIcon style={{ fontSize: "2.5rem", margin: "0.2rem" }}>
                 {returnIcon(index)}
               </ListItemIcon>
 
@@ -107,6 +160,7 @@ export const Discover = () => {
                 style={{
                   fontSize: "1.5rem",
                   fontWeight: "500",
+                  textAlign: "center",
                 }}
               >
                 {text}
@@ -124,35 +178,57 @@ export const Discover = () => {
         <p className="discover-title">Discover</p>
         <div className="actions">
           <div className="actions-container">
-            <div onClick={openReceipts} className="actions-card link">
-              <Receipt className="actions-icon" />{" "}
-              <span className="actions-name">Receipts</span>
-            </div>
+            {/* Receipts */}
+            <>
+              <div onClick={openReceipt} className="actions-card link">
+                <Receipt className="actions-icon" />{" "}
+                <span className="actions-name">Receipts</span>
+              </div>
+              <SwipeableDrawer
+                anchor="bottom"
+                open={receipt}
+                onClose={closeReceipt}
+              >
+                {ReceiptView("bottom")}
+              </SwipeableDrawer>
+            </>
 
-            <div className="actions-card link" onClick={handleOpen}>
-              <Gift className="actions-icon" />{" "}
-              <span className="actions-name">Fare Points</span>
-            </div>
-            <Modal
-              open={open}
-              onClose={handleClose}
-              aria-labelledby="modal-modal-title"
-              aria-describedby="modal-modal-description"
-            >
-              <Box sx={style} className="modal-box">
-                <Typography>
-                  Your Tap&go Rider points are 10. Ride more with Tap&go to earn
-                  more points.
-                </Typography>
-              </Box>
-            </Modal>
+            {/* Fare points */}
+            <>
+              <div className="actions-card link" onClick={openFarepoints}>
+                <Gift className="actions-icon" />{" "}
+                <span className="actions-name">Fare Points</span>
+              </div>
 
-            <div>
+              <Dialog
+                open={farePoints}
+                TransitionComponent={Transition}
+                keepMounted
+                onClose={closeFarepoints}
+              >
+                <DialogTitle>Fare points</DialogTitle>
+                <DialogContent>
+                  <DialogContentText id="alert-dialog-slide-description">
+                    Your Tap&go Rider points are 10. Ride more with Tap&go to
+                    earn more points.
+                  </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                  <Button onClick={closeFarepoints}>Ok</Button>
+                </DialogActions>
+              </Dialog>
+            </>
+
+            <>
               <div className="actions-card link" onClick={openLipaFare}>
                 <QrCode className="actions-icon" />{" "}
                 <span className="actions-name">Pay Goods</span>
               </div>
-              <Drawer anchor={"bottom"} open={lipaFare} onClose={closeLipaFare}>
+              <SwipeableDrawer
+                anchor={"bottom"}
+                open={lipaFare}
+                onClose={closeLipaFare}
+              >
                 <div
                   style={{
                     display: "flex",
@@ -188,8 +264,8 @@ export const Discover = () => {
                     </div>
                   </div>
                 </div>
-              </Drawer>
-            </div>
+              </SwipeableDrawer>
+            </>
 
             <Link className="actions-card link">
               <BarChart className="actions-icon" />{" "}
@@ -236,11 +312,15 @@ export const Discover = () => {
           <span className="actions-name">Lipa Fare</span>
         </button>
 
-        <Drawer anchor={"bottom"} open={state} onClose={closeSupport}>
+        <SwipeableDrawer anchor={"bottom"} open={state} onClose={closeSupport}>
           {list("bottom")}
-        </Drawer>
+        </SwipeableDrawer>
 
-        <Drawer anchor={"bottom"} open={lipaFare} onClose={closeLipaFare}>
+        {/* <SwipeableDrawer
+          anchor={"bottom"}
+          open={lipaFare}
+          onClose={closeLipaFare}
+        >
           <div
             style={{
               display: "flex",
@@ -275,7 +355,7 @@ export const Discover = () => {
               </div>
             </div>
           </div>
-        </Drawer>
+        </SwipeableDrawer> */}
       </section>
     </main>
   );

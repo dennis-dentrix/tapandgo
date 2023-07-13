@@ -48,18 +48,29 @@ export const Home = () => {
   const [kopaFare, setKopafare] = useState(false);
   const walletNumb = "Th9381452";
 
+  const user = [
+    {
+      name: "Denis kyusya",
+      email: "denkyusya@gmail.com",
+      balance: 30500.0,
+      accNumb: "Th9381452",
+    },
+  ];
+
   const handleSendOpen = () => setSendfare(true);
   const handleSendClose = () => setSendfare(false);
   const handleOpenWallet = () => setWallet(true);
   const handleCloseWallet = () => setWallet(false);
   const openKopa = () => setKopafare(true);
   const closeKopa = () => setKopafare(false);
-
+  const handleOpenDrawer = () => setDrawer(true);
+  const handleCloseDrawer = () => setDrawer(false);
   const handleCopy = () => setCopied(true);
-  const handleCloseCopy = (event, reason) => {
+  const handleCloseCopy = () => {
     setCopied(false);
   };
 
+  // For copy snackbar
   const action = (
     <>
       <Button
@@ -94,9 +105,6 @@ export const Home = () => {
       </Button>
     </>
   );
-
-  const handleOpenDrawer = () => setDrawer(true);
-  const handleCloseDrawer = () => setDrawer(false);
 
   // Drawer content for QRCode
   const DrawerView = () => (
@@ -153,7 +161,7 @@ export const Home = () => {
           </Avatar>
           <div className="home-intro__greet">
             <p className="greeting">{time()}</p>
-            <p className="name">Denis Kyusya</p>
+            <p className="name">{user.map((user) => user.name)}</p>
           </div>
         </div>
 
