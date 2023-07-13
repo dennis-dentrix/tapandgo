@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import QRCode from "react-qr-code";
 
 import {
@@ -10,7 +10,6 @@ import {
   ListItem,
   ListItemButton,
   ListItemIcon,
-  Slide,
   Dialog,
   DialogTitle,
   DialogContentText,
@@ -116,10 +115,6 @@ export const Discover = () => {
     </Box>
   );
 
-  const Transition = React.forwardRef(function Transition(props, ref) {
-    return <Slide direction="up" ref={ref} {...props} />;
-  });
-
   const toggleDrawer = (open) => (event) => {
     if (
       event.type === "keydown" &&
@@ -202,19 +197,26 @@ export const Discover = () => {
 
               <Dialog
                 open={farePoints}
-                TransitionComponent={Transition}
-                keepMounted
                 onClose={closeFarepoints}
+                aria-labelledby="alert-dialog-title"
+                aria-describedby="alert-dialog-description"
               >
-                <DialogTitle>Fare points</DialogTitle>
+                <DialogTitle style={{ fontSize: 18 }}>
+                  {"Fare points"}
+                </DialogTitle>
                 <DialogContent>
-                  <DialogContentText id="alert-dialog-slide-description">
+                  <DialogContentText
+                    id="alert-dialog-slide-description"
+                    style={{ fontSize: 14 }}
+                  >
                     Your Tap&go Rider points are 10. Ride more with Tap&go to
                     earn more points.
                   </DialogContentText>
                 </DialogContent>
                 <DialogActions>
-                  <Button onClick={closeFarepoints}>Ok</Button>
+                  <Button onClick={closeFarepoints} style={{ fontSize: 14 }}>
+                    Ok
+                  </Button>
                 </DialogActions>
               </Dialog>
             </>
