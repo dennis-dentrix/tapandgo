@@ -257,10 +257,9 @@ export const Settings = () => {
                         onClick={handleClose}
                         style={{
                           fontSize: 14,
-                          fontFamily: "Light",
+                          fontFamily: "Regular",
+                          color: "#e3762b",
                         }}
-                        variant="contained"
-                        color="warning"
                       >
                         Logout
                       </Button>
@@ -268,9 +267,9 @@ export const Settings = () => {
                         onClick={handleClose}
                         style={{
                           fontSize: 14,
-                          fontFamily: "Light",
+                          fontFamily: "Regular",
+                          color: "#e3762b",
                         }}
-                        variant="contained"
                       >
                         Cancel
                       </Button>
@@ -299,41 +298,7 @@ export const Settings = () => {
                       </p>
                     </span>
                   </div>
-                  {/* <Modal
-                    open={del}
-                    onClose={handleCloseDelete}
-                    aria-labelledby="modal-modal-title"
-                    aria-describedby="modal-modal-description"
-                  >
-                    <Box sx={modalStyle}>
-                      <Typography
-                        id="modal-modal-title"
-                        variant="h5"
-                        component="h2"
-                        sx={{ fontWeight: "bold" }}
-                      >
-                        Delete account
-                      </Typography>
-                      <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                        Are you sure you want to permenently delete your
-                        account?
-                      </Typography>
-                      <DialogActions>
-                        <Button
-                          onClick={handleCloseDelete}
-                          style={{ color: "#e3762b" }}
-                        >
-                          Cancel
-                        </Button>
-                        <Button
-                          onClick={handleCloseDelete}
-                          style={{ color: "#e3762b" }}
-                        >
-                          Ok
-                        </Button>
-                      </DialogActions>
-                    </Box>
-                  </Modal> */}
+
                   <Dialog
                     open={del}
                     onClose={handleCloseDelete}
@@ -357,10 +322,9 @@ export const Settings = () => {
                         onClick={handleCloseDelete}
                         style={{
                           fontSize: 14,
-                          fontFamily: "Light",
+                          fontFamily: "Regular",
+                          color: "#e3762b",
                         }}
-                        variant="contained"
-                        color="warning"
                       >
                         Delete
                       </Button>
@@ -369,9 +333,9 @@ export const Settings = () => {
                         onClick={handleCloseDelete}
                         style={{
                           fontSize: 14,
-                          fontFamily: "Light",
+                          fontFamily: "Regular",
+                          color: "#e3762b",
                         }}
-                        variant="contained"
                       >
                         Cancel
                       </Button>

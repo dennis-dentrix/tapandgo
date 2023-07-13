@@ -320,7 +320,6 @@ export const Home = () => {
                   />
 
                   <CssTextField
-                    autoFocus
                     variant="outlined"
                     margin="dense"
                     multiline
@@ -418,7 +417,6 @@ export const Home = () => {
                     }}
                   />
                   <CssTextField
-                    autoFocus
                     variant="outlined"
                     margin="dense"
                     multiline

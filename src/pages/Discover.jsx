@@ -132,6 +132,32 @@ export const Discover = () => {
     </Box>
   );
 
+  const DrawerView = () => (
+    <Box
+      sx={{ width: 300, height: 475, borderRadius: 20, margin: "0 auto" }}
+      role="presentation"
+    >
+      <div>
+        <QRCode
+          style={{
+            height: "auto",
+            maxWidth: "100%",
+            width: "100%",
+            padding: 20,
+            marginBottom: 30,
+          }}
+          value="Hello"
+          viewBox={`0 0 256 256`}
+        />
+        <h1 style={{ fontFamily: "Bold" }}>Use this QR Code for Lipa fare </h1>
+        <p style={{ fontFamily: "Regular", fontSize: 13 }}>
+          A transaction will be carried out to your wallet and an SMS alert will
+          be sent to you upon successful payment
+        </p>
+      </div>
+    </Box>
+  );
+
   const toggleDrawer = (open) => (event) => {
     if (
       event.type === "keydown" &&
@@ -256,41 +282,7 @@ export const Discover = () => {
                 open={lipaFare}
                 onClose={closeLipaFare}
               >
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    height: "70vh",
-                  }}
-                >
-                  <div>
-                    <QRCode value="hey" />
-
-                    <div
-                      style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        marginTop: "10vh",
-                      }}
-                    >
-                      <h1>Use this QR Code for Pay goods</h1>
-                      <p
-                        style={{
-                          fontSize: "1.4rem",
-                          textAlign: "center",
-                          marginTop: ".4rem",
-                        }}
-                      >
-                        A transaction will be carried out to your <br /> wallet
-                        and an SMS alert will be sent upon <br /> successfull
-                        payment.
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                {DrawerView("bottom")}
               </SwipeableDrawer>
             </>
 
@@ -421,46 +413,13 @@ export const Discover = () => {
             {list("bottom")}
           </SwipeableDrawer>
         </>
-
-        {/* <SwipeableDrawer
+        {/* 
+        <SwipeableDrawer
           anchor={"bottom"}
           open={lipaFare}
           onClose={closeLipaFare}
         >
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              height: "70vh",
-            }}
-          >
-            <div>
-              <QRCode value="hey" />
-
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  marginTop: "10vh",
-                }}
-              >
-                <h1>Use this QR Code for Lipa Fare</h1>
-                <p
-                  style={{
-                    fontSize: "1.4rem",
-                    textAlign: "center",
-                    marginTop: ".4rem",
-                  }}
-                >
-                  A transaction will be carried out to your <br /> wallet and an
-                  SMS alert will be sent upon <br /> successfull payment.
-                </p>
-              </div>
-            </div>
-          </div>
+          {DrawerView("bottom")}
         </SwipeableDrawer> */}
       </section>
     </main>

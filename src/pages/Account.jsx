@@ -67,13 +67,14 @@ export const Account = () => {
                   placeholder="e.g Joe Doe"
                   size="normal"
                   fullWidth
-                  InputProps={{ style: { fontSize: 16, fontFamily: "Light" } }}
-                  InputLabelProps={{
+                  InputProps={{
                     style: { fontSize: 16, fontFamily: "Regular" },
+                  }}
+                  InputLabelProps={{
+                    style: { fontSize: 16, fontFamily: "Light" },
                   }}
                 />
                 <CssTextField
-                  autoFocus
                   variant="outlined"
                   margin="dense"
                   multiline
@@ -83,9 +84,11 @@ export const Account = () => {
                   fullWidth
                   label="Phone Number"
                   placeholder="e.g 0712345678"
-                  InputProps={{ style: { fontSize: 16, fontFamily: "Light" } }}
-                  InputLabelProps={{
+                  InputProps={{
                     style: { fontSize: 16, fontFamily: "Regular" },
+                  }}
+                  InputLabelProps={{
+                    style: { fontSize: 16, fontFamily: "Light" },
                   }}
                 />
               </DialogContent>
@@ -98,8 +101,7 @@ export const Account = () => {
                 </Button>
                 <Button
                   onClick={handleClose}
-                  style={{ fontSize: "1.4rem" }}
-                  color="success"
+                  style={{ fontSize: "1.4rem", color: "#e3762b" }}
                 >
                   Update
                 </Button>
