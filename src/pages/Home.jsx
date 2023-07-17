@@ -308,7 +308,7 @@ export const Home = () => {
                     label="Phone Number"
                     placeholder="e.g 07012345678"
                     InputProps={{
-                      style: { fontSize: 16, fontFamily: "Light" },
+                      style: { fontSize: 16, fontFamily: "Regular" },
                     }}
                     InputLabelProps={{
                       style: {
@@ -329,7 +329,7 @@ export const Home = () => {
                     label="Amount"
                     placeholder="e.g 1000"
                     InputProps={{
-                      style: { fontSize: 16, fontFamily: "Light" },
+                      style: { fontSize: 16, fontFamily: "Regular" },
                     }}
                     InputLabelProps={{
                       style: { fontSize: 16, fontFamily: "Regular" },
@@ -407,7 +407,7 @@ export const Home = () => {
                     label="Account Number"
                     placeholder="e.g sukge5665"
                     InputProps={{
-                      style: { fontSize: 16, fontFamily: "Light" },
+                      style: { fontSize: 16, fontFamily: "Regular" },
                     }}
                     InputLabelProps={{
                       style: {
@@ -426,7 +426,7 @@ export const Home = () => {
                     label="Amount"
                     placeholder="e.g 1000"
                     InputProps={{
-                      style: { fontSize: 16, fontFamily: "Light" },
+                      style: { fontSize: 16, fontFamily: "Regular" },
                     }}
                     InputLabelProps={{
                       style: { fontSize: 16, fontFamily: "Regular" },
