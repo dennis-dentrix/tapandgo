@@ -219,9 +219,6 @@ export const Discover = () => {
           justifyContent: "space-evenly",
         }}
       >
-        {/* {["Mail", "Phone", "WhatsApp"].map((text, index) => (
-          
-        ))} */}
         <ListItem>
           <ListItemButton
             style={{

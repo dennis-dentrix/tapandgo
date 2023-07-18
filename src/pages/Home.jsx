@@ -27,6 +27,7 @@ import {
   Dialog,
   DialogContent,
   DialogContentText,
+  DialogActions,
   DialogTitle,
   TextField,
   Snackbar,
@@ -67,6 +68,8 @@ export const Home = () => {
   const [wallet, setWallet] = useState(false);
   const [drawer, setDrawer] = useState(false);
   const [kopaFare, setKopafare] = useState(false);
+  const [forum, setForum] = useState(false);
+
   const walletNumb = "Th9381452";
 
   const user = [
@@ -84,6 +87,8 @@ export const Home = () => {
   const handleCloseWallet = () => setWallet(false);
   const openKopa = () => setKopafare(true);
   const closeKopa = () => setKopafare(false);
+  const openForum = () => setForum(true);
+  const closeForum = () => setForum(false);
   const handleOpenDrawer = () => setDrawer(true);
   const handleCloseDrawer = () => setDrawer(false);
   const handleCopy = () => setCopied(true);
@@ -481,12 +486,50 @@ export const Home = () => {
             </>
 
             {/* Forum */}
-            <div>
+            {/* <div>
               <Link to="forum" className="actions-card link">
                 <Chat className="actions-icon" />{" "}
                 <span className="actions-name">Forum</span>
               </Link>
-            </div>
+            </div> */}
+
+            <>
+              <div className="actions-card link" onClick={openForum}>
+                <Chat className="actions-icon" />{" "}
+                <span className="actions-name">Forum</span>
+              </div>
+              <Dialog
+                open={forum}
+                onClose={closeForum}
+                aria-labelledby="alert-dialog-title"
+                aria-describedby="alert-dialog-description"
+              >
+                <DialogTitle style={{ fontSize: 18, fontFamily: "Bold" }}>
+                  {"Coming soon"}
+                </DialogTitle>
+                <DialogContent>
+                  <DialogContentText
+                    id="alert-dialog-slide-description"
+                    style={{ fontSize: 14, fontFamily: "Regular" }}
+                  >
+                    We are currently developing this feature for you. You will
+                    be notified when the feature is available for use.
+                  </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                  <Button
+                    onClick={closeForum}
+                    style={{
+                      fontSize: 14,
+                      color: "#e3762b",
+                      fontFamily: "Regular",
+                    }}
+                  >
+                    Ok
+                  </Button>
+                </DialogActions>
+              </Dialog>
+            </>
           </div>
         </div>
 
