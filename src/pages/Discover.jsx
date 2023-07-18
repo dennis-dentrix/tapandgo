@@ -5,6 +5,7 @@ import {
   Avatar,
   Box,
   SwipeableDrawer,
+  Drawer,
   List,
   ListItem,
   ListItemButton,
@@ -19,7 +20,6 @@ import {
 
 import {
   QrCode,
-  Send,
   BoxSeam,
   Gift,
   BarChart,
@@ -29,25 +29,19 @@ import {
   Mailbox,
   Phone,
 } from "react-bootstrap-icons";
-import { CloseOutlined } from "@mui/icons-material";
+import { CloseOutlined, InfoOutlined } from "@mui/icons-material";
 import "./styles/discover.scss";
 
 export const Discover = () => {
   const [receipt, setReceipt] = useState(false);
   const [state, setState] = useState(false);
+  const [support, setSupport] = useState(false);
   const [lipaFare, setLipaFare] = useState(false);
   const [farePoints, setFarepoints] = useState(false);
   const [newFeature, setNewfeature] = useState(false);
 
   // const navigate = useNavigate();
   // const openReceipts = () => navigate("/receipts");
-
-  const handleOpenSupport = () => {
-    setState(true);
-  };
-  const closeSupport = () => {
-    setState(false);
-  };
 
   function openLipaFare() {
     setLipaFare(true);
@@ -61,6 +55,8 @@ export const Discover = () => {
   const closeFarepoints = () => setFarepoints(false);
   const openFeature = () => setNewfeature(true);
   const closeFeature = () => setNewfeature(false);
+  const openSupport = () => setSupport(true);
+  const closeSupport = () => setSupport(false);
 
   // Receipt
   const openReceipt = () => setReceipt(true);
@@ -158,6 +154,178 @@ export const Discover = () => {
     </Box>
   );
 
+  // const List = () => (
+  //   <Box
+  //     sx={{ width: 300, height: 475, borderRadius: 20, margin: "0 auto" }}
+  //     role="presentation"
+  //   >
+  //     <div>
+  //       <QRCode
+  //         style={{
+  //           height: "auto",
+  //           maxWidth: "100%",
+  //           width: "100%",
+  //           padding: 20,
+  //           marginBottom: 30,
+  //         }}
+  //         value="Hello"
+  //         viewBox={`0 0 256 256`}
+  //       />
+  //       <h1 style={{ fontFamily: "Bold" }}>Use this QR Code for Lipa fare </h1>
+  //       <p style={{ fontFamily: "Regular", fontSize: 13 }}>
+  //         A transaction will be carried out to your wallet and an SMS alert will
+  //         be sent to you upon successful payment
+  //       </p>
+  //     </div>
+  //   </Box>
+  // );
+
+  const SupportView = () => (
+    <Box sx={{ width: "auto" }} role="presentation">
+      <div
+        style={{
+          // margin: "0 auto",
+          padding: "1rem 2rem ",
+          display: "flex",
+          alignItems: "flex-start",
+          gap: "1rem",
+        }}
+      >
+        <InfoOutlined style={{ fontSize: "2rem" }} />
+
+        <div>
+          <h1
+            style={{
+              fontFamily: "Regular",
+              fontWeight: 800,
+              fontSize: "1.6rem",
+              marginBottom: "1rem",
+            }}
+          >
+            Reach out to us
+          </h1>
+          <p style={{ fontFamily: "Regular", fontSize: "1.4rem" }}>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore
+            eaque est consequatur, molestiae ab, quae neque totam rerum,
+            consectetur reprehenderit tenetur quo nemo eos! Architecto
+            laboriosam excepturi fugiat delectus illo?
+          </p>
+        </div>
+      </div>
+
+      <List
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-evenly",
+        }}
+      >
+        {/* {["Mail", "Phone", "WhatsApp"].map((text, index) => (
+          
+        ))} */}
+        <ListItem>
+          <ListItemButton
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: "1.5rem",
+              color: "#696047",
+            }}
+          >
+            <ListItemIcon
+              style={{
+                fontSize: "2.5rem",
+                paddingRight: "0rem",
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
+              <Mailbox />
+            </ListItemIcon>
+
+            <p
+              style={{
+                fontSize: "1.5rem",
+                fontWeight: "500",
+                textAlign: "center",
+              }}
+            >
+              Email
+            </p>
+          </ListItemButton>
+        </ListItem>
+
+        <ListItem>
+          <ListItemButton
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: "1.5rem",
+              color: "#696047",
+            }}
+          >
+            <ListItemIcon
+              style={{
+                fontSize: "2.5rem",
+                paddingRight: "0rem",
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
+              <Phone />
+            </ListItemIcon>
+
+            <p
+              style={{
+                fontSize: "1.5rem",
+                fontWeight: "500",
+                textAlign: "center",
+              }}
+            >
+              Phone
+            </p>
+          </ListItemButton>
+        </ListItem>
+
+        <ListItem>
+          <ListItemButton
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: "1.5rem",
+              color: "#696047",
+            }}
+          >
+            <ListItemIcon
+              style={{
+                fontSize: "2.5rem",
+
+                paddingRight: "0rem",
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
+              <Whatsapp />
+            </ListItemIcon>
+
+            <p
+              style={{
+                fontSize: "1.5rem",
+                fontWeight: "500",
+                textAlign: "center",
+              }}
+            >
+              Whatsapp
+            </p>
+          </ListItemButton>
+        </ListItem>
+      </List>
+    </Box>
+  );
+
   const toggleDrawer = (open) => (event) => {
     if (
       event.type === "keydown" &&
@@ -166,18 +334,8 @@ export const Discover = () => {
       setState(false);
     }
 
-    setState(open);
+    setSupport(open);
   };
-
-  function returnIcon(i) {
-    if (i == 0) {
-      return <Mailbox />;
-    } else if (i == 1) {
-      return <Phone />;
-    } else {
-      return <Whatsapp />;
-    }
-  }
 
   const list = (anchor) => (
     <Box
@@ -186,11 +344,58 @@ export const Discover = () => {
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
-      <List>
+      <div
+        style={{
+          margin: "0 auto",
+          padding: "1rem 2rem ",
+          display: "flex",
+          alignItems: "flex-start",
+          gap: "1rem",
+        }}
+      >
+        <InfoOutlined style={{ fontSize: "2rem" }} />
+
+        <div>
+          <h1
+            style={{
+              fontFamily: "Regular",
+              fontWeight: 800,
+              fontSize: "1.6rem",
+              marginBottom: "1rem",
+            }}
+          >
+            Reach out to us
+          </h1>
+          <p style={{ fontFamily: "Regular", fontSize: "1.4rem" }}>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore
+            eaque est consequatur, molestiae ab, quae neque totam rerum,
+            consectetur reprehenderit tenetur quo nemo eos! Architecto
+            laboriosam excepturi fugiat delectus illo?
+          </p>
+        </div>
+      </div>
+
+      <List style={{ display: "flex" }}>
         {["Mail", "Phone", "WhatsApp"].map((text, index) => (
           <ListItem key={text}>
-            <ListItemButton>
-              <ListItemIcon style={{ fontSize: "2.5rem", margin: "0.2rem" }}>
+            <ListItemButton
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+
+                color: "#696047",
+              }}
+            >
+              <ListItemIcon
+                style={{
+                  fontSize: "2.5rem",
+                  margin: "0.2rem",
+                  paddingRight: "0rem",
+                  display: "flex",
+                  justifyContent: "center",
+                }}
+              >
                 {returnIcon(index)}
               </ListItemIcon>
 
@@ -209,6 +414,16 @@ export const Discover = () => {
       </List>
     </Box>
   );
+
+  function returnIcon(i) {
+    if (i == 0) {
+      return <Mailbox />;
+    } else if (i == 1) {
+      return <Phone />;
+    } else {
+      return <Whatsapp />;
+    }
+  }
 
   return (
     <main className="main">
@@ -286,7 +501,7 @@ export const Discover = () => {
               </SwipeableDrawer>
             </>
 
-            {/* Pay Utilities */}
+            {/* Pay Utilities: COMING SOON */}
             <>
               <div className="actions-card link" onClick={openFeature}>
                 <BarChart className="actions-icon" />{" "}
@@ -325,7 +540,7 @@ export const Discover = () => {
               </Dialog>
             </>
 
-            {/* Parcels */}
+            {/* Parcels: COMING SOON */}
             <>
               <div className="actions-card link" onClick={openFeature}>
                 <BoxSeam className="actions-icon" />{" "}
@@ -365,15 +580,15 @@ export const Discover = () => {
             </>
 
             {/* Support */}
-            <div className="actions-card link">
-              <Send className="actions-icon" />{" "}
-              <span
-                onClick={(e) => handleOpenSupport(e)}
-                className="actions-name"
-              >
-                Support
-              </span>
-            </div>
+            <>
+              <div onClick={openSupport} className="actions-card link">
+                <Receipt className="actions-icon" />{" "}
+                <span className="actions-name">Support</span>
+              </div>
+              <Drawer anchor="bottom" open={support} onClose={closeSupport}>
+                {SupportView("bottom")}
+              </Drawer>
+            </>
           </div>
         </div>
 
@@ -408,7 +623,7 @@ export const Discover = () => {
           <SwipeableDrawer
             anchor={"bottom"}
             open={state}
-            onClose={closeSupport}
+            onClose={closeLipaFare}
           >
             {list("bottom")}
           </SwipeableDrawer>
