@@ -27,7 +27,7 @@ import {
   Whatsapp,
   Lightbulb,
   Mailbox,
-  Phone,
+  Telephone,
 } from "react-bootstrap-icons";
 import { CloseOutlined, InfoOutlined } from "@mui/icons-material";
 import "./styles/discover.scss";
@@ -205,10 +205,9 @@ export const Discover = () => {
             Reach out to us
           </h1>
           <p style={{ fontFamily: "Regular", fontSize: "1.4rem" }}>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore
-            eaque est consequatur, molestiae ab, quae neque totam rerum,
-            consectetur reprehenderit tenetur quo nemo eos! Architecto
-            laboriosam excepturi fugiat delectus illo?
+            Hi! Our team will work to respond to you within the next 24hrs. If
+            you require immeediate assistance please do call us at anytime
+            during office hours. In the meantime feel free to reach us
           </p>
         </div>
       </div>
@@ -274,7 +273,7 @@ export const Discover = () => {
                 justifyContent: "center",
               }}
             >
-              <Phone />
+              <Telephone />
             </ListItemIcon>
 
             <p
@@ -367,10 +366,9 @@ export const Discover = () => {
             Reach out to us
           </h1>
           <p style={{ fontFamily: "Regular", fontSize: "1.4rem" }}>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore
-            eaque est consequatur, molestiae ab, quae neque totam rerum,
-            consectetur reprehenderit tenetur quo nemo eos! Architecto
-            laboriosam excepturi fugiat delectus illo?
+            Hi! Our team will work to respond to you within the next 24hrs. If
+            you require immeediate assistance please do call us at anytime
+            during office hours. In the meantime feel free to reach us.
           </p>
         </div>
       </div>
@@ -419,7 +417,7 @@ export const Discover = () => {
     if (i == 0) {
       return <Mailbox />;
     } else if (i == 1) {
-      return <Phone />;
+      return <Telephone />;
     } else {
       return <Whatsapp />;
     }
