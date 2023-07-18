@@ -1,5 +1,4 @@
 import { useState } from "react";
-import QRCode from "react-qr-code";
 
 import {
   Avatar,
@@ -31,6 +30,8 @@ import {
 } from "react-bootstrap-icons";
 import { CloseOutlined, InfoOutlined } from "@mui/icons-material";
 import "./styles/discover.scss";
+import { ComingSoon } from "./Home";
+import { DrawerView } from "./Home";
 
 export const Discover = () => {
   const [receipt, setReceipt] = useState(false);
@@ -128,31 +129,31 @@ export const Discover = () => {
     </Box>
   );
 
-  const DrawerView = () => (
-    <Box
-      sx={{ width: 300, height: 475, borderRadius: 20, margin: "0 auto" }}
-      role="presentation"
-    >
-      <div>
-        <QRCode
-          style={{
-            height: "auto",
-            maxWidth: "100%",
-            width: "100%",
-            padding: 20,
-            marginBottom: 30,
-          }}
-          value="Hello"
-          viewBox={`0 0 256 256`}
-        />
-        <h1 style={{ fontFamily: "Bold" }}>Use this QR Code for Lipa fare </h1>
-        <p style={{ fontFamily: "Regular", fontSize: 13 }}>
-          A transaction will be carried out to your wallet and an SMS alert will
-          be sent to you upon successful payment
-        </p>
-      </div>
-    </Box>
-  );
+  // const DrawerView = () => (
+  //   <Box
+  //     sx={{ width: 300, height: 475, borderRadius: 20, margin: "0 auto" }}
+  //     role="presentation"
+  //   >
+  //     <div>
+  //       <QRCode
+  //         style={{
+  //           height: "auto",
+  //           maxWidth: "100%",
+  //           width: "100%",
+  //           padding: 20,
+  //           marginBottom: 30,
+  //         }}
+  //         value="Hello"
+  //         viewBox={`0 0 256 256`}
+  //       />
+  //       <h1 style={{ fontFamily: "Bold" }}>Use this QR Code for Lipa fare </h1>
+  //       <p style={{ fontFamily: "Regular", fontSize: 13 }}>
+  //         A transaction will be carried out to your wallet and an SMS alert will
+  //         be sent to you upon successful payment
+  //       </p>
+  //     </div>
+  //   </Box>
+  // );
 
   // const List = () => (
   //   <Box
@@ -322,104 +323,6 @@ export const Discover = () => {
     </Box>
   );
 
-  const toggleDrawer = (open) => (event) => {
-    if (
-      event.type === "keydown" &&
-      (event.key === "Tab" || event.key === "Shift")
-    ) {
-      setState(false);
-    }
-
-    setSupport(open);
-  };
-
-  const list = (anchor) => (
-    <Box
-      sx={{ width: "auto" }}
-      role="presentation"
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
-    >
-      <div
-        style={{
-          margin: "0 auto",
-          padding: "1rem 2rem ",
-          display: "flex",
-          alignItems: "flex-start",
-          gap: "1rem",
-        }}
-      >
-        <InfoOutlined style={{ fontSize: "2rem" }} />
-
-        <div>
-          <h1
-            style={{
-              fontFamily: "Regular",
-              fontWeight: 800,
-              fontSize: "1.6rem",
-              marginBottom: "1rem",
-            }}
-          >
-            Reach out to us
-          </h1>
-          <p style={{ fontFamily: "Regular", fontSize: "1.4rem" }}>
-            Hi! Our team will work to respond to you within the next 24hrs. If
-            you require immeediate assistance please do call us at anytime
-            during office hours. In the meantime feel free to reach us.
-          </p>
-        </div>
-      </div>
-
-      <List style={{ display: "flex" }}>
-        {["Mail", "Phone", "WhatsApp"].map((text, index) => (
-          <ListItem key={text}>
-            <ListItemButton
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-
-                color: "#696047",
-              }}
-            >
-              <ListItemIcon
-                style={{
-                  fontSize: "2.5rem",
-                  margin: "0.2rem",
-                  paddingRight: "0rem",
-                  display: "flex",
-                  justifyContent: "center",
-                }}
-              >
-                {returnIcon(index)}
-              </ListItemIcon>
-
-              <p
-                style={{
-                  fontSize: "1.5rem",
-                  fontWeight: "500",
-                  textAlign: "center",
-                }}
-              >
-                {text}
-              </p>
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-    </Box>
-  );
-
-  function returnIcon(i) {
-    if (i == 0) {
-      return <Mailbox />;
-    } else if (i == 1) {
-      return <Telephone />;
-    } else {
-      return <Whatsapp />;
-    }
-  }
-
   return (
     <main className="main">
       <section className="discover">
@@ -502,7 +405,8 @@ export const Discover = () => {
                 <BarChart className="actions-icon" />{" "}
                 <span className="actions-name">Pay Utilities</span>
               </div>
-              <Dialog
+              <ComingSoon open={newFeature} close={closeFeature} />
+              {/* <Dialog
                 open={newFeature}
                 onClose={closeFeature}
                 aria-labelledby="alert-dialog-title"
@@ -532,7 +436,7 @@ export const Discover = () => {
                     Ok
                   </Button>
                 </DialogActions>
-              </Dialog>
+              </Dialog> */}
             </>
 
             {/* Parcels: COMING SOON */}
@@ -541,37 +445,7 @@ export const Discover = () => {
                 <BoxSeam className="actions-icon" />{" "}
                 <span className="actions-name">Parcels</span>
               </div>
-              <Dialog
-                open={newFeature}
-                onClose={closeFeature}
-                aria-labelledby="alert-dialog-title"
-                aria-describedby="alert-dialog-description"
-              >
-                <DialogTitle style={{ fontSize: 18, fontFamily: "Bold" }}>
-                  {"Coming soon"}
-                </DialogTitle>
-                <DialogContent>
-                  <DialogContentText
-                    id="alert-dialog-slide-description"
-                    style={{ fontSize: 14, fontFamily: "Regular" }}
-                  >
-                    We are currently developing this feature for you. You will
-                    be notified when the feature is available for use.
-                  </DialogContentText>
-                </DialogContent>
-                <DialogActions>
-                  <Button
-                    onClick={closeFeature}
-                    style={{
-                      fontSize: 14,
-                      color: "#e3762b",
-                      fontFamily: "Regular",
-                    }}
-                  >
-                    Ok
-                  </Button>
-                </DialogActions>
-              </Dialog>
+              <ComingSoon open={newFeature} close={closeFeature} />
             </>
 
             {/* Support */}
@@ -620,17 +494,9 @@ export const Discover = () => {
             open={state}
             onClose={closeLipaFare}
           >
-            {list("bottom")}
+            {DrawerView("bottom")}
           </SwipeableDrawer>
         </>
-        {/* 
-        <SwipeableDrawer
-          anchor={"bottom"}
-          open={lipaFare}
-          onClose={closeLipaFare}
-        >
-          {DrawerView("bottom")}
-        </SwipeableDrawer> */}
       </section>
     </main>
   );

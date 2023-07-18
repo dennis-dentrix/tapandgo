@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import QRCode from "react-qr-code";
 import { ContentCopy } from "@mui/icons-material";
@@ -133,31 +132,6 @@ export const Home = () => {
   );
 
   // Drawer content for QRCode
-  const DrawerView = () => (
-    <Box
-      sx={{ width: 300, height: 475, borderRadius: 20, margin: "0 auto" }}
-      role="presentation"
-    >
-      <div>
-        <QRCode
-          style={{
-            height: "auto",
-            maxWidth: "100%",
-            width: "100%",
-            padding: 20,
-            marginBottom: 30,
-          }}
-          value={walletNumb}
-          viewBox={`0 0 256 256`}
-        />
-        <h1 style={{ fontFamily: "Bold" }}>Use this QR Code for Lipa fare </h1>
-        <p style={{ fontFamily: "Regular", fontSize: 13 }}>
-          A transaction will be carried out to your wallet and an SMS alert will
-          be sent to you upon successful payment
-        </p>
-      </div>
-    </Box>
-  );
 
   const handleBlur = () => {
     return setShowBal((show) => !show);
@@ -486,49 +460,13 @@ export const Home = () => {
             </>
 
             {/* Forum */}
-            {/* <div>
-              <Link to="forum" className="actions-card link">
-                <Chat className="actions-icon" />{" "}
-                <span className="actions-name">Forum</span>
-              </Link>
-            </div> */}
 
             <>
               <div className="actions-card link" onClick={openForum}>
                 <Chat className="actions-icon" />{" "}
                 <span className="actions-name">Forum</span>
               </div>
-              <Dialog
-                open={forum}
-                onClose={closeForum}
-                aria-labelledby="alert-dialog-title"
-                aria-describedby="alert-dialog-description"
-              >
-                <DialogTitle style={{ fontSize: 18, fontFamily: "Bold" }}>
-                  {"Coming soon"}
-                </DialogTitle>
-                <DialogContent>
-                  <DialogContentText
-                    id="alert-dialog-slide-description"
-                    style={{ fontSize: 14, fontFamily: "Regular" }}
-                  >
-                    We are currently developing this feature for you. You will
-                    be notified when the feature is available for use.
-                  </DialogContentText>
-                </DialogContent>
-                <DialogActions>
-                  <Button
-                    onClick={closeForum}
-                    style={{
-                      fontSize: 14,
-                      color: "#e3762b",
-                      fontFamily: "Regular",
-                    }}
-                  >
-                    Ok
-                  </Button>
-                </DialogActions>
-              </Dialog>
+              <ComingSoon open={forum} close={closeForum} />
             </>
           </div>
         </div>
@@ -549,5 +487,65 @@ export const Home = () => {
         <br />
       </section>
     </main>
+  );
+};
+export const DrawerView = () => (
+  <Box
+    sx={{ width: 300, height: 475, borderRadius: 20, margin: "0 auto" }}
+    role="presentation"
+  >
+    <div>
+      <QRCode
+        style={{
+          height: "auto",
+          maxWidth: "100%",
+          width: "100%",
+          padding: 20,
+          marginBottom: 30,
+        }}
+        value="hello"
+        viewBox={`0 0 256 256`}
+      />
+      <h1 style={{ fontFamily: "Bold" }}>Use this QR Code for Lipa fare </h1>
+      <p style={{ fontFamily: "Regular", fontSize: 13 }}>
+        A transaction will be carried out to your wallet and an SMS alert will
+        be sent to you upon successful payment
+      </p>
+    </div>
+  </Box>
+);
+export const ComingSoon = (props) => {
+  return (
+    <Dialog
+      open={props.open}
+      onClose={props.close}
+      aria-labelledby="alert-dialog-title"
+      aria-describedby="alert-dialog-description"
+    >
+      <DialogTitle style={{ fontSize: 18, fontFamily: "Bold" }}>
+        {"Coming soon"}
+      </DialogTitle>
+      <DialogContent>
+        <DialogContentText
+          id="alert-dialog-slide-description"
+          style={{ fontSize: 14, fontFamily: "Regular" }}
+        >
+          We are currently developing this feature for you. You will be notified
+          when the feature is available for use.
+        </DialogContentText>
+      </DialogContent>
+      <DialogActions>
+        <Button
+          onClick={props.close}
+          style={{
+            fontSize: 14,
+            color: "#e3762b",
+            fontFamily: "Regular",
+          }}
+        >
+          Ok
+        </Button>
+      </DialogActions>
+    </Dialog>
   );
 };
