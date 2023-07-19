@@ -30,12 +30,10 @@ import {
 } from "react-bootstrap-icons";
 import { CloseOutlined, InfoOutlined } from "@mui/icons-material";
 import "./styles/discover.scss";
-import { ComingSoon } from "./Home";
-import { DrawerView } from "./Home";
+import { DrawerView, ComingSoon } from "../components";
 
 export const Discover = () => {
   const [receipt, setReceipt] = useState(false);
-  const [state, setState] = useState(false);
   const [support, setSupport] = useState(false);
   const [lipaFare, setLipaFare] = useState(false);
   const [farePoints, setFarepoints] = useState(false);
@@ -67,7 +65,7 @@ export const Discover = () => {
   const ReceiptView = () => (
     <Box
       sx={{
-        height: 580,
+        height: 600,
         width: 400,
         padding: "2rem",
       }}
@@ -491,7 +489,7 @@ export const Discover = () => {
 
           <SwipeableDrawer
             anchor={"bottom"}
-            open={state}
+            open={lipaFare}
             onClose={closeLipaFare}
           >
             {DrawerView("bottom")}
