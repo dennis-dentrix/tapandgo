@@ -22,11 +22,9 @@ import {
 import {
   Avatar,
   Button,
-  Box,
   Dialog,
   DialogContent,
   DialogContentText,
-  DialogActions,
   DialogTitle,
   TextField,
   Snackbar,
@@ -37,8 +35,45 @@ import {
 import { Close, ContentCopy } from "@mui/icons-material";
 
 import { styled } from "@mui/material/styles";
+// import user from "../../data/user.json";
 
 import "./styles/home.scss";
+
+const user = [
+  {
+    name: "Denis kyusya",
+    email: "denkyusya@gmail.com",
+    balance: `30,500.0`,
+    accNumb: "Th9381452",
+  },
+];
+function Greeting({ user }) {
+  const time = () => {
+    let today = new Date();
+    let hrs = today.getHours();
+    let greeting;
+    if (hrs >= 0 && hrs < 12) {
+      greeting = "Good morning";
+    } else if (hrs > 13 && hrs < 18) {
+      greeting = "Good afternoon";
+    } else if (hrs > 19 && hrs < 0) {
+      console.log(hrs);
+      greeting = "Good Evening";
+    }
+    return greeting;
+  };
+  return (
+    <div className="home-intro" style={{ marginTop: "2rem" }}>
+      <Avatar sx={{ bgcolor: "orange" }} style={{ marginRight: "1rem" }}>
+        DK
+      </Avatar>
+      <div className="home-intro__greet">
+        <p className="greeting">{time()}</p>
+        <p className="name">{user.name}</p>
+      </div>
+    </div>
+  );
+}
 
 export const CssTextField = styled(TextField)({
   "& label.Mui-focused": {
@@ -68,17 +103,6 @@ export const Home = () => {
   const [drawer, setDrawer] = useState(false);
   const [kopaFare, setKopafare] = useState(false);
   const [forum, setForum] = useState(false);
-
-  const walletNumb = "Th9381452";
-
-  const user = [
-    {
-      name: "Denis kyusya",
-      email: "denkyusya@gmail.com",
-      balance: 30500.0,
-      accNumb: "Th9381452",
-    },
-  ];
 
   const handleSendOpen = () => setSendfare(true);
   const handleSendClose = () => setSendfare(false);
@@ -137,25 +161,10 @@ export const Home = () => {
     return setShowBal((show) => !show);
   };
 
-  const time = () => {
-    let today = new Date();
-    let hrs = today.getHours();
-    let greeting;
-    if (hrs >= 0 && hrs < 12) {
-      greeting = "Good morning";
-    } else if (hrs > 13 && hrs < 18) {
-      greeting = "Good afternoon";
-    } else if (hrs > 19 && hrs < 0) {
-      console.log(hrs);
-      greeting = "Good Evening";
-    }
-    return greeting;
-  };
-
   return (
     <main className="main">
       <section className="home">
-        <div className="home-intro" style={{ marginTop: "2rem" }}>
+        {/* <div className="home-intro" style={{ marginTop: "2rem" }}>
           <Avatar sx={{ bgcolor: "orange" }} style={{ marginRight: "1rem" }}>
             DK
           </Avatar>
@@ -163,7 +172,11 @@ export const Home = () => {
             <p className="greeting">{time()}</p>
             <p className="name">{user.map((user) => user.name)}</p>
           </div>
-        </div>
+        </div> */}
+
+        {user.map((user) => (
+          <Greeting user={user} key={user.accNumb} />
+        ))}
 
         <div className="home-landing">
           {/* Balance card */}
@@ -187,7 +200,10 @@ export const Home = () => {
                 <div className="home-card__amount">
                   <h3 className="home-card__bal">
                     KES
-                    <span className={showBal ? "blur" : ""}> 305,788.00</span>
+                    <span className={showBal ? "blur" : ""}>
+                      {" "}
+                      {user.map((user) => user.balance)}
+                    </span>
                   </h3>
 
                   <ArrowClockwise fontSize="2rem" classname="actions-icon" />
@@ -202,12 +218,12 @@ export const Home = () => {
                     className="home-card__numb"
                     style={{ fontSize: "1.4rem" }}
                   >
-                    {walletNumb}
+                    {user.map((user) => user.accNumb)}
                   </h3>
 
                   <>
                     <CopyToClipboard
-                      text={walletNumb}
+                      text={user.map((user) => user.accNumb)}
                       onCopy={() => setCopied(true)}
                     >
                       <ContentCopy
