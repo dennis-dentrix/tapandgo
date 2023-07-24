@@ -46,12 +46,12 @@ export const Account = () => {
 
         <div className="account-body">
           <div className="account-edit">
-            <span onClick={handleClickOpen} style={{ fontSize: "1.6rem" }}>
+            <span onClick={handleClickOpen} style={{ fontSize: "1.3rem" }}>
               Edit
             </span>
 
             <Dialog open={open} onClose={handleClose}>
-              <DialogTitle style={{ fontSize: 18, fontFamily: "Bold" }}>
+              <DialogTitle style={{ fontSize: 14, fontFamily: "Bold" }}>
                 Edit your account details
               </DialogTitle>
 
@@ -128,7 +128,7 @@ export const Account = () => {
           </div>
 
           <div className="account-info">
-            <h3 className="account-detail__title">Contactible at</h3>
+            <h3 className="account-detail__title">Contactable at</h3>
             <div className="account-detail">
               <div className="account-detail__name">
                 <h2 className="account-name">Email</h2>
@@ -138,20 +138,12 @@ export const Account = () => {
               <Divider />
               <div className="account-detail__name">
                 <h2 className="account-name">Account</h2>
-                <p className="account-name__user">
-                  Commuter
-                  <span>
-                    <CheckCircleOutline
-                      style={{ fontSize: "2rem" }}
-                      className="account-name__icon"
-                    />
-                  </span>
-                </p>
+                <p className="account-name__user">Commuter</p>
               </div>
             </div>
           </div>
 
-          <div className="account-info">
+          {/* <div className="account-info">
             <h3 className="account-detail__title">Mode</h3>
             <div className="account-detail">
               <div className="account-detail__name">
@@ -172,7 +164,7 @@ export const Account = () => {
                 note that the number can also be used for account top up
               </p>
             </div>
-          </div>
+          </div> */}
         </div>
       </section>
     </main>

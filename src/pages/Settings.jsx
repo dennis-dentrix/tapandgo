@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 
 // React bootstrap icons
 import {
-  ArrowClockwise,
   InfoCircle,
   BoxArrowRight,
   Trash,
@@ -40,7 +39,7 @@ export const Settings = () => {
 
   const heading = {
     fontWeight: "800",
-    fontSize: "1.4rem",
+    fontSize: "1.2rem",
   };
 
   const handleOpen = () => setOpen(true);
@@ -58,7 +57,7 @@ export const Settings = () => {
         <div className="settings-settings">
           <div
             className="settings-user"
-            style={{ padding: "2rem 1rem", borderRadius: ".8rem" }}
+            style={{ padding: "2rem 1rem", borderRadius: "1rem" }}
           >
             <Avatar sx={{ bgcolor: "orange" }} style={{ marginRight: "1rem" }}>
               DK
@@ -76,7 +75,7 @@ export const Settings = () => {
             <h3
               className="settings-name"
               style={{
-                fontSize: "1.4rem",
+                fontSize: "1.3rem",
                 marginBottom: "1.3rem",
                 fontFamily: "Bold",
               }}
@@ -102,23 +101,6 @@ export const Settings = () => {
                   </span>
                 </li>
 
-                {/* Check for updates */}
-                <li className="settings-item" style={listStyle}>
-                  <ArrowClockwise
-                    className="actions-icon"
-                    sx={{ fontSize: 18 }}
-                    style={{ marginRight: "1rem" }}
-                  />
-                  <span className="settings-item__desc">
-                    <h3 className="settings-item__name" style={heading}>
-                      Check for Updates
-                    </h3>
-                    <p className="settings-item__about">
-                      Update to our latest release
-                    </p>
-                  </span>
-                </li>
-
                 {/* About setting */}
                 <>
                   <li
@@ -135,7 +117,7 @@ export const Settings = () => {
                       <h3 className="settings-item__name" style={heading}>
                         About
                       </h3>
-                      <p className="settings-item__about">V 1.0</p>
+                      <p className="settings-item__about">v 2.3.8 Eel</p>
                     </span>
                   </li>
 
@@ -145,15 +127,16 @@ export const Settings = () => {
                     aria-labelledby="alert-dialog-title"
                     aria-describedby="alert-dialog-description"
                   >
-                    <DialogTitle style={{ fontSize: 18, fontFamily: "Bold" }}>
-                      {"About"}
+                    <DialogTitle style={{ fontSize: 15, fontFamily: "Bold" }}>
+                      {"Tap&Go - KE v 2.3.8 Eel"}
                     </DialogTitle>
                     <DialogContent>
                       <DialogContentText
                         id="alert-dialog-slide-description"
                         style={{ fontSize: 14, fontFamily: "Regular" }}
                       >
-                        This is the latest version from our developers
+                        Thanks to our Designers, Developers and you, our
+                        Customer who helped in developing this product.
                       </DialogContentText>
                     </DialogContent>
                     <DialogActions>
@@ -165,7 +148,7 @@ export const Settings = () => {
                           color: "#e3762b",
                         }}
                       >
-                        Ok
+                        Got it
                       </Button>
                     </DialogActions>
                   </Dialog>

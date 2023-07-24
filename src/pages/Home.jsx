@@ -69,14 +69,14 @@ export const Home = () => {
   const [kopaFare, setKopafare] = useState(false);
   const [forum, setForum] = useState(false);
 
-  const walletNumb = "Th9381452";
+  const walletNumb = "TG|1687527734TCU8XX";
 
   const user = [
     {
-      name: "Denis kyusya",
-      email: "denkyusya@gmail.com",
-      balance: 30500.0,
-      accNumb: "Th9381452",
+      name: "Alex Maina Mwangi",
+      email: "mainahmwangi12@gmail.com",
+      balance: 3500.0,
+      accNumb: "TG|1687527734TCU8XX",
     },
   ];
 
@@ -140,13 +140,14 @@ export const Home = () => {
   const time = () => {
     let today = new Date();
     let hrs = today.getHours();
+    console.log(hrs);
     let greeting;
     if (hrs >= 0 && hrs < 12) {
       greeting = "Good morning";
-    } else if (hrs > 13 && hrs < 18) {
+    } else if (hrs >= 13 && hrs < 18) {
       greeting = "Good afternoon";
-    } else if (hrs > 19 && hrs < 0) {
-      console.log(hrs);
+      return greeting;
+    } else if (hrs >= 19 && hrs < 0) {
       greeting = "Good Evening";
     }
     return greeting;
@@ -156,8 +157,15 @@ export const Home = () => {
     <main className="main">
       <section className="home">
         <div className="home-intro" style={{ marginTop: "2rem" }}>
-          <Avatar sx={{ bgcolor: "orange" }} style={{ marginRight: "1rem" }}>
-            DK
+          <Avatar
+            sx={{ bgcolor: "orange" }}
+            style={{
+              marginRight: ".5rem",
+              fontWeight: "bold",
+              fontSize: "1.5rem",
+            }}
+          >
+            A
           </Avatar>
           <div className="home-intro__greet">
             <p className="greeting">{time()}</p>
@@ -200,7 +208,11 @@ export const Home = () => {
                 <div className="home-card__value">
                   <h3
                     className="home-card__numb"
-                    style={{ fontSize: "1.4rem" }}
+                    style={{
+                      fontSize: "1.25rem",
+                      fontFamily: "Bold",
+                      marginTop: ".6rem",
+                    }}
                   >
                     {walletNumb}
                   </h3>
@@ -214,7 +226,7 @@ export const Home = () => {
                         classname="actions-icon"
                         className="home-card__icon"
                         onClick={handleCopy}
-                        style={{ fontSize: "2rem" }}
+                        style={{ fontSize: "1.3rem" }}
                       />
                     </CopyToClipboard>
 
@@ -234,7 +246,7 @@ export const Home = () => {
 
         {/* Quick actions */}
         <div className="actions">
-          <h1 className="actions-title">Quick actions</h1>
+          <h1 className="actions-title">Quick Actions</h1>
 
           <div className="actions-container">
             {/* Wallet topup */}
@@ -245,7 +257,7 @@ export const Home = () => {
               </div>
 
               <Dialog open={wallet} onClose={handleCloseWallet}>
-                <DialogTitle sx={{ fontSize: 18, fontFamily: "Bold" }}>
+                <DialogTitle sx={{ fontSize: 15, fontFamily: "Bold" }}>
                   Topup with Mpesa
                 </DialogTitle>
                 <DialogContent>
@@ -319,7 +331,7 @@ export const Home = () => {
                       float: "Right",
                     }}
                   >
-                    Topup fare
+                    Topup
                   </Button>
                 </DialogContent>
               </Dialog>
@@ -346,7 +358,7 @@ export const Home = () => {
                 <span className="actions-name">Send Fare</span>
               </div>
               <Dialog open={sendFare} onClose={handleSendClose}>
-                <DialogTitle sx={{ fontSize: 18, fontFamily: "Bold" }}>
+                <DialogTitle sx={{ fontSize: 15, fontFamily: "Bold" }}>
                   Send fare
                 </DialogTitle>
                 <DialogContent>
@@ -442,11 +454,11 @@ export const Home = () => {
 
               <Snackbar
                 open={kopaFare}
-                autoHideDuration={6000}
+                autoHideDuration={2000}
                 onClose={closeKopa}
-                message="You are not eligible for kopa fare"
+                message="You are not eligible for kopa fare. Please ride more with Tap&Go to earn more fare points."
                 action={kopaAction}
-                sx={{ fontSize: 20 }}
+                sx={{ fontSize: 25 }}
               />
             </>
 
@@ -462,10 +474,13 @@ export const Home = () => {
           </div>
         </div>
 
-        <div className="foot">
+        <div className="foot" style={{ marginBottom: "4rem" }}>
           <Lightbulb style={{ fontSize: "4rem" }} className="actions-icon" />
           <div className="foot-content">
-            <h2 className="foot-heading" style={{ fontSize: "1.4rem" }}>
+            <h2
+              className="foot-heading"
+              style={{ fontSize: "1.3rem", marginBottom: ".5rem" }}
+            >
               Simple Smart Life
             </h2>
             <p className="foot-desc">

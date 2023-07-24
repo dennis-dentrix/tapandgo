@@ -1,4 +1,7 @@
 @import "./theme-styles.scss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @font-face {
   font-family: "Black";

@@ -4,7 +4,11 @@ import { Box } from "@mui/material";
 
 export const DrawerView = () => (
   <Box
-    sx={{ width: 300, height: 600, borderRadius: 20, margin: "0 auto" }}
+    sx={{
+      width: 300,
+      height: 600,
+      borderRadius: 20,
+    }}
     role="presentation"
   >
     <div>
