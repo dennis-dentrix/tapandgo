@@ -22,7 +22,7 @@
   &-common {
     background-color: $color-dark;
     padding: 1rem 1.2rem;
-    border-radius: 0.6rem;
+    border-radius: 1rem;
     width: 100%;
     margin-bottom: 3rem;
     margin-top: 0.6rem;
@@ -48,12 +48,15 @@
     padding: 0.6rem 0.4rem;
     color: $color-secondary;
     cursor: pointer;
+    margin-bottom: 0.6rem;
 
     &__name {
-      font-size: $paragraph-size;
+      font-size: 1.4rem;
+      font-weight: 700;
     }
     &__about {
-      font-size: $paragraph-size-small;
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
     }
   }
   &-icon {
