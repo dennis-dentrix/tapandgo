@@ -3,9 +3,6 @@ import QRCode from "react-qr-code";
 import { Box } from "@mui/material";
 
 export const DrawerView = () => (
-<<<<<<< HEAD
-  <Box sx={{ width: 300, height: 550, margin: "0 auto" }} role="presentation">
-=======
   <Box
     sx={{
       width: 300,
