@@ -1,5 +1,8 @@
-import { AllRoutes } from "./AllRoutes/AllRoutes";
-import { Navigation } from "./components";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+// import { AllRoutes } from "./AllRoutes/AllRoutes";
+
+import { Home, Discover, Settings, Login, Register } from "./pages";
+
 import "./App.scss";
 import "./fonts/Gordita-Black.otf";
 import "./fonts/Gordita-BlackItalic.otf";
@@ -15,8 +18,15 @@ import "./fonts/Gordita-RegularItalic.otf";
 function App() {
   return (
     <div className="App">
-      <Navigation />
-      <AllRoutes />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="discover" element={<Discover />} />
+          <Route path="settings" element={<Settings />} />
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

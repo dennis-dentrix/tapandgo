@@ -1,0 +1,135 @@
+@import "../../theme-styles.scss";
+.form {
+  position: relative;
+  margin: auto 0;
+  display: flex;
+  flex-direction: column;
+  padding: 32px 24px 24px;
+  gap: 16px;
+  text-align: center;
+  background: $color-dark;
+  border-radius: 1.6rem;
+
+  &-box {
+    max-width: 50vw;
+    margin: 0 auto;
+    overflow: hidden;
+    color: #010101;
+  }
+
+  &-header {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 50%;
+    padding-bottom: 3rem;
+  }
+  &-welcome {
+    display: flex;
+    flex-direction: column;
+    align-items: fle;
+
+    font-family: "Bold";
+    color: $color-secondary;
+
+    span {
+      color: $color-primary;
+    }
+  }
+  &-note {
+    font-family: "Regular";
+    font-size: 1.4rem;
+    line-height: normal;
+  }
+
+  &-container {
+    overflow: hidden;
+    border-radius: 8px;
+    width: 100%;
+  }
+  &-section {
+    margin-top: 2rem;
+    border-radius: 16px;
+    padding: 16px;
+    font-size: 0.85rem;
+    background-color: $color-dark;
+    box-shadow: $color-tertiary;
+    font-size: 1.5rem;
+  }
+  button {
+    background-color: $color-primary;
+    color: $color-dark;
+    font-family: "Regular";
+    font-size: 1.4rem;
+    border: 0;
+    border-radius: 24px;
+    padding: 10px 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+}
+
+@media (max-width: 725px) {
+  .form-box {
+    max-width: fit-content;
+  }
+}
+
+/*Form text*/
+.title {
+  font-size: 1.6rem;
+  font-family: "Bold";
+}
+
+.subtitle {
+  font-size: 1.4rem;
+  color: $color-extra;
+  font-family: "Regular";
+}
+
+/*Inputs box*/
+
+.input {
+  opacity: 1;
+  position: relative;
+  font-size: 1.5rem;
+  font-family: "Regular";
+  border: 1px solid $color-dark;
+  background: none;
+  outline: 0;
+  width: 100%;
+  padding: 1rem 2rem;
+  margin: 1.4rem 1rem;
+  background-color: $color-tertiary;
+}
+
+.form-section a {
+  font-weight: bold;
+  color: $color-primary;
+  // font-size: 1.5rem;
+  transition: color 0.3s ease;
+  margin-left: 1rem;
+  text-decoration: none;
+}
+
+.form-section a:hover {
+  // color: $color-primary;
+  text-decoration: underline;
+}
+.footer {
+  padding: 3rem 0;
+  display: flex;
+  gap: 1rem;
+
+  &-text {
+    font-size: 1.3rem;
+  }
+}
+
+/*Button*/
+
+// .form button:hover {
+//   background-color: $color-extra;
+//   color: $color-extra;
+// }

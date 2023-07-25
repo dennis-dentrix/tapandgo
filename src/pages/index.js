@@ -6,3 +6,5 @@ export { Home } from "./Home";
 // export { Topup } from "./Topup";
 export { Receipt } from "./Receipt";
 export { Comments } from "./Comments";
+export { Login } from "./Login";
+export { Register } from "./Register";

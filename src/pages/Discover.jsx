@@ -30,7 +30,7 @@ import {
 } from "react-bootstrap-icons";
 import { CloseOutlined, InfoOutlined } from "@mui/icons-material";
 import "./styles/discover.scss";
-import { DrawerView, ComingSoon } from "../components";
+import { DrawerView, ComingSoon, Navigation } from "../components";
 
 export const Discover = () => {
   const [receipt, setReceipt] = useState(false);
@@ -322,89 +322,90 @@ export const Discover = () => {
   );
 
   return (
-    <main className="main">
-      <section className="discover">
-        <p className="discover-title">Discover</p>
-        <div className="actions">
-          <div className="actions-container">
-            {/* Receipts */}
-            <>
-              <div onClick={openReceipt} className="actions-card link">
-                <Receipt className="actions-icon" />{" "}
-                <span className="actions-name">Receipts</span>
-              </div>
-              <SwipeableDrawer
-                anchor="bottom"
-                open={receipt}
-                onClose={closeReceipt}
-              >
-                {ReceiptView("bottom")}
-              </SwipeableDrawer>
-            </>
+    <>
+      <main className="main">
+        <section className="discover">
+          <p className="discover-title">Discover</p>
+          <div className="actions">
+            <div className="actions-container">
+              {/* Receipts */}
+              <>
+                <div onClick={openReceipt} className="actions-card link">
+                  <Receipt className="actions-icon" />{" "}
+                  <span className="actions-name">Receipts</span>
+                </div>
+                <SwipeableDrawer
+                  anchor="bottom"
+                  open={receipt}
+                  onClose={closeReceipt}
+                >
+                  {ReceiptView("bottom")}
+                </SwipeableDrawer>
+              </>
 
-            {/* Fare points */}
-            <>
-              <div className="actions-card link" onClick={openFarepoints}>
-                <Gift className="actions-icon" />{" "}
-                <span className="actions-name">Fare Points</span>
-              </div>
+              {/* Fare points */}
+              <>
+                <div className="actions-card link" onClick={openFarepoints}>
+                  <Gift className="actions-icon" />{" "}
+                  <span className="actions-name">Fare Points</span>
+                </div>
 
-              <Dialog
-                open={farePoints}
-                onClose={closeFarepoints}
-                aria-labelledby="alert-dialog-title"
-                aria-describedby="alert-dialog-description"
-              >
-                <DialogTitle style={{ fontSize: 18, fontFamily: "Bold" }}>
-                  {"Fare points"}
-                </DialogTitle>
-                <DialogContent>
-                  <DialogContentText
-                    id="alert-dialog-slide-description"
-                    style={{ fontSize: 14, fontFamily: "Regular" }}
-                  >
-                    Your Tap&go Rider points are 10. Ride more with Tap&go to
-                    earn more points.
-                  </DialogContentText>
-                </DialogContent>
-                <DialogActions>
-                  <Button
-                    onClick={closeFarepoints}
-                    style={{
-                      fontSize: 14,
-                      fontFamily: "Light",
-                      color: "#e3762b",
-                    }}
-                  >
-                    Ok
-                  </Button>
-                </DialogActions>
-              </Dialog>
-            </>
+                <Dialog
+                  open={farePoints}
+                  onClose={closeFarepoints}
+                  aria-labelledby="alert-dialog-title"
+                  aria-describedby="alert-dialog-description"
+                >
+                  <DialogTitle style={{ fontSize: 18, fontFamily: "Bold" }}>
+                    {"Fare points"}
+                  </DialogTitle>
+                  <DialogContent>
+                    <DialogContentText
+                      id="alert-dialog-slide-description"
+                      style={{ fontSize: 14, fontFamily: "Regular" }}
+                    >
+                      Your Tap&go Rider points are 10. Ride more with Tap&go to
+                      earn more points.
+                    </DialogContentText>
+                  </DialogContent>
+                  <DialogActions>
+                    <Button
+                      onClick={closeFarepoints}
+                      style={{
+                        fontSize: 14,
+                        fontFamily: "Light",
+                        color: "#e3762b",
+                      }}
+                    >
+                      Ok
+                    </Button>
+                  </DialogActions>
+                </Dialog>
+              </>
 
-            {/* Pay Goods */}
-            <>
-              <div className="actions-card link" onClick={openLipaFare}>
-                <QrCode className="actions-icon" />{" "}
-                <span className="actions-name">Pay Goods</span>
-              </div>
-              <SwipeableDrawer
-                anchor={"bottom"}
-                open={lipaFare}
-                onClose={closeLipaFare}
-              >
-                {DrawerView("bottom")}
-              </SwipeableDrawer>
-            </>
+              {/* Pay Goods */}
+              <>
+                <div className="actions-card link" onClick={openLipaFare}>
+                  <QrCode className="actions-icon" />{" "}
+                  <span className="actions-name">Pay Goods</span>
+                </div>
+                <SwipeableDrawer
+                  anchor={"bottom"}
+                  open={lipaFare}
+                  onClose={closeLipaFare}
+                >
+                  {DrawerView("bottom")}
+                </SwipeableDrawer>
+              </>
 
-            {/* Pay Utilities: COMING SOON */}
-            <>
-              <div className="actions-card link" onClick={openFeature}>
-                <BarChart className="actions-icon" />{" "}
-                <span className="actions-name">Pay Utilities</span>
-              </div>
-              <ComingSoon open={newFeature} close={closeFeature} />
-              {/* <Dialog
+              {/* Pay Utilities: COMING SOON */}
+              <>
+                <div className="actions-card link" onClick={openFeature}>
+                  <BarChart className="actions-icon" />{" "}
+                  <span className="actions-name">Pay Utilities</span>
+                </div>
+                <ComingSoon open={newFeature} close={closeFeature} />
+                {/* <Dialog
                 open={newFeature}
                 onClose={closeFeature}
                 aria-labelledby="alert-dialog-title"
@@ -435,67 +436,69 @@ export const Discover = () => {
                   </Button>
                 </DialogActions>
               </Dialog> */}
-            </>
+              </>
 
-            {/* Parcels: COMING SOON */}
-            <>
-              <div className="actions-card link" onClick={openFeature}>
-                <BoxSeam className="actions-icon" />{" "}
-                <span className="actions-name">Parcels</span>
-              </div>
-              <ComingSoon open={newFeature} close={closeFeature} />
-            </>
+              {/* Parcels: COMING SOON */}
+              <>
+                <div className="actions-card link" onClick={openFeature}>
+                  <BoxSeam className="actions-icon" />{" "}
+                  <span className="actions-name">Parcels</span>
+                </div>
+                <ComingSoon open={newFeature} close={closeFeature} />
+              </>
 
-            {/* Support */}
-            <>
-              <div onClick={openSupport} className="actions-card link">
-                <Receipt className="actions-icon" />{" "}
-                <span className="actions-name">Support</span>
-              </div>
-              <Drawer anchor="bottom" open={support} onClose={closeSupport}>
-                {SupportView("bottom")}
-              </Drawer>
-            </>
+              {/* Support */}
+              <>
+                <div onClick={openSupport} className="actions-card link">
+                  <Receipt className="actions-icon" />{" "}
+                  <span className="actions-name">Support</span>
+                </div>
+                <Drawer anchor="bottom" open={support} onClose={closeSupport}>
+                  {SupportView("bottom")}
+                </Drawer>
+              </>
+            </div>
           </div>
-        </div>
 
-        {/* Footnote  */}
-        <div className="foot">
-          <Lightbulb style={{ fontSize: "4rem" }} className="actions-icon" />
-          <div className="foot-content">
-            <h2
-              className="foot-heading"
-              style={{ fontFamily: "Bold", fontSize: "1.4rem" }}
+          {/* Footnote  */}
+          <div className="foot">
+            <Lightbulb style={{ fontSize: "4rem" }} className="actions-icon" />
+            <div className="foot-content">
+              <h2
+                className="foot-heading"
+                style={{ fontFamily: "Bold", fontSize: "1.4rem" }}
+              >
+                Fare Points
+              </h2>
+              <p className="foot-desc">
+                Enjoy a variety of discounts, verification badge and creator
+                mode by having more fare points
+              </p>
+            </div>
+          </div>
+
+          {/* Lipa Fare QrCode */}
+          <>
+            <button
+              onClick={openLipaFare}
+              className="discover-btn"
+              style={{ borderRadius: "10rem" }}
             >
-              Fare Points
-            </h2>
-            <p className="foot-desc">
-              Enjoy a variety of discounts, verification badge and creator mode
-              by having more fare points
-            </p>
-          </div>
-        </div>
+              <QrCode className="actions-icon" />
+              <span className="actions-name">Lipa Fare</span>
+            </button>
 
-        {/* Lipa Fare QrCode */}
-        <>
-          <button
-            onClick={openLipaFare}
-            className="discover-btn"
-            style={{ borderRadius: "10rem" }}
-          >
-            <QrCode className="actions-icon" />
-            <span className="actions-name">Lipa Fare</span>
-          </button>
-
-          <SwipeableDrawer
-            anchor={"bottom"}
-            open={lipaFare}
-            onClose={closeLipaFare}
-          >
-            {DrawerView("bottom")}
-          </SwipeableDrawer>
-        </>
-      </section>
-    </main>
+            <SwipeableDrawer
+              anchor={"bottom"}
+              open={lipaFare}
+              onClose={closeLipaFare}
+            >
+              {DrawerView("bottom")}
+            </SwipeableDrawer>
+          </>
+        </section>
+      </main>
+      <Navigation />
+    </>
   );
 };

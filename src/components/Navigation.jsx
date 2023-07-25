@@ -1,25 +1,13 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import {
-  Home,
-  CardGiftcard,
-  Settings,
-  VisibilityOutlined,
-  VisibilityOffOutlined,
-  QrCode,
-} from "@mui/icons-material";
+import { QrCode } from "@mui/icons-material";
 import { Dropdown } from "./Dropdown";
 import { House, Gift, Gear } from "react-bootstrap-icons";
 
 import "./styles/navigation.scss";
 
 export const Navigation = () => {
-  const [showBal, setShowBal] = useState(true);
   const [dropdown, setDropdown] = useState(false);
-
-  const handleBlur = () => {
-    return setShowBal((show) => !show);
-  };
 
   const handleDropDown = () => {
     setDropdown(!dropdown);
@@ -40,7 +28,7 @@ export const Navigation = () => {
         </li>
 
         <li className="nav-item">
-          <Link to="discover" className="nav-link link">
+          <Link to="/discover" className="nav-link link">
             <Gift className="nav-link__icon" fontSize="2rem" />
             Discover
           </Link>
