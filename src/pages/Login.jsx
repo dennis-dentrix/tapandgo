@@ -1,16 +1,19 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { InfoCircle } from "react-bootstrap-icons";
-import { handleUser } from "./Register";
+import { User } from "../components/User";
 
 export const Login = ({ setToken }) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+
+  const inputEmail = useRef("");
+  const inputPassword = useRef("");
+
   async function handleLogin(ev) {
     ev.preventDefault();
-    // navigate("/");
 
-    const token = await handleUser({
+    const token = await User({
       email,
       password,
     });
@@ -37,12 +40,16 @@ export const Login = ({ setToken }) => {
               type="email"
               className="input"
               placeholder="Email"
+              ref={inputEmail}
               onChange={(e) => setEmail(e.target.value)}
+              onClick={() => console.log("Clicked")}
             />
             <input
               type="password"
+              disabled={false}
               className="input"
               placeholder="Password"
+              ref={inputPassword}
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>

@@ -1,7 +1,5 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import { AllRoutes } from "./AllRoutes/AllRoutes";
-
-import { Home, Discover, Settings, Login, Register } from "./pages";
+import { BrowserRouter } from "react-router-dom";
+import { AllRoutes } from "./AllRoutes/AllRoutes";
 
 import "./App.scss";
 import "./fonts/Gordita-Black.otf";
@@ -19,13 +17,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="discover" element={<Discover />} />
-          <Route path="settings" element={<Settings />} />
-          <Route path="login" element={<Login />} />
-          <Route path="register" element={<Register />} />
-        </Routes>
+        <AllRoutes />
       </BrowserRouter>
     </div>
   );

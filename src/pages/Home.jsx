@@ -2,7 +2,6 @@ import { useState } from "react";
 // import { Link } from "react-router-dom";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { DrawerView, ComingSoon } from "../components";
-import { Navigation } from "../components";
 
 // React bootstrap icons
 import {
@@ -40,7 +39,6 @@ import { styled } from "@mui/material/styles";
 import "./styles/home.scss";
 import { Register } from "./Register";
 import useToken from "../../App/useToken";
-import { Login } from "./Login";
 
 // This is the greeting section used
 function Greeting({ user }) {
@@ -104,7 +102,7 @@ export const Home = () => {
   // token for authentication
   if (!token) {
     {
-      return <Register setToken={setToken} /> || <Login setToken={setToken} />;
+      return <Register setToken={setToken} />;
     }
   }
 
@@ -519,7 +517,6 @@ export const Home = () => {
           <br />
         </section>
       </main>
-      <Navigation />
     </>
   );
 };

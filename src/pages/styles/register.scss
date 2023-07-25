@@ -20,14 +20,14 @@
   &-header {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-    width: 50%;
+    align-items: center;
+    gap: 1rem;
     padding-bottom: 3rem;
   }
   &-welcome {
     display: flex;
     flex-direction: column;
-    align-items: fle;
+    align-items: flex-start;
 
     font-family: "Bold";
     color: $color-secondary;
@@ -39,7 +39,9 @@
   &-note {
     font-family: "Regular";
     font-size: 1.4rem;
-    line-height: normal;
+    text-overflow: clip;
+    width: 12.3rem;
+    word-wrap: break-word;
   }
 
   &-container {
@@ -104,7 +106,11 @@
   background-color: $color-tertiary;
 }
 
-.form-section a {
+.form-section {
+  font-family: "Regular";
+  font-size: 1.5rem;
+}
+.form-section span {
   font-weight: bold;
   color: $color-primary;
   // font-size: 1.5rem;
@@ -113,7 +119,7 @@
   text-decoration: none;
 }
 
-.form-section a:hover {
+.form-section span:hover {
   // color: $color-primary;
   text-decoration: underline;
 }

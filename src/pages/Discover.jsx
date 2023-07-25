@@ -30,7 +30,7 @@ import {
 } from "react-bootstrap-icons";
 import { CloseOutlined, InfoOutlined } from "@mui/icons-material";
 import "./styles/discover.scss";
-import { DrawerView, ComingSoon, Navigation } from "../components";
+import { DrawerView, ComingSoon } from "../components";
 
 export const Discover = () => {
   const [receipt, setReceipt] = useState(false);
@@ -498,7 +498,6 @@ export const Discover = () => {
           </>
         </section>
       </main>
-      <Navigation />
     </>
   );
 };
