@@ -1,4 +1,3 @@
-import { useRef } from "react";
 import { useState } from "react";
 
 import { InfoCircle } from "react-bootstrap-icons";
@@ -7,28 +6,27 @@ import { User } from "../components/User";
 import "./styles/register.scss";
 
 export const Register = ({ setToken }) => {
-  // const navigate = useNavigate();
-  const [userName, setUserName] = useState();
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  const [userName, setUserName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [login, setLogin] = useState(false);
-
-  const inputName = useRef("");
-  const inputEmail = useRef("");
-  const inputPassword = useRef("");
 
   const handleLogin = () => setLogin(!login);
 
   async function handleRegister(ev) {
     ev.preventDefault();
-    // navigate("/");
 
     const token = await User({
       userName,
       email,
       password,
+      id: Date.now(),
     });
     setToken(token);
+    console.log(token);
+    setUserName("");
+    setEmail("");
+    setPassword("");
   }
   return (
     <main className="main">
@@ -44,6 +42,30 @@ export const Register = ({ setToken }) => {
 
         {login ? (
           <form className="form" onSubmit={handleRegister}>
+            <span className="title">Log in</span>
+            <span className="subtitle">Log in to access your account.</span>
+            <div className="form-container">
+              <input
+                autoFocus
+                type="email"
+                className="input"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <input
+                type="password"
+                disabled={false}
+                className="input"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+            <button>Log in</button>
+          </form>
+        ) : (
+          <form className="form" onSubmit={handleRegister}>
             <span className="title">Sign up</span>
             <span className="subtitle">
               Create a free account with your email.
@@ -54,61 +76,41 @@ export const Register = ({ setToken }) => {
                 type="text"
                 className="input"
                 placeholder="Full Name"
-                ref={inputName}
+                value={userName}
                 onChange={(e) => setUserName(e.target.value)}
               />
               <input
                 type="email"
                 className="input"
                 placeholder="Email"
-                ref={inputEmail}
+                value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
               <input
                 type="password"
                 className="input"
                 placeholder="Password"
-                ref={inputPassword}
+                value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
             <button>Sign up</button>
           </form>
-        ) : (
-          <form className="form" onSubmit={handleRegister}>
-            <span className="title">Log in</span>
-            <span className="subtitle">Log in to access your account.</span>
-            <div className="form-container">
-              <input
-                autoFocus
-                type="email"
-                className="input"
-                placeholder="Email"
-                ref={inputEmail}
-                onChange={(e) => setEmail(e.target.value)}
-                onClick={() => console.log("Clicked")}
-              />
-              <input
-                type="password"
-                disabled={false}
-                className="input"
-                placeholder="Password"
-                ref={inputPassword}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
-            <button>Log in</button>
-          </form>
         )}
         <div className="form-section">
           {login ? (
             <p>
-              Already have an account? <span onClick={handleLogin}>Login</span>
+              Don&apos;t have an account yet?{" "}
+              <span onClick={handleLogin} style={{ cursor: "pointer" }}>
+                Sign up
+              </span>
             </p>
           ) : (
             <p>
-              Don&apos;t have an account yet?{" "}
-              <span onClick={handleLogin}>Sign up</span>
+              Already have an account?{" "}
+              <span onClick={handleLogin} style={{ cursor: "pointer" }}>
+                Login
+              </span>
             </p>
           )}
         </div>
@@ -124,6 +126,3 @@ export const Register = ({ setToken }) => {
     </main>
   );
 };
-// Register.propTypes = {
-//   setToken: PropTypes.func.isRequired,
-// };

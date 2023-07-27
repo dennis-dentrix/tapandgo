@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CssTextField } from "./Home";
-import { ToggleOffOutlined, CheckCircleOutline } from "@mui/icons-material";
 import { ChevronLeft } from "react-bootstrap-icons";
 
 import {
