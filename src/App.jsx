@@ -12,14 +12,17 @@ import "./fonts/Gordita-Light.otf";
 import "./fonts/Gordita-LightItalic.otf";
 import "./fonts/Gordita-Regular.otf";
 import "./fonts/Gordita-RegularItalic.otf";
+import { AppProvider } from "./context/manageState";
 
 function App() {
   return (
-    <div className="App">
-      <BrowserRouter>
-        <AllRoutes />
-      </BrowserRouter>
-    </div>
+    <AppProvider>
+      <div className="App">
+        <BrowserRouter>
+          <AllRoutes />
+        </BrowserRouter>
+      </div>
+    </AppProvider>
   );
 }
 
