@@ -16,13 +16,11 @@ import { AppProvider } from "./context/manageState";
 
 function App() {
   return (
-    <AppProvider>
-      <div className="App">
-        <BrowserRouter>
-          <AllRoutes />
-        </BrowserRouter>
-      </div>
-    </AppProvider>
+    <div className="App">
+      <BrowserRouter>
+        <AllRoutes />
+      </BrowserRouter>
+    </div>
   );
 }
 
