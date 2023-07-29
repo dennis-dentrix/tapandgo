@@ -22,6 +22,8 @@ function reducer(state, action) {
       return { ...state, isLoading: false };
     case "user/activated":
       return { ...state, isLoading: false };
+    case "user/current":
+      return { ...state, isLoading: false };
     case "error":
       return { ...state, error: action.payload, isLoading: false };
     default:
@@ -107,6 +109,30 @@ function AppProvider({ children }) {
     }
   }
 
+  async function currentUser() {
+    dispatch({ type: "loading" });
+    const token = sessionStorage.getItem("token");
+    const accNumber = sessionStorage.getItem("accNumber");
+
+    try {
+      var res = await fetch(`${BASE_URL}/commuter/account/${accNumber}`, {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      var data = await res.json();
+
+      dispatch({ type: "user/current" });
+
+      console.log(data);
+    } catch (error) {
+      dispatch({ type: "error", payload: "Something went wrong" });
+    }
+  }
+
   return (
     <AppState.Provider
       value={{
@@ -118,6 +144,7 @@ function AppProvider({ children }) {
         registerCommuter,
         logIn,
         activateOtp,
+        currentUser,
       }}
     >
       {children}
