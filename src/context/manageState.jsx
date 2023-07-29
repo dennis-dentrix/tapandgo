@@ -20,6 +20,8 @@ function reducer(state, action) {
       return { ...state, isLoading: false };
     case "user/register":
       return { ...state, isLoading: false };
+    case "user/activated":
+      return { ...state, isLoading: false };
     case "error":
       return { ...state, error: action.payload, isLoading: false };
     default:
@@ -85,6 +87,26 @@ function AppProvider({ children }) {
     }
   }
 
+  async function activateOtp(otp) {
+    try {
+      var res = await fetch(`${BASE_URL}/auth/commuter/activate`, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ otpcode: otp }),
+      });
+
+      var data = await res.json();
+      console.log(data);
+
+      dispatch({ type: "user/activated" });
+    } catch (error) {
+      dispatch({ type: "error", payload: "something went wrong" });
+    }
+  }
+
   return (
     <AppState.Provider
       value={{
@@ -95,6 +117,7 @@ function AppProvider({ children }) {
         dispatch,
         registerCommuter,
         logIn,
+        activateOtp,
       }}
     >
       {children}
